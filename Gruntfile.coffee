@@ -83,13 +83,17 @@ module.exports = (grunt) ->
     jade:
       all:
         options:
+          extension: '.html'
+          client: false
           pretty: true
         files:
-          'assets/partial/**': [
+          'assets/partial/': [
             'assets/partial/*.jade'
             'assets/partial/**/*.jade'
           ]
-          'index.html': 'index.jade'
+          './': [
+            'index.jade'
+          ]
     karma:
       unit:
         configFile: 'test/unit/karma.conf.js'
@@ -185,11 +189,11 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
-  grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.loadNpmTasks 'grunt-contrib-requirejs'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-express-server'
+  grunt.loadNpmTasks 'grunt-jade'
   grunt.loadNpmTasks 'grunt-karma'
   grunt.loadNpmTasks 'grunt-regex-replace'
 

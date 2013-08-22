@@ -3,6 +3,7 @@
 *.log
 *.map
 *.sassc
+*.sublime-workspace
 assets/**/*.js
 assets/**/*.css
 assets/vendor

@@ -9,11 +9,11 @@
     "grunt-contrib-compass": "latest",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-cssmin": "latest",
-    "grunt-contrib-jade": "latest",
     "grunt-contrib-requirejs": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-express-server": "latest",
+    "grunt-jade": "latest",
     "grunt-karma": "latest",
     "grunt-regex-replace": "latest",
     "request": "latest"
