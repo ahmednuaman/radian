@@ -2,20 +2,20 @@
 	"folders":
 	[
 		{
-			"path": "/Users/ahmed/Sites/0185kf"
+			"path": "/Users/ahmed/Sites/__tests/angular-require-coffee-jade-sass",
+      "file_exclude_patterns":
+      [
+        "assets/**/*.js",
+        "assets/**/*.map",
+        "assets/**/*.css",
+        "*.html",
+        "*.sublime*"
+      ],
+      "folder_exclude_patterns":
+      [
+        "node_modules",
+        "assets/vendor"
+      ]
 		}
-	],
-  "file_exclude_patterns":
-  [
-    "assets/**/*.js",
-    "assets/**/*.map",
-    "assets/**/*.css",
-    "*.html",
-    "*.sublime-workspace"
-  ],
-  "folder_exclude_patterns":
-  [
-    "node_modules",
-    "assets/vendor"
-  ]
+	]
 }

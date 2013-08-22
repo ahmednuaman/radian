@@ -225,14 +225,14 @@ module.exports = (grunt) ->
 
   grunt.registerTask 'install', 'install bower dependancies', () ->
     done = @async()
+    config =
+      cmd: 'bower'
+      args: [
+        'install'
+      ]
 
-    child = grunt.util.spawn
-        cmd: 'bower'
-        args: [
-          'install'
-        ]
-      , (err, result) ->
-          done()
+    child = grunt.util.spawn config, (err, result) ->
+      done()
 
     child.stdout.on 'data', (data) ->
       grunt.log.write data
@@ -254,14 +254,15 @@ module.exports = (grunt) ->
     if target
       tasks.push 'regex-replace:' + target
 
-    grunt.util.spawn
+    config =
       cmd: 'git'
       args: [
         'rev-parse'
         '--verify'
         'HEAD'
       ]
-    , (err, result) ->
+
+    grunt.util.spawn config, (err, result) ->
       grunt.config 'git-commit', result.stdout
 
       grunt.file.delete './build',
