@@ -1,0 +1,9 @@
+.sass_*
+*.html
+*.log
+*.map
+*.sassc
+assets/**/*.js
+assets/**/*.css
+assets/vendor
+node_modules

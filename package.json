@@ -1,0 +1,21 @@
+{
+  "version": "0.0.1",
+  "name": "",
+  "dependencies": {
+    "express": "latest",
+    "grunt": "latest",
+    "grunt-coffeelint": "latest",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-compass": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-jade": "latest",
+    "grunt-contrib-requirejs": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-express-server": "latest",
+    "grunt-karma": "latest",
+    "grunt-regex-replace": "latest",
+    "request": "latest"
+  }
+}
