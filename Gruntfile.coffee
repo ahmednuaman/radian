@@ -129,9 +129,6 @@ module.exports = (grunt) ->
           ],
           paths:
             'angular': 'empty:'
-            'lodash': 'empty:'
-            'tweenlite': 'empty:'
-            'tweenlite-css': 'empty:'
     uglify:
       prod:
         files:
@@ -140,15 +137,6 @@ module.exports = (grunt) ->
           ]
           'build/assets/vendor/angular/angular.js': [
             'assets/vendor/angular/angular.js'
-          ]
-          'build/assets/vendor/greensock-js/src/uncompressed/TweenLite.js': [
-            'assets/vendor/greensock-js/src/uncompressed/TweenLite.js'
-          ]
-          'build/assets/vendor/greensock-js/src/uncompressed/plugins/CSSPlugin.js': [
-            'assets/vendor/greensock-js/src/uncompressed/plugins/CSSPlugin.js'
-          ]
-          'build/assets/vendor/lodash/lodash.js': [
-            'assets/vendor/lodash/lodash.js'
           ]
     watch:
       coffee:
