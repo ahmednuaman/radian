@@ -83,16 +83,15 @@ module.exports = (grunt) ->
     jade:
       all:
         options:
+          basePath: './'
           extension: '.html'
           client: false
           pretty: true
         files:
-          'assets/partial/': [
-            'assets/partial/*.jade'
-            'assets/partial/**/*.jade'
-          ]
           './': [
             'index.jade'
+            'assets/partial/*.jade'
+            'assets/partial/**/*.jade'
           ]
     karma:
       unit:
