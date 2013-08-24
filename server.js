@@ -23,6 +23,10 @@ app.options('*', function(request, response, next) {
   response.send(200);
 });
 
+app.get('*', function(request, response, next) {
+  response.sendfile(__dirname + '/index.html');
+});
+
 app.listen(port, function() {
   console.log('Listening on port: ' + port);
 });
