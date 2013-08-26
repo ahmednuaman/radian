@@ -55,19 +55,13 @@ module.exports = (grunt) ->
               'index.html'
               'assets/font/*'
               'assets/img/*.png'
-              'assets/img/*.gif'
-              'assets/img/*.jpg'
-              'assets/partial/**'
+              'assets/partial/*.html'
+              'assets/partial/**/*.html'
             ]
             dest: 'build/'
           ,
             src: '<%= compass.dev.options.sassDir %>/styles.css'
             dest: 'build/assets/css/styles-<%= grunt.config.get("git-commit") %>.css'
-          ,
-            expand: true
-            cwd: 'node_modules/skystoresignup/build/'
-            src: '**'
-            dest: 'build/authenticate/'
         ]
     cssmin:
       prod:
@@ -80,8 +74,19 @@ module.exports = (grunt) ->
         options:
           script: './server.js'
           port: 8000
+    imagemin:
+      prod:
+        files: [
+          expand: true
+          cwd: 'assets/img/'
+          dest: 'build/<%= imagemin.prod.files[0].cwd %>'
+          src: [
+            # '*.{png,gif}'
+            '**/*.jpg'
+          ]
+        ]
     jade:
-      all:
+      dev:
         options:
           basePath: './'
           extension: '.html'
@@ -93,6 +98,13 @@ module.exports = (grunt) ->
             'assets/partial/*.jade'
             'assets/partial/**/*.jade'
           ]
+      prod:
+        options:
+          basePath: '<%= jade.dev.options.basePath %>'
+          extension: '<%= jade.dev.options.extension %>'
+          client: '<%= jade.dev.options.client %>'
+          pretty: false
+        files: '<%= jade.dev.files %>'
     karma:
       unit:
         configFile: 'test/unit/karma.conf.js'
@@ -104,6 +116,7 @@ module.exports = (grunt) ->
       all:
         src: [
           'build/index.html'
+          'build/assets/js/app-<%= grunt.config.get("git-commit") %>.js'
         ]
         actions: [
             name: 'app'
@@ -176,6 +189,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-cssmin'
+  grunt.loadNpmTasks 'grunt-contrib-imagemin'
   grunt.loadNpmTasks 'grunt-contrib-requirejs'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
@@ -187,7 +201,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', 'run the server and watch for changes', [
     'compass:dev'
     'coffee:dev'
-    'jade'
+    'jade:dev'
     'express'
     'watch'
   ]
@@ -228,22 +242,21 @@ module.exports = (grunt) ->
     child.stdout.on 'data', (data) ->
       grunt.log.write data
 
-  grunt.registerTask 'package', 'package the app', (target) ->
+  grunt.registerTask 'package', 'package the app', () ->
     done = @async()
 
     tasks = [
       'install'
       'compass:prod'
+      'imagemin'
       'coffee:prod'
       'cssmin'
       'uglify'
       'requirejs'
+      'jade:prod'
       'copy'
       'regex-replace:all'
     ]
-
-    if target
-      tasks.push 'regex-replace:' + target
 
     config =
       cmd: 'git'
