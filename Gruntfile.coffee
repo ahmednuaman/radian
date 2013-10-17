@@ -48,6 +48,7 @@ module.exports = (grunt) ->
           environment: 'production'
           outputStyle: 'compressed'
           imagesDir: '<%= compass.dev.options.imagesDir %>'
+          force: true
     copy:
       prod:
         files: [
@@ -81,7 +82,7 @@ module.exports = (grunt) ->
           cwd: 'assets/img/'
           dest: 'build/<%= imagemin.prod.files[0].cwd %>'
           src: [
-            # '*.{png,gif}'
+            '*.{png,gif}'
             '**/*.jpg'
           ]
         ]
