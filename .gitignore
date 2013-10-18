@@ -1,4 +1,4 @@
-.sass_*
+.sass-*
 *.html
 *.log
 *.map
@@ -6,5 +6,6 @@
 *.sublime-workspace
 assets/**/*.js
 assets/**/*.css
+assets/img/*.png
 assets/vendor
 node_modules
