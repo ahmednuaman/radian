@@ -1,6 +1,7 @@
 define [
   'config'
   'angular'
+  'routes'
 ], (cfg, A) ->
   class AppController
     constructor: (@$scope) ->
