@@ -73,7 +73,8 @@ module.exports = (grunt) ->
     express:
       all:
         options:
-          script: './server.js'
+          cmd: 'coffee'
+          script: './server.coffee'
           port: 8000
     imagemin:
       prod:
