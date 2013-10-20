@@ -13,10 +13,10 @@
     "grunt-contrib-requirejs": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-exec": "latest",
     "grunt-express-server": "latest",
     "grunt-jade": "latest",
     "grunt-karma": "latest",
-    "grunt-regex-replace": "latest",
-    "request": "latest"
+    "grunt-regex-replace": "latest"
   }
 }

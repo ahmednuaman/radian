@@ -58,6 +58,7 @@ module.exports = (grunt) ->
               'assets/img/*.png'
               'assets/partial/*.html'
               'assets/partial/**/*.html'
+              'assets/vendor/angular/angular.min.js'
             ]
             dest: 'build/'
           ,
@@ -70,6 +71,9 @@ module.exports = (grunt) ->
           'build/assets/vendor/normalize-css/normalize.min.css': [
             'assets/vendor/normalize-css/normalize.css'
           ]
+    exec:
+      crawl:
+        cmd: 'phantomjs crawler.coffee http://localhost:8000/ build/'
     express:
       all:
         options:
@@ -150,9 +154,6 @@ module.exports = (grunt) ->
           'build/assets/vendor/requirejs/require.js': [
             'assets/vendor/requirejs/require.js'
           ]
-          'build/assets/vendor/angular/angular.js': [
-            'assets/vendor/angular/angular.js'
-          ]
     watch:
       coffee:
         files: [
@@ -195,6 +196,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-requirejs'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-exec'
   grunt.loadNpmTasks 'grunt-express-server'
   grunt.loadNpmTasks 'grunt-jade'
   grunt.loadNpmTasks 'grunt-karma'
@@ -257,7 +259,9 @@ module.exports = (grunt) ->
       'requirejs'
       'jade:prod'
       'copy'
-      'regex-replace:all'
+      'regex-replace'
+      'express'
+      'exec'
     ]
 
     config =
