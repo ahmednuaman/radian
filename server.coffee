@@ -13,9 +13,6 @@ app.configure () ->
 
   app.use '/', express.static __dirname + '/'
 
-app.use express.bodyParser
-app.use express.logger
-
 app.options '*', (request, response, next) ->
   response.send 200
 
