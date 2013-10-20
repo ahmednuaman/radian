@@ -8,4 +8,5 @@ assets/**/*.js
 assets/**/*.css
 assets/img/*.png
 assets/vendor
+build
 node_modules
