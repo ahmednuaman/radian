@@ -11,6 +11,7 @@ module.exports = (grunt) ->
           '**/*.coffee'
         ]
         options:
+          bare: true
           sourceMap: true
       prod:
         expand: '<%= coffee.dev.expand %>'
@@ -161,7 +162,7 @@ module.exports = (grunt) ->
         ]
         tasks: [
           'coffeelint'
-          'coffee'
+          'coffee:dev'
         ]
         options:
           livereload: true
