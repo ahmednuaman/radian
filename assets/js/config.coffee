@@ -1,4 +1,4 @@
 define [], () ->
-  ngApp: ''
+  ngApp: 'radian'
   path:
     partial: '/assets/partial/'
