@@ -1,6 +1,6 @@
 {
   "version": "0.0.1",
-  "name": "",
+  "name": "radian",
   "dependencies": {
     "express": "latest",
     "grunt": "latest",

@@ -16,7 +16,7 @@ app.configure () ->
 app.options '*', (request, response, next) ->
   response.send 200
 
-app.get '*', (request, response, next) ->
+app.all '*', (request, response, next) ->
   response.sendfile __dirname + '/index.html'
 
 app.listen port, () ->
