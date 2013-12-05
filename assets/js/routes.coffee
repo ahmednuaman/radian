@@ -3,12 +3,24 @@ define [
   'angular'
 ], (cfg, A) ->
   routes = ($routeProvider, $locationProvider) ->
-    # $routeProvider
-    #   .when '/',
-    #     templateUrl: cfg.path.partial + 'some-partial.html'
+    $routeProvider
+      .when '/getting-started',
+        templateUrl: cfg.path.partial + 'getting-started.html'
 
-    # $routeProvider.otherwise
-    #   redirectTo: '/'
+      .when '/code/:section',
+        templateUrl: cfg.path.partial + 'code.html'
+
+      .when '/code',
+        templateUrl: cfg.path.partial + 'code.html'
+
+      .when '/support',
+        templateUrl: cfg.path.partial + 'support.html'
+
+      .when '/',
+        templateUrl: cfg.path.partial + 'home.html'
+
+    $routeProvider.otherwise
+      redirectTo: '/'
 
     $locationProvider.html5Mode true
 
