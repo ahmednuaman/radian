@@ -2,7 +2,8 @@ define [
   'config'
   'angular'
 ], (cfg, A) ->
-  A.module cfg.ngApp, []
+  require ['angular-route'], () ->
+    A.module cfg.ngApp, ['ngRoute']
 
-  require ['controller/app-controller'], () ->
-    A.bootstrap document.documentElement, [cfg.ngApp]
+    require ['controller/app-controller'], () ->
+      A.bootstrap document.documentElement, [cfg.ngApp]

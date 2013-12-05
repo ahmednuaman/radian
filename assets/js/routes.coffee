@@ -1,6 +1,7 @@
 define [
   'config'
   'angular'
+  'controller/home-controller'
 ], (cfg, A) ->
   routes = ($routeProvider, $locationProvider) ->
     $routeProvider
