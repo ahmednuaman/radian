@@ -14,6 +14,9 @@ define [
       .when '/code',
         templateUrl: cfg.path.partial + 'code.html'
 
+      .when '/contributing',
+        templateUrl: cfg.path.partial + 'contributing.html'
+
       .when '/support',
         templateUrl: cfg.path.partial + 'support.html'
 
