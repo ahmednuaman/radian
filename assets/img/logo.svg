@@ -6,5 +6,5 @@
 <circle fill="#FFFFFF" stroke="#B3B3B3" stroke-miterlimit="10" cx="150" cy="150" r="147.5"/>
 <path fill="#C1272D" stroke="#C1272D" stroke-miterlimit="10" d="M297.5,150.323c0-51.99-26.901-97.855-67.541-124.123
 	l-80.078,124.635l-0.792,1.297l148.392-0.04C297.486,150.799,297.5,150.807,297.5,150.323z"/>
-<text transform="matrix(1 0 0 1 215.002 125.9136)" fill="#FFFFFF" font-family="'Times-Italic'" font-size="83.276">r</text>
+<text transform="matrix(1 0 0 1 198.0019 128.5469)" fill="#FFFFFF" font-family="'Times-Italic'" font-size="54.399">rad</text>
 </svg>
