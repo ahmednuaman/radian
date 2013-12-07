@@ -6,9 +6,6 @@ define [
 ], (cfg, A) ->
   routes = ($routeProvider, $locationProvider) ->
     $routeProvider
-      .when '/getting-started',
-        templateUrl: cfg.path.partial + 'getting-started-partial.html'
-
       .when '/code/:section',
         templateUrl: cfg.path.partial + 'code-partial.html'
 

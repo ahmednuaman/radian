@@ -1,7 +1,7 @@
 {
   "items": [{
     "title": "Getting started",
-    "href": "/getting-started"
+    "href": "/"
   }, {
     "title": "The code",
     "href": "/code"
