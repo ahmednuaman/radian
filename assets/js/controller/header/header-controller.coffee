@@ -4,6 +4,10 @@ define [
   'controller/header/header-menu-controller'
 ], (cfg, A) ->
   class HeaderController
+    @$inject = [
+      '$scope'
+    ]
+
     constructor: (@$scope) ->
       @init()
 

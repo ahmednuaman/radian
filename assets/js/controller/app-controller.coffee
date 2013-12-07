@@ -6,6 +6,10 @@ define [
   'controller/footer-controller'
 ], (cfg, A) ->
   class AppController
+    @$inject = [
+      '$scope'
+    ]
+
     constructor: (@$scope) ->
       @init()
 
