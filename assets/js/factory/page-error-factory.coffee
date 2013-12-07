@@ -9,7 +9,7 @@ define [
       $location.path "/error/#{code}"
 
     factory =
-      showError = (code) ->
+      showError: (code) ->
         emit code
 
     _.forEach ['404', '500'], (code) ->
