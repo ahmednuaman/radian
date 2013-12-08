@@ -7,8 +7,8 @@ html(lang='en', data-ng-controller='appController')
     link(rel='stylesheet', href='/assets/css/styles.css')
     title
   body
-    div#app
-      div(data-ng-include, data-src='headerPartial')
+    div#app.row
+      div.row(data-ng-include, data-src='headerPartial')
       div#view.row(data-ng-view)
-      div(data-ng-include, data-src='footerPartial')
+      div.row(data-ng-include, data-src='footerPartial')
     script(src='/assets/vendor/requirejs/require.js', data-main='/assets/js/app')

@@ -1,0 +1,23 @@
+*
+  +box-sizing(border-box)
+
+.block
+  display: block
+
+.left
+  @extend .block
+  float: left
+
+.relative
+  @extend .block
+
+.right
+  @extend .block
+  float: right
+
+.row
+  @extend .left
+  width: 100%
+
+#app
+  .relative
