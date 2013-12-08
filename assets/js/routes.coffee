@@ -24,6 +24,9 @@ define [
       .when '/support',
         templateUrl: cfg.path.partial + 'support-partial.html'
 
+      .when '/testing',
+        templateUrl: cfg.path.partial + 'testing-partial.html'
+
       .when '/',
         templateUrl: cfg.path.partial + 'home-partial.html'
 
