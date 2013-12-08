@@ -29,6 +29,8 @@ define [
     handleLoadMenuSuccess: () ->
       @$scope.menuItems = @menuFactory.get()
 
+      @$scope.$emit '$locationChangeSuccess'
+
     handleLoadMenuFailure: () ->
       @pageErrorFactory.show500()
 
