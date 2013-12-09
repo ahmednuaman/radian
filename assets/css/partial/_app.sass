@@ -1,23 +1,11 @@
-*
-  +box-sizing(border-box)
-
-.block
-  display: block
-
-.left
-  @extend .block
-  float: left
-
-.relative
-  @extend .block
-
-.right
-  @extend .block
-  float: right
-
-.row
-  @extend .left
+#app
+  @extend .relative
+  margin: 10px
   width: 100%
 
-#app
-  .relative
+  +medium
+    margin: 20px
+
+  +large
+    margin: 40px auto
+    width: 992px

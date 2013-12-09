@@ -1,0 +1,41 @@
+=small()
+  @media only screen and (max-width: 768px)
+    @content
+
+=medium()
+  @media only screen and (min-width: 768px)
+    @content
+
+=large()
+  @media only screen and (min-width: 992px)
+    @content
+
+=xlarge()
+  @media only screen and (min-width: 1200px)
+    @content
+
+.block
+  display: block
+
+.left
+  @extend .block
+  float: left
+
+.relative
+  @extend .block
+  position: relative
+
+.right
+  @extend .block
+  float: right
+
+.row
+  @extend .left
+  width: 100%
+
+.text-centre
+  text-align: center
+
+*
+  +box-sizing(border-box)
+  font-family: 'Droid Sans', sans-serif
