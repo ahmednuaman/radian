@@ -5,10 +5,10 @@
 			"path": "/Users/ahmed/Sites/__tests/radian",
       "file_exclude_patterns":
       [
-        "assets/**/*.js",
-        "assets/**/*.map",
-        "assets/**/*.css",
+        "*.css",
         "*.html",
+        "*.js",
+        "*.map",
         "*.sublime*"
       ],
       "folder_exclude_patterns":

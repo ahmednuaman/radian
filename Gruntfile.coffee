@@ -3,13 +3,10 @@ module.exports = (grunt) ->
     coffee:
       dev:
         expand: true
-        cwd: 'assets/js/'
+        cwd: './'
         dest: '<%= coffee.dev.cwd %>'
         ext: '.js'
-        src: [
-          '*.coffee'
-          '**/*.coffee'
-        ]
+        src: ['<%= coffeelint.all %>']
         options:
           bare: true
           sourceMap: true
@@ -18,13 +15,12 @@ module.exports = (grunt) ->
         cwd: '<%= coffee.dev.cwd %>'
         dest: '<%= coffee.dev.cwd %>'
         ext: '<%= coffee.dev.ext %>'
-        src: [
-          '<%= coffee.dev.src %>'
-        ]
+        src: ['<%= coffee.dev.src %>']
     coffeelint:
       all: [
         'assets/js/*.coffee',
         'assets/js/**/*.coffee',
+        'test/unit/**/*.coffee',
         'Gruntfile.coffee'
       ]
       options:
@@ -114,10 +110,10 @@ module.exports = (grunt) ->
         files: '<%= jade.dev.files %>'
     karma:
       unit:
-        configFile: 'test/unit/karma.conf.js'
+        configFile: 'test/unit/karma.conf.coffee'
         singleRun: true
       client:
-        configFile: 'test/client/karma.conf.js'
+        configFile: 'test/client/karma.conf.coffee'
         singleRun: true
     'regex-replace':
       all:

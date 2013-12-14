@@ -1,13 +1,14 @@
 .sass-*
+*.css
 *.html
+*.js
 *.log
 *.map
 *.sassc
 *.sublime-workspace
-assets/**/*.js
-assets/**/*.css
 assets/img/*.png
 !assets/img/logo.png
 assets/vendor
 build
 node_modules
+test/report
