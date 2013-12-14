@@ -5,12 +5,12 @@ define [
   'collection/menu-items-collection'
 ], (cfg, A, _, menuItemsCollection) ->
   pageErrorFactory = ($location) ->
-    emit = (code) ->
+    redirect = (code) ->
       $location.path "/error/#{code}"
 
     factory =
       showError: (code) ->
-        emit code
+        redirect code
 
     _.forEach ['404', '500'], (code) ->
       factory["show#{code}"] = () ->

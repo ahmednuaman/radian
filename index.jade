@@ -7,7 +7,7 @@ html(lang='en', data-ng-controller='appController')
     link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Droid+Sans+Mono')
     link(rel='stylesheet', href='/assets/vendor/normalize-css/normalize.css')
     link(rel='stylesheet', href='/assets/css/styles.css')
-    title
+    title(data-ng-bind='pageTitle') radian
   body
     div#app
       div(data-ng-include, data-src='headerPartial')

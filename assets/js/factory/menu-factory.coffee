@@ -3,8 +3,9 @@ define [
   'angular'
   'lodash'
   'collection/menu-items-collection'
+  'factory/page-title-factory'
 ], (cfg, A, _, menuItemsCollection) ->
-  menuFactory = ($location, $q, $rootScope) ->
+  menuFactory = ($location, $q, $rootScope, pageTitleFactory) ->
     handleFactorySetSuccess = (dfd, collection) ->
       factory.collection = collection
 
@@ -36,10 +37,16 @@ define [
           else
             vo.selected = !!~vo.href.indexOf href
 
+          if vo.selected
+            factory.selectedItem = vo
+
+            pageTitleFactory.setTitle vo.title
+
   menuFactory.$inject = [
     '$location'
     '$q'
     '$rootScope'
+    'pageTitleFactory'
   ]
 
   app = A.module cfg.ngApp
