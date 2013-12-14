@@ -1,1 +1,30 @@
-div#home(data-ng-controller='homeController') Home!
+div#home(data-ng-controller='homeController')
+  :markdown
+    ## Radian is a _scalable_ [AngularJS](http://angularjs.org) framework
+    ### Quick start
+    The purpose of Radian is to help your team and you start building your app with minimal set up. All you need to have installed is [git](http://git-scm.org), [NodeJS](http://nodejs.org) and the following NodeJS `cli` tools:
+    - [GruntJS](http://gruntjs.com)
+    - [Bower](http://bower.io)
+    - [Karma](http://karma-runner.github.io)
+
+    **I'm going to write a [Yeoman generator](http://yeoman.io/) real soon.**
+
+    To start using Radian simply download the code from [github.com](https://github.com/ahmednuaman/radian) and set it up:
+
+      npm install
+      bower install
+      grunt
+
+    Running `grunt` will generate all the JS, CSS and HTML, and it'll also start the local server, so point your browser to [http://localhost:8000](http://localhost:8000) and you're laughing.
+
+    ### Why don't I/we just use [angular-seed](https://github.com/angular/angular-seed)?
+    Well it's like comparing chalk and cheese. The angular-seed project is a good place for a developer new to AngularJS to start, but if you want to build a truly scalable and multi developer app then you need a more robust approach.
+
+    Radian provides a common style and set up to dealing with problems faced by teams when working on AngularJS apps. The beauty of using AMD to handle the loading of dependancies outside of the releams of AngularJS provides a higher level of abstraction and modulartiry to your code.
+
+    Radian is also pretty simple: all that's really happening is that you're splitting up your app into small, managable and decoupled components; this means you write more modulised code that helps you adopt the [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) approach to your app.
+
+    ### "But I/we don't use/agree with CoffeeScript/SASS/Jade"
+    Don't worry buddy, that's cool. You can simply grab all the JS, CSS and HTML by running the `grunt` command and dump all that precompiler nonsense.
+
+    The advantage (IMHO) to using precompiled languages is that they require a strict style and thus code is cleaner and more consistent; but that's a discussion for another day.
