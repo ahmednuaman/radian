@@ -141,10 +141,13 @@ module.exports = (grunt) ->
           name: 'app'
           out: 'build/assets/js/app-<%= grunt.config.get("git-commit") %>.js'
           include: [
-            'controller/app-controller'
+            'startup'
           ],
           paths:
             'angular': 'empty:'
+            'angular-resource': 'empty:'
+            'angular-route': 'empty:'
+            'lodash': 'empty:'
     uglify:
       prod:
         files:
@@ -200,6 +203,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-regex-replace'
 
   grunt.registerTask 'default', 'run the server and watch for changes', [
+    'install'
     'compass:dev'
     'coffee:dev'
     'jade:dev'
@@ -208,6 +212,7 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'test', 'compile the app and run the tests', [
+    'install'
     'compass:dev'
     'coffeelint'
     'coffee:dev'
@@ -216,12 +221,14 @@ module.exports = (grunt) ->
   ]
 
   grunt.registerTask 'unit', 'run unit tests', [
+    'install'
     'coffeelint'
     'coffee:dev'
     'karma:unit'
   ]
 
   grunt.registerTask 'client', 'run client tests', [
+    'install'
     'compass:dev'
     'coffeelint'
     'coffee:dev'
@@ -243,7 +250,7 @@ module.exports = (grunt) ->
     child.stdout.on 'data', (data) ->
       grunt.log.write data
 
-  grunt.registerTask 'package', 'package the app', () ->
+  grunt.registerTask 'build', 'build and package the app', () ->
     done = @async()
 
     tasks = [
