@@ -4,11 +4,8 @@ module.exports = (config) ->
     included: false
 
   browsers = [
-    'FireFox'
+    !process.env.TRAVIS ? 'Chrome' : 'PhantomJS'
   ]
-
-  if !process.env.TRAVIS
-    browsers.push 'Chrome'
 
   config.set
     basePath: '../../'
