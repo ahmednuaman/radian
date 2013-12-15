@@ -26,10 +26,17 @@ module.exports = (config) ->
       'jasmine'
       'requirejs'
     ]
+    preprocessors:
+      'assets/js/**/*.js': 'coverage'
     reporters: [
+      'coverage'
       'junit'
       'progress'
     ]
+    coverageReporter:
+      dir: 'test/report/coverage'
+      file: 'test/report/karma-coverage.xml'
+      type: 'cobertura'
     junitReporter:
       outputFile: 'test/report/karma-unit.xml'
     logLevel: config.LOG_INFO

@@ -1,10 +1,32 @@
 {
-  "version": "0.0.1",
   "name": "radian",
+  "description": "A scalable AngularJS framework",
+  "version": "0.0.1",
+  "homepage": "https://github.com/ahmednuaman/radian",
+  "author": {
+    "name": "Ahmed Nuaman",
+    "url": "http://ahmednuaman.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ahmednuaman/radian.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ahmednuaman/radian/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/ahmednuaman/radian/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
   "scripts": {
     "test": "grunt unit"
   },
-  "dependencies": {
+  "devDependencies": {
     "express": "3.4.6",
     "grunt": "0.4.2",
     "grunt-coffeelint": "0.0.7",
@@ -22,10 +44,22 @@
     "grunt-karma": "0.6.2",
     "grunt-regex-replace": "0.2.5",
     "karma-chrome-launcher": "0.1.1",
+    "karma-coverage": "0.1.4",
     "karma-firefox-launcher": "0.1.2",
     "karma-jasmine": "0.1.4",
     "karma-junit-reporter": "0.2.1",
     "karma-requirejs": "0.2.0",
     "markdown": "0.5.0"
-  }
+  },
+  "peerDependencies": {
+    "grunt": "0.4.2",
+    "karma": "0.10.8"
+  },
+  "keywords": [
+    "gruntplugin",
+    "scss",
+    "lint",
+    "scss-lint",
+    "junit"
+  ]
 }
