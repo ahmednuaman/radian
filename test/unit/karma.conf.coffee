@@ -3,13 +3,11 @@ module.exports = (config) ->
     pattern: path
     included: false
 
-  browsers = [
-    !process.env.TRAVIS ? 'Chrome' : 'PhantomJS'
-  ]
-
   config.set
     basePath: '../../'
-    browsers: browsers
+    browsers: [
+      if process.env.TRAVIS then 'PhantomJS' else 'Chrome'
+    ]
     files: [
       exclude 'assets/vendor/**/*.js'
       exclude 'assets/js/**/*.js'
