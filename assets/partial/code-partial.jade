@@ -1,1 +1,13 @@
-div#code Code!
+div#code
+  :markdown
+    ## The code
+    It's pretty simple really. Remember that all AngularJS does is group your code together into defined modules (such as controllers, services, factories, etc…) and all of this follows the principle of dependancy injection.
+
+    This simple solution can create common pitfalls, such as accidental tight coupling of code or badly structred workspaces and files.
+
+    Radian avoids this by providing a single file for each part of your app and then organising these files into a elegant and readable structure. This is where [RequireJS](http://requirejs.org/) plays a crutial part in the set up as it not only provides an AMD loader for your code but it also ties it all together when it's being built ready for deployment.
+
+    Let's start by looking at how the app launches once the user hits it:
+
+    ### [`./index.jade`](https://github.com/ahmednuaman/radian/blob/master/index.jade)
+    So we begin by loading RequireJS before
