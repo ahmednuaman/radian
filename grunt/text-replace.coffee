@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
-  grunt.config 'text-replace',
+  grunt.config 'replace',
     app:
-      src: ['build/assets/js/app-<%= grunt.config.get("git-commit") %>']
+      src: ['build/assets/js/*.js']
       overwrite: true
       replacements: [
           from: '../vendor/angular/angular'

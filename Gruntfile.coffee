@@ -60,9 +60,9 @@ module.exports = (grunt) ->
       'requirejs'
       'jade:prod'
       'copy'
-      'text-replace'
-      'express'
-      'exec'
+      'replace'
+      # 'express'
+      # 'exec'
     ]
 
     config =
