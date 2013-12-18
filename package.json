@@ -27,11 +27,11 @@
     "test": "grunt unit"
   },
   "devDependencies": {
-    "express": "3.4.6",
+    "express": "3.4.7",
     "grunt": "0.4.2",
-    "grunt-coffeelint": "0.0.7",
+    "grunt-coffeelint": "0.0.8",
     "grunt-contrib-coffee": "0.7.0",
-    "grunt-contrib-compass": "0.6.0",
+    "grunt-contrib-compass": "0.7.0",
     "grunt-contrib-copy": "0.4.1",
     "grunt-contrib-cssmin": "0.7.0",
     "grunt-contrib-imagemin": "0.4.0",
@@ -39,7 +39,7 @@
     "grunt-contrib-uglify": "0.2.7",
     "grunt-contrib-watch": "0.5.3",
     "grunt-exec": "0.4.2",
-    "grunt-express-server": "0.4.8",
+    "grunt-express-server": "0.4.10",
     "grunt-jade": "0.4.0",
     "grunt-karma": "0.6.2",
     "grunt-text-replace": "0.3.10",
