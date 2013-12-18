@@ -2,6 +2,7 @@ module.exports = (grunt) ->
   grunt.config 'coffeelint',
     all: [
       'assets/js/**/*.coffee'
+      'grunt/*.coffee'
       'test/unit/**/*.coffee'
       'Gruntfile.coffee'
     ]

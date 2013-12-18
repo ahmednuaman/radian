@@ -57,12 +57,10 @@ module.exports = (grunt) ->
       'compass:prod'
       'imagemin'
       'coffee:prod'
-      'cssmin'
-      'uglify'
       'requirejs'
       'jade:prod'
       'copy'
-      'regex-replace'
+      'text-replace'
       'express'
       'exec'
     ]
