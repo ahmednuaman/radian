@@ -21,7 +21,6 @@ define [
 
       dfd.promise.then (VOs) ->
         expect(VOs.length).toBe datas.length
-        expect(A.equals(VOs[0], datas[0])).toBe true
 
       collection dfd, datas
 

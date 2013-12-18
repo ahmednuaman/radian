@@ -4,7 +4,6 @@ tests.push file for own file, time of window.__karma__.files when ~file.indexOf 
 
 require.config
   baseUrl: '/base/assets/js/'
-  deps: tests
   paths:
     'angular': '../vendor/angular/angular'
     'angular-mocks': '../vendor/angular-mocks/angular-mocks'
