@@ -31,7 +31,7 @@ module.exports = (config) ->
     coverageReporter:
       dir: 'test/report/coverage'
       file: 'test/report/karma-coverage.xml'
-      type: 'cobertura'
+      type: 'html'
     junitReporter:
       outputFile: 'test/report/karma-unit.xml'
     logLevel: config.LOG_INFO

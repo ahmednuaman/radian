@@ -19,7 +19,7 @@ define [
 
     data = [
       title: '1'
-      href: '/1'
+      href: '/'
     ,
       title: '2'
       href: '/2'
@@ -47,7 +47,7 @@ define [
 
       dfd.promise.then () ->
         items = factory.get()
-        item = items[2]
+        item = items[0]
 
         factory.setSelectedItemByHref item.href
 
