@@ -15,6 +15,7 @@ define [
       factory.setSelectedItemByHref $location.path()
 
     factory =
+      collection: null
       selectedItem: null
 
       set: (serviceDfd, data) ->

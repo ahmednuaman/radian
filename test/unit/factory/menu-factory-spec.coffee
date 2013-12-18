@@ -29,11 +29,29 @@ define [
       href: '/4'
     ]
 
-    it 'should populate the factory', () ->
+    it 'should populate the factory and return the collection', () ->
       dfd = $q.defer()
 
       dfd.promise.then () ->
         expect(factory.collection.length).toBe data.length
+        expect(factory.get().length).toBe data.length
+
+      factory.set dfd, data
+
+      $rootScope.$digest()
+
+    it 'should select an item by a specified href', () ->
+      dfd = $q.defer()
+
+      dfd.promise.then () ->
+        items = factory.get()
+        item = items[2]
+
+        factory.setSelectedItemByHref item.href
+
+        expect(factory.selectedItem.href).toBe item.href
+        expect(factory.selectedItem.selected).toBe true
+        expect(item.selected).toBe true
 
       factory.set dfd, data
 
