@@ -8,10 +8,6 @@ require.config
   shim:
     'angular':
       exports: 'angular'
-    'angular-resource':
-      exports: 'angular-resource'
-    'angular-route':
-      exports: 'angular-route'
     'lodash':
       exports: '_'
 
