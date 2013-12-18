@@ -14,8 +14,8 @@ define [
 
     it 'should return a nice collection', () ->
       data =
-        title: 'Getting started'
-        href: '/'
+        title: 'foo'
+        href: '/bar'
       datas = [data, data, data]
       dfd = $q.defer()
 
