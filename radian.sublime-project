@@ -2,7 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/Users/ahmed/Sites/__tests/radian",
+			"path": "./",
       "file_exclude_patterns":
       [
         "*.css",
