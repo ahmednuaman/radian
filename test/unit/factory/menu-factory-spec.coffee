@@ -4,6 +4,7 @@ define [
   'factory/menu-factory'
 ], (cfg, A) ->
   describe 'Menu factory', () ->
+    $location = null
     $q = null
     $rootScope = null
     factory = null
@@ -11,6 +12,7 @@ define [
     beforeEach module cfg.ngApp
 
     beforeEach inject ($injector) ->
+      $location = $injector.get '$location'
       $q = $injector.get '$q'
       $rootScope = $injector.get '$rootScope'
       factory = $injector.get 'menuFactory'
@@ -52,6 +54,23 @@ define [
         expect(factory.selectedItem.href).toBe item.href
         expect(factory.selectedItem.selected).toBe true
         expect(item.selected).toBe true
+
+      factory.set dfd, data
+
+      $rootScope.$digest()
+
+    it 'should update the selected item if the location changes', () ->
+      dfd = $q.defer()
+
+      dfd.promise.then () ->
+        items = factory.get()
+        item = items[2]
+
+        $location.path item.href
+
+        $rootScope.$emit '$locationChangeSuccess'
+
+        expect(factory.selectedItem.href).toBe item.href
 
       factory.set dfd, data
 
