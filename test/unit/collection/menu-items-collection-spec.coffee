@@ -18,10 +18,15 @@ define [
         href: '/bar'
       datas = [data, data, data]
       dfd = $q.defer()
+      cb =
+        success: (VOs) ->
+          expect(VOs.length).toBe datas.length
 
-      dfd.promise.then (VOs) ->
-        expect(VOs.length).toBe datas.length
+      spyOn cb, 'success'
 
+      dfd.promise.then cb.success
       collection dfd, datas
 
       $rootScope.$digest()
+
+      expect(cb.success).toHaveBeenCalled()

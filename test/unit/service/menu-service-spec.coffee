@@ -40,22 +40,34 @@ define [
       ]
 
     it 'should get the menu and populate the factory', () ->
+      cb =
+        success: () ->
+          expect(factory.get().length).toBe(data.items.length)
+
       $httpBackend.expectGET('/data/menu.json').respond 201, JSON.stringify data
 
-      service.get().then () ->
-        expect(factory.get().length).toBe(data.items.length)
+      spyOn cb, 'success'
+
+      service.get().then cb.success
 
       $httpBackend.flush()
 
+      expect(cb.success).toHaveBeenCalled()
+
     it 'should populate the factory', () ->
       dfd = $q.defer()
+      cb =
+        success: () ->
+          expect(factory.get().length).toBe(data.items.length)
 
-      dfd.promise.then () ->
-        expect(factory.get().length).toBe(data.items.length)
+      spyOn cb, 'success'
 
+      dfd.promise.then cb.success
       service.handleSuccess dfd, data
 
       $rootScope.$digest()
+
+      expect(cb.success).toHaveBeenCalled()
 
     it 'should reject the dfd in case of an error', () ->
       dfd = $q.defer()

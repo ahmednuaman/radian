@@ -13,8 +13,13 @@ define [
 
     it 'should $emit an event that contains a new title', () ->
       title = 'foo'
+      cb =
+        handleTitle: (event, newTitle) ->
+          expect(newTitle).toBe title
 
-      factory.addListener (event, newTitle) ->
-        expect(newTitle).toBe title
+      spyOn cb, 'handleTitle'
 
+      factory.addListener cb.handleTitle
       factory.setTitle title
+
+      expect(cb.handleTitle).toHaveBeenCalled()
