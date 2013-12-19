@@ -17,9 +17,5 @@ define [
         handleTitle: (event, newTitle) ->
           expect(newTitle).toBe title
 
-      spyOn cb, 'handleTitle'
-
       factory.addListener cb.handleTitle
       factory.setTitle title
-
-      expect(cb.handleTitle).toHaveBeenCalled()

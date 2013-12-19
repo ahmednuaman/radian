@@ -22,11 +22,7 @@ define [
         success: (VOs) ->
           expect(VOs.length).toBe datas.length
 
-      spyOn cb, 'success'
-
       dfd.promise.then cb.success
       collection dfd, datas
 
       $rootScope.$digest()
-
-      expect(cb.success).toHaveBeenCalled()

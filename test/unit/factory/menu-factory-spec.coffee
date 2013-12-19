@@ -37,37 +37,33 @@ define [
         success: () ->
           expect(factory.collection.length).toBe data.length
           expect(factory.get().length).toBe data.length
-
-      spyOn cb, 'success'
+          expect(factory.collection[0].selected).toBe true
 
       dfd.promise.then cb.success
       factory.set dfd, data
 
       $rootScope.$digest()
-
-      expect(cb.success).toHaveBeenCalled()
 
     it 'should select an item by a specified href', () ->
       dfd = $q.defer()
+      check = (item) ->
+        factory.setSelectedItemByHref item.href
+
+        expect(factory.selectedItem.href).toBe item.href
+        expect(factory.selectedItem.selected).toBe true
+        expect(item.selected).toBe true
+
       cb =
         success: () ->
           items = factory.get()
-          item = items[0]
 
-          factory.setSelectedItemByHref item.href
-
-          expect(factory.selectedItem.href).toBe item.href
-          expect(factory.selectedItem.selected).toBe true
-          expect(item.selected).toBe true
-
-      spyOn cb, 'success'
+          check items[0]
+          check items[1]
 
       dfd.promise.then cb.success
       factory.set dfd, data
 
       $rootScope.$digest()
-
-      expect(cb.success).toHaveBeenCalled()
 
     it 'should update the selected item if the location changes', () ->
       dfd = $q.defer()
@@ -82,11 +78,7 @@ define [
 
           expect(factory.selectedItem.href).toBe item.href
 
-      spyOn cb, 'success'
-
       dfd.promise.then cb.success
       factory.set dfd, data
 
       $rootScope.$digest()
-
-      expect(cb.success).toHaveBeenCalled()

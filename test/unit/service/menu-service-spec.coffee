@@ -46,13 +46,9 @@ define [
 
       $httpBackend.expectGET('/data/menu.json').respond 201, JSON.stringify data
 
-      spyOn cb, 'success'
-
       service.get().then cb.success
 
       $httpBackend.flush()
-
-      expect(cb.success).toHaveBeenCalled()
 
     it 'should populate the factory', () ->
       dfd = $q.defer()
@@ -60,21 +56,16 @@ define [
         success: () ->
           expect(factory.get().length).toBe(data.items.length)
 
-      spyOn cb, 'success'
-
       dfd.promise.then cb.success
       service.handleSuccess dfd, data
 
       $rootScope.$digest()
-
-      expect(cb.success).toHaveBeenCalled()
 
     it 'should reject the dfd in case of an error', () ->
       dfd = $q.defer()
       cb =
         success: () ->
         failure: () ->
-          console.log 'failure'
 
       spyOn cb, 'success'
       spyOn cb, 'failure'

@@ -9,10 +9,11 @@ define [
     handleFactorySetSuccess = (dfd, collection) ->
       factory.collection = collection
 
+      factory.digest()
       dfd.resolve()
 
     $rootScope.$on '$locationChangeSuccess', (event) ->
-      factory.setSelectedItemByHref $location.path()
+      factory.digest()
 
     factory =
       collection: null
@@ -27,6 +28,9 @@ define [
 
       get: () ->
         factory.collection
+
+      digest: () ->
+        factory.setSelectedItemByHref $location.path()
 
       setSelectedItemByHref: (href) ->
         if factory.selectedItem
