@@ -28,6 +28,5 @@ define [
     handleFailure: (dfd) ->
       dfd.reject()
 
-
   app = A.module cfg.ngApp
   app.service 'menuService', MenuService

@@ -29,8 +29,7 @@ module.exports = (config) ->
       'progress'
     ]
     coverageReporter:
-      dir: 'test/report/coverage'
-      file: 'test/report/karma-coverage.xml'
+      dir: 'test/report/coverage/html'
       type: 'html'
     junitReporter:
       outputFile: 'test/report/karma-unit.xml'

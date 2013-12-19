@@ -6,6 +6,8 @@ define [
 ], (cfg, A) ->
   describe 'Menu service', () ->
     $httpBackend = null
+    $q = null
+    $rootScope = null
     factory = null
     service = null
 
@@ -13,11 +15,17 @@ define [
 
     beforeEach inject ($injector) ->
       $httpBackend = $injector.get '$httpBackend'
+      $q = $injector.get '$q'
+      $rootScope = $injector.get '$rootScope'
       factory = $injector.get 'menuFactory'
       service = $injector.get 'menuService'
 
-    it 'should get the menu and populate the factory', () ->
-      data = [
+    afterEach () ->
+      $httpBackend.verifyNoOutstandingExpectation()
+      $httpBackend.verifyNoOutstandingRequest()
+
+    data =
+      items: [
         title: '1'
         href: '/'
       ,
@@ -31,10 +39,39 @@ define [
         href: '/4'
       ]
 
-      $httpBackend.expect 'GET', '/data/menu.json', JSON.stringify data
+    it 'should get the menu and populate the factory', () ->
+      $httpBackend.expectGET('/data/menu.json').respond 201, JSON.stringify data
 
       service.get().then () ->
-        expect(factory.get().length).toBe(data.length)
+        expect(factory.get().length).toBe(data.items.length)
 
-        $httpBackend.verifyNoOutstandingExpectation()
-        $httpBackend.verifyNoOutstandingRequest()
+      $httpBackend.flush()
+
+    it 'should populate the factory', () ->
+      dfd = $q.defer()
+
+      dfd.promise.then () ->
+        expect(factory.get().length).toBe(data.items.length)
+
+      service.handleSuccess dfd, data
+
+      $rootScope.$digest()
+
+    it 'should reject the dfd in case of an error', () ->
+      dfd = $q.defer()
+      cb =
+        success: () ->
+        failure: () ->
+          console.log 'failure'
+
+      spyOn cb, 'success'
+      spyOn cb, 'failure'
+
+      dfd.promise.then cb.success, cb.failure
+
+      service.handleFailure dfd
+
+      $rootScope.$digest()
+
+      expect(cb.success.calls.length).toBe 0
+      expect(cb.failure).toHaveBeenCalled()
