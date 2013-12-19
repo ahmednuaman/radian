@@ -5,7 +5,6 @@ define [
   'factory/page-title-factory'
 ], (cfg, A) ->
   describe 'App controller', () ->
-    $rootScope = null
     $scope = null
     createController = null
     pageTitleFactory = null
