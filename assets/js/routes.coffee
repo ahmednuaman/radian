@@ -1,7 +1,11 @@
+# A pretty [standard AngularJS ngRoute](http://docs.angularjs.org/api/ngRoute.$routeProvider) set up.
 define [
+  # Jump to [`config.coffee`](config.html) ☛
   'config'
   'angular'
+  # Jump to [`controller/error-controller.coffee`](error-controller.html) ☛
   'controller/error-controller'
+  # Jump to [`controller/home-controller.coffee`](home-controller.html) ☛
   'controller/home-controller'
 ], (cfg, A) ->
   routes = ($routeProvider, $locationProvider) ->

@@ -1,3 +1,4 @@
+# This is the heart and soul of the app.
 define [
   'config'
   'angular'

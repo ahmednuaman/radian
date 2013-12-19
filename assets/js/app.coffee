@@ -1,3 +1,5 @@
+# This is the base config for the app. Before [AngularJS](http://angularjs.org) is init'd the app uses
+# [RequireJS](http://requirejs.org) to get the juices flowing and the dependancies loaded.
 require.config
   baseUrl: '/assets/js/'
   paths:
@@ -11,4 +13,5 @@ require.config
     'lodash':
       exports: '_'
 
+# Jump to [`startup.coffee`](startup.html) ☛
 require ['startup']
