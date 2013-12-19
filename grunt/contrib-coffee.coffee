@@ -5,7 +5,7 @@ module.exports = (grunt) ->
       cwd: './'
       dest: '<%= coffee.dev.cwd %>'
       ext: '.js'
-      src: ['<%= coffeelint.all %>']
+      src: ['assets/js/**/*.coffee']
       options:
         bare: true
         sourceMap: true

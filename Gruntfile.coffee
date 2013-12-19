@@ -22,7 +22,6 @@ module.exports = (grunt) ->
   grunt.registerTask 'unit', 'run unit tests', [
     'install'
     'coffeelint'
-    'coffee:dev'
     'karma:unit'
   ]
 

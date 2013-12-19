@@ -2,7 +2,7 @@ module.exports = (grunt) ->
   grunt.config 'watch',
     coffee:
       files: [
-        '<%= coffeelint.all %>'
+        '<%= coffee.dev.src %>'
       ]
       tasks: [
         'coffeelint'

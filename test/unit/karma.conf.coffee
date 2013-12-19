@@ -10,12 +10,12 @@ module.exports = (config) ->
     ]
     files: [
       exclude 'assets/vendor/**/*.js'
-      exclude 'assets/js/**/*.js'
-      exclude 'test/unit/**/*-spec.js'
-      'test/unit/test-main.js'
+      exclude 'assets/js/**/*.coffee'
+      exclude 'test/unit/**/*-spec.coffee'
+      'test/unit/test-main.coffee'
     ]
     exclude: [
-      'assets/js/app.js'
+      'assets/js/app.coffee'
     ]
     frameworks: [
       'jasmine'
@@ -23,6 +23,7 @@ module.exports = (config) ->
     ]
     preprocessors:
       'assets/js/**/*.js': 'coverage'
+      '**/*.coffee': 'coffee'
     reporters: [
       'coverage'
       'junit'
