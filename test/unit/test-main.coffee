@@ -1,3 +1,5 @@
+# Since the app uses [RequireJS](http://requirejs.org) it makes sense to also use RequireJS for the unit tests too.
+# In order to do this this main file is used to load the dependancies of the app and the tests via RequireJS.
 tests = []
 
 tests.push file for own file, time of window.__karma__.files when ~file.indexOf '-spec.js'
@@ -22,4 +24,5 @@ require ['config', 'angular'], (cfg, A) ->
     A.bootstrap document, [cfg.ngApp]
 
     require tests, () ->
+      # Only when the tests have been loaded is it all ready to go.
       window.__karma__.start()

@@ -1,3 +1,5 @@
+# This is the config file for the unit tests for the app. For more info visit the
+# [karma config page](http://karma-runner.github.io/0.10/config/configuration-file.html)
 module.exports = (config) ->
   exclude = (path) ->
     pattern: path
@@ -6,6 +8,8 @@ module.exports = (config) ->
   config.set
     basePath: '../../'
     browsers: [
+      # You may not need this but since [Travis](https://travis-ci.org/ahmednuaman/radian) is being used to keep an
+      # eye on the code then [PhantomJS](http://phantomjs.org) is used as the runner browser.
       if process.env.TRAVIS then 'PhantomJS' else 'Chrome'
     ]
     files: [
