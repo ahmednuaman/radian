@@ -14,6 +14,7 @@ define [
       $controller = $injector.get '$controller'
       $rootScope = $injector.get '$rootScope'
       $routeParams = $injector.get '$routeParams'
+
       $scope = $rootScope.$new()
 
       createController = () ->

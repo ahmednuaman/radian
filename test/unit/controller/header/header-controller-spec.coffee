@@ -12,6 +12,7 @@ define [
     beforeEach inject ($injector) ->
       $controller = $injector.get '$controller'
       $rootScope = $injector.get '$rootScope'
+
       $scope = $rootScope.$new()
 
       createController = () ->

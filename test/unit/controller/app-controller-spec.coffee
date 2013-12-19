@@ -16,6 +16,7 @@ define [
       $controller = $injector.get '$controller'
       $rootScope = $injector.get '$rootScope'
       pageTitleFactory = $injector.get 'pageTitleFactory'
+
       $scope = $rootScope.$new()
 
       createController = () ->
