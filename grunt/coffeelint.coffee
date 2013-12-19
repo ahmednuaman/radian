@@ -4,7 +4,7 @@ module.exports = (grunt) ->
       'assets/js/**/*.coffee'
       'grunt/*.coffee'
       'test/unit/**/*.coffee'
-      'Gruntfile.coffee'
+      '*.coffee'
     ]
     options:
       max_line_length:
