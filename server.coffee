@@ -1,4 +1,3 @@
-# ## server.coffee
 # This is a helper file that is used to launch a local server used for development of your app.
 express = require 'express'
 fs = require 'fs'
