@@ -6,11 +6,18 @@ app = express()
 port = 8000
 
 app.configure () ->
-  # The server is also configured to allow CORS
+  # The server is also configured to allow CORS.
   app.use (request, response, next) ->
     response.header 'Access-Control-Allow-Origin', '*'
     response.header 'Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS'
     response.header 'Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With'
+
+    next()
+
+  # This is for debugging purposes, it allows you to view the raw files as plain text.
+  app.use (request, response, next) ->
+    if /\.(coffee|jade|sass)$/.test request.url
+      response.set 'Content-Type', 'text/plain'
 
     next()
 

@@ -7,6 +7,7 @@ module.exports = (grunt) ->
       tasks: [
         'coffeelint'
         'coffee:dev'
+        'docco'
       ]
       options:
         livereload: true

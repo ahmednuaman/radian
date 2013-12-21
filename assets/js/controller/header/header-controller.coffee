@@ -1,6 +1,8 @@
 define [
+  # Jump to [`config.coffee`](config.html) ☛
   'config'
   'angular'
+  # Jump to [`controller/header/header-menu-controller.coffee`](header-menu-controller.html) ☛
   'controller/header/header-menu-controller'
 ], (cfg, A) ->
   class HeaderController
