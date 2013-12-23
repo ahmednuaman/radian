@@ -1,15 +1,12 @@
 {
   "items": [{
-    "title": "Getting started",
+    "title": "Start here",
     "href": "/"
   }, {
-    "title": "The code",
+    "title": "Code",
     "href": "/code"
   }, {
-    "title": "Testing",
-    "href": "/testing"
-  }, {
-    "title": "Support",
-    "href": "/support"
+    "title": "Docs",
+    "href": "/"
   }]
 }
