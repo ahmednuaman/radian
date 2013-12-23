@@ -8,28 +8,27 @@ define [
   # Jump to [`controller/home-controller.coffee`](home-controller.html) ☛
   'controller/home-controller'
 ], (cfg, A) ->
+  docsResolver = ($window) ->
+    $window.location.href = '/docs/app.html'
+
+  docsResolver.$inject = [
+    '$window'
+  ]
+
   routes = ($routeProvider, $locationProvider) ->
     $routeProvider
-      .when '/code/:section',
-        templateUrl: cfg.path.partial + 'code-partial.html'
-
       .when '/code',
         templateUrl: cfg.path.partial + 'code-partial.html'
 
-      .when '/contributing',
-        templateUrl: cfg.path.partial + 'contributing-partial.html'
+      .when '/docs',
+        resolve:
+          factory: docsResolver
 
       .when '/error/:code',
         templateUrl: cfg.path.partial + 'error-partial.html'
 
       .when '/error',
         templateUrl: cfg.path.partial + 'error-partial.html'
-
-      .when '/support',
-        templateUrl: cfg.path.partial + 'support-partial.html'
-
-      .when '/testing',
-        templateUrl: cfg.path.partial + 'testing-partial.html'
 
       .when '/',
         templateUrl: cfg.path.partial + 'home-partial.html'
