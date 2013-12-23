@@ -1,0 +1,27 @@
+#cta
+  margin: 30px 0
+  text-align: center
+
+  +large
+    margin: 50px 0
+
+  a
+    +border-radius(3px)
+    +box-shadow(#a02029 2px 2px 0)
+    +single-transition(background-color, 250ms)
+    +single-transition(box-shadow, 250ms)
+    background: #c1272d
+    color: #fff
+    display: inline-block
+    padding: 1em
+
+    +small
+      padding: .5em
+
+    &:hover
+      +box-shadow(#333 2px 2px 0)
+      background: #666
+
+    &:active
+      +box-shadow(none)
+      margin: 3px 0 0 3px

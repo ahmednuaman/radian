@@ -12,5 +12,6 @@ html(lang='en', data-ng-controller='appController')
     div#app
       div(data-ng-include, data-src='headerPartial')
       div#view.row(data-ng-view)
+      div(data-ng-include, data-src='ctaPartial')
       div(data-ng-include, data-src='footerPartial')
     script(src='/assets/vendor/requirejs/require.js', data-main='/assets/js/app')

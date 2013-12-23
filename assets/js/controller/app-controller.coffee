@@ -41,8 +41,9 @@ define [
       @pageTitleFactory.addListener A.bind @, @handlePageTitleChange
 
     addPartials: () ->
-      @$scope.headerPartial = cfg.path.partial + 'header/header-partial.html'
+      @$scope.ctaPartial = cfg.path.partial + 'cta-partial.html'
       @$scope.footerPartial = cfg.path.partial + 'footer-partial.html'
+      @$scope.headerPartial = cfg.path.partial + 'header/header-partial.html'
 
     handlePageTitleChange: (event, title) ->
       @$scope.pageTitle = "radian ~ #{title}"
