@@ -9,4 +9,4 @@ define [
   (dfd, data) ->
     collection = _.map data, menuItemVO
 
-    dfd.resolve(collection)
+    dfd.resolve collection
