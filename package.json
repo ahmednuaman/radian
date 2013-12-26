@@ -27,6 +27,7 @@
     "test": "grunt unit"
   },
   "devDependencies": {
+    "coffee-script": "1.6.3",
     "express": "3.4.7",
     "grunt": "0.4.2",
     "grunt-coffeelint": "0.0.8",
@@ -44,6 +45,7 @@
     "grunt-jade": "0.4.0",
     "grunt-karma": "0.6.2",
     "grunt-text-replace": "0.3.10",
+    "jasmine-reporters": "0.2.1",
     "karma-chrome-launcher": "0.1.2",
     "karma-coffee-preprocessor": "0.1.1",
     "karma-coverage": "0.1.4",
