@@ -42,7 +42,7 @@ define [
 
       $httpBackend.flush()
 
-      $scope.menuItems = dataItems
+      $scope.dataItems = data
       $scope.$digest()
 
       expect(el.find('li').length).toBe data.length
