@@ -5,6 +5,7 @@
   "homepage": "https://github.com/ahmednuaman/radian",
   "author": {
     "name": "Ahmed Nuaman",
+    "email": "ahmed@ahmednuaman.com",
     "url": "http://ahmednuaman.com/"
   },
   "repository": {
@@ -58,6 +59,8 @@
     "karma": "0.10.8"
   },
   "keywords": [
-    "angularjs"
+    "angular",
+    "angularjs",
+    "radian"
   ]
 }
