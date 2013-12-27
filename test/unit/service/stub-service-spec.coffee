@@ -9,7 +9,7 @@ define [
     beforeEach module cfg.ngApp
 
     beforeEach inject ($injector) ->
-      service = $injector.get 'menuService'
+      service = $injector.get 'stubService'
 
     it 'should load', () ->
       expect(service.fooBar).toBeDefined()
