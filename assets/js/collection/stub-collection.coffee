@@ -2,8 +2,8 @@
 define [
   'lodash'
   'vo/stub-vo'
-], (_, stub) ->
+], (_, vo) ->
   (dfd, data) ->
-    collection = _.map data, stub
+    collection = _.map data, vo
 
     dfd.resolve collection
