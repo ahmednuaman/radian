@@ -1,19 +1,57 @@
 div#home(data-ng-controller='homeController')
   :markdown
+    ### Code that scales
+    Radian is the perfect set up for projects that need to scale fast. The AMD structure allows single developers to large teams to quickly and efficiently write and deploy great apps.
+
+    ### Rapid set up
+    Radian comes with everything out the box, that means there's all the minification and concatination tasks as well as a local server and even a [PhantomJS](http://phantomjs.org) web crawler to deal with SEO woes.
+
+    ### Light weight
+    Radian is a way of doing things, so there's nothing new to install and no additional dependancies to [AngularJS](http://angularjs.org) and [RequireJS](http://requirejs.org).
+
+    ### 100% code coverage
+    Testing is at the heart of Radian, so out the box it comes complete with all the unit tests you could want.
+
+    ### Generate with Yeoman
+    Radian is better with [Yeoman](http://yeoman.io), use it to set up your project and use the subgenerators to quickly create your app's code, with tests included.
+
+    ### Your app, your way
+    Radian is highly customisable; from the offset you can start with the barebones app or reverse engineer the example code.
+
     ### Quick start
-    The purpose of Radian is to help your team and you start building your app with minimal set up. All you need to have installed is [git](http://git-scm.org), [NodeJS](http://nodejs.org) and the following NodeJS `cli` tools:
+    The purpose of Radian is to help your team and you start building your app with minimal set up. There are two ways to create a Radian project:
+
+    #### Radian using Yeoman
+    Firstly you need to install [Yeoman](http://yeoman.io), then you can set up Radian by simply running:
+
+        npm install -g generator-radian
+        yo radian
+
+    You can then make use of the built in subgenerators to create your project files, you have the choice of two types of generators:
+
+    - The first type creates `coffee` files and follows the pattern of `yo radian:TYPE 'NAME'`; this will create a `TYPE`, say `controller`, in `assets/js/TYPE` and create a test in `test/unit/TYPE`, then where `NAME` is the name of the file you're creating (also used as the module name and class, it'll be slugified/camelised/classified automatically) `TYPE` is one of the following:
+        - `controller`
+        - `service`
+        - `factory`
+        - `directive`
+        - `collection`
+        - `vo`
+    - The second type creates a `jade` partial and an accompanying `sass` partial and follows the pattern of `yo radian:partial 'NAME'` (`NAME` is treated the same as the first type), the files are placed in `assets/partial/` and `assets/css/partial` respectively and the `assets/css/_partials.sass` file is updated accordingly.
+
+    #### Radian without using Yeoman
+    All you need to have installed is [git](http://git-scm.org), [NodeJS](http://nodejs.org) and the following NodeJS `cli` tools:
 
     - [GruntJS](http://gruntjs.com)
     - [Bower](http://bower.io)
     - [Karma](http://karma-runner.github.io)
-
-    **I'm going to write a [Yeoman generator](http://yeoman.io/) real soon.**
 
     To start using Radian simply download the code from [github.com](https://github.com/ahmednuaman/radian) and set it up:
 
         npm install
         grunt install
         grunt
+
+    #### And then...
 
     Running `grunt` will generate all the JS, CSS and HTML, and it'll also start the local server, so point your browser to [http://localhost:8000](http://localhost:8000) and you're laughing.
 
