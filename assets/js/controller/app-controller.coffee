@@ -46,7 +46,7 @@ define [
       @$scope.headerPartial = cfg.path.partial + 'header/header-partial.html'
 
     handlePageTitleChange: (event, title) ->
-      @$scope.pageTitle = "radian ~ #{title}"
+      @$scope.pageTitle = "Radian ~ A scalable AngularJS framework ~ #{title}"
 
   app = A.module cfg.ngApp
   app.controller 'appController', AppController
