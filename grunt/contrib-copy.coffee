@@ -3,11 +3,11 @@ module.exports = (grunt) ->
     prod:
       files: [
           src: [
+            '<%= ngtemplates.prod.src %>'
             'index.html'
             'assets/font/*'
             'assets/img/*.{gif,png,svg}'
             'assets/img/**/*.jpg'
-            'assets/partial/**/*.html'
             'data/*'
           ]
           dest: 'build/'
