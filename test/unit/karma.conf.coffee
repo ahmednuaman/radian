@@ -14,7 +14,7 @@ module.exports = (config) ->
     ]
     files: [
       exclude 'assets/vendor/**/*.js'
-      exclude 'assets/js/**/*.coffee'
+      exclude 'assets/js/**/*.js'
       exclude 'test/unit/**/*-spec.coffee'
       'test/unit/test-main.coffee'
     ]
