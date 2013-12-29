@@ -8,24 +8,10 @@ define [
   # Jump to [`controller/home-controller.coffee`](home-controller.html) ☛
   'controller/home-controller'
 ], (cfg, A) ->
-  docsResolver = ($route, $window) ->
-    file = $route.current.params.file || 'app.html'
-
-    $window.location.href = "/docs/#{file}"
-
-  docsResolver.$inject = [
-    '$route'
-    '$window'
-  ]
-
   routes = ($routeProvider, $locationProvider) ->
     $routeProvider
       .when '/code',
         templateUrl: cfg.path.partial + 'code-partial.html'
-
-      .when '/docs/:file?',
-        resolve:
-          factory: docsResolver
 
       .when '/error/:code',
         templateUrl: cfg.path.partial + 'error-partial.html'

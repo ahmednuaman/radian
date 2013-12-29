@@ -7,7 +7,8 @@
     "href": "/code"
   }, {
     "title": "Read the docs",
-    "href": "/docs"
+    "href": "/docs/app.html",
+    "target": "_self"
   }, {
     "title": "FAQs",
     "href": "/faqs"

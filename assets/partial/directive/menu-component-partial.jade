@@ -1,4 +1,4 @@
 div.menu-component
   ul.list-menu
     li(data-ng-repeat='item in items')
-      a(data-ng-href='{{item.href}}', data-ng-class='{"selected": item.selected}') {{item.title}}
+      a(data-ng-href='{{item.href}}', data-ng-class='{"selected": item.selected}', target='{{item.target}}') {{item.title}}
