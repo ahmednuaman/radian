@@ -80,9 +80,9 @@ module.exports = (grunt) ->
       'requirejs'
       'jade:prod'
       'copy'
-      'replace'
       'express'
       'exec'
+      'replace'
     ]
 
     config =
