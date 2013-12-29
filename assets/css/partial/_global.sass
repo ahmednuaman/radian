@@ -1,6 +1,18 @@
 .block
   display: block
 
+.col-3
+  @extend .left
+  padding-left: 20px
+  width: 33%
+
+  &:first-child
+    padding-left: 0
+
+  +small
+    width: 100%
+    padding-left: 0
+
 .left
   @extend .block
   float: left
