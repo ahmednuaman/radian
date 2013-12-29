@@ -1,6 +1,6 @@
 div#code
   :markdown
-    ## Code
+    # The Code
     Radian contains the documentation as comments in the source code of its files. Also to jazz things up a bit I've run the code through the awesome [Docco](http://jashkenas.github.io/docco/) and [the generated docs are also available](/docs/app.html) for your browsing pleasure.
 
     Radian has three major parts to it:
@@ -11,17 +11,19 @@ div#code
 
     Here's an overview of these bases and you can follow the code documentation onwards:
 
-    ### The app code
+    ## The app code
     Remember that Radian is simply an abstract of how to develop [AngularJS](http://angularjs.org) in a scalable manner. We begin our journey by looking at how the use of AMD available from [RequireJS](http://requirejs.org) helps bring things together: jump to [`app.coffee`](/docs/app.html).
 
-    ### The local tasks and helpers
+    ## The local tasks and helpers
     There are three main local tasks:
 
     - The grunt tasks ([`Gruntfile.coffee`](/docs/gruntfile.html))
     - The local server ([`server.coffee`](/docs/server.html))
     - The web crawler ([`crawler.coffee`](/docs/crawler.html))
 
-    #### The grunt tasks
+    And not forgetting the [Yeoman generator](https://github.com/ahmednuaman/generator-radian).
+
+    ### The grunt tasks
     [Grunt](http://gruntjs.com) is a great utility. It's used to run all the preprocessors that the app uses and also used to put everything into place when the app is built. The task that you'll probably use the most is the default `grunt` task; this does the following:
 
     - Installs the [Bower](http://bower.io) dependancies
@@ -31,12 +33,12 @@ div#code
 
     You can find out more by reviewing [`Gruntfile.coffee`](/docs/gruntfile.html).
 
-    #### The local server
+    ### The local server
     This is a very handy little server that runs off [expressjs](http://expressjs.com). It'll serve the local files by default to `http://localhost:8000` and it'll also serve the raw non-compiled files as `text/plain` for convience of debugging.
 
     You can find out more by reviewing [`server.coffee`](/docs/server.html).
 
-    #### The web crawler
+    ### The web crawler
     One of the biggest issues with creating single HTML page apps is trying to deal with SEO. This has been solved for you by a web crawler that uses [PhantomJS](http://phantomjs.org). It'll go to your homepage, find local site links and go off and cache `html` versions of those pages. This makes dealing with an SEO stratergy a lot easier.
 
     You can find out more by reviewing [`crawler.coffee`](/docs/crawler.html).
