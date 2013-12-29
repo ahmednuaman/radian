@@ -18,5 +18,8 @@ define [
     ]
 
     # Jump to [`controller/app-controller.coffee`](app-controller.html) ☛
-    require ['controller/app-controller'], () ->
+    require [
+      'partials'
+      'controller/app-controller'
+    ], () ->
       A.bootstrap document.documentElement, [cfg.ngApp]

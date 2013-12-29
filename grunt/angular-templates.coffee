@@ -11,6 +11,7 @@ module.exports = (grunt) ->
                 module;
 
             module = function ($templateCache) {
+              console.log('sheeett');
               #{script}
             };
 
