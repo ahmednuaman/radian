@@ -10,10 +10,14 @@ page = (require 'webpage').create()
 system = require 'system'
 
 # This crawler can be used directly with PhatomJS in the terminal by running
-# `phantomjs crawler.coffee http://your-server/ output-folder/ page-timeout`.
+# `phantomjs crawler.coffee http://your-server/ output-folder/ page-timeout ignore-regex`.
 base = system.args[2]
 home = system.args[1]
 timeout = system.args[3] || 3000
+ignoreRegex = system.args[4]
+
+if ignoreRegex
+  ignoreRegex = new RegExp system.args[4]
 
 # This `indexed` array stores all the URLs that have already been indexed.
 indexed = []
@@ -72,6 +76,8 @@ index = (address) ->
   links = page.evaluate findLinks
   len = links.length
 
+  console.log "Beginning indexing of #{address}"
+
   while len--
     href = links[len]
 
@@ -80,8 +86,18 @@ index = (address) ->
       continue
 
     # Checks to see that the `link` hasn't already been indexed and isn't already in the queue.
-    if (indexed.indexOf href) is -1 and (queue.indexOf href) is -1
-      queue.push href
+    if (indexed.indexOf href) isnt -1 or (queue.indexOf href) isnt -1
+      continue
+
+    # Checks to see that the `link` doesn't match the `ignoreRegex`, if any
+    if ignoreRegex
+      if href.match ignoreRegex
+        continue
+
+    # Adds the `link` to the `queue`
+    console.log "Adding #{href} to the queue"
+
+    queue.push href
 
   save address, html
 
@@ -95,6 +111,8 @@ index = (address) ->
 # This function loads the next address and prepares to index it. There's a default timeout of 3 seconds but you can
 # change that either in the source code or via the `cli`.
 next = (address) ->
+  console.log "Opening #{address}"
+
   page.open address, (status) ->
     indexed.push address
 
