@@ -20,7 +20,7 @@ module.exports = (grunt) ->
         'compass:dev'
       ]
       options:
-        livereload: true
+        livereload: false
     jade:
       files: [
         '*.jade'
@@ -28,6 +28,13 @@ module.exports = (grunt) ->
       ]
       tasks: [
         'jade:dev'
+      ]
+      options:
+        livereload: true
+    css:
+      files: [
+        '<%= compass.dev.options.sassDir %>/styles.css'
+        '<%= compass.dev.options.imagesDir %>/**/*.png'
       ]
       options:
         livereload: true
