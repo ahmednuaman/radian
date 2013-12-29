@@ -1,79 +1,165 @@
 div#home(data-ng-controller='homeController')
-  :markdown
-    ### Code that scales
-    Radian is the perfect set up for projects that need to scale fast. The AMD structure allows single developers to large teams to quickly and efficiently write and deploy great apps.
+  div.row
+    div.col.col-3
+      :markdown
+        ## Code that scales
+        Radian is the perfect set up for projects that need to scale fast. The AMD structure allows single developers to large teams to quickly and efficiently write and deploy great apps.
 
-    ### Rapid set up
-    Radian comes with everything out the box, that means there's all the minification and concatination tasks as well as a local server and even a [PhantomJS](http://phantomjs.org) web crawler to deal with SEO woes.
+    div.col.col-3
+      :markdown
+        ## Rapid set up
+        Radian comes with everything out the box, that means there's all the minification and concatination tasks as well as a local server and even a [PhantomJS](http://phantomjs.org) web crawler to deal with SEO woes.
 
-    ### Light weight
-    Radian is a way of doing things, so there's nothing new to install and no additional dependancies to [AngularJS](http://angularjs.org) and [RequireJS](http://requirejs.org).
+    div.col.col-3
+      :markdown
+        ## Light weight
+        Radian is a way of doing things, so there's nothing new to install and no additional dependancies to [AngularJS](http://angularjs.org) and [RequireJS](http://requirejs.org).
 
-    ### 100% code coverage
-    Testing is at the heart of Radian, so out the box it comes complete with all the unit tests you could want.
+  div.row
+    div.col.col-3
+      :markdown
+        ## 100% code coverage
+        Testing is at the heart of Radian, so out the box it comes complete with all the unit tests you could want.
 
-    ### Generate with Yeoman
-    Radian is better with [Yeoman](http://yeoman.io), use it to set up your project and use the subgenerators to quickly create your app's code, with tests included.
+    div.col.col-3
+      :markdown
+        ## Generate with Yeoman
+        Radian is better with [Yeoman](http://yeoman.io), use it to set up your project and use the subgenerators to quickly create your app's code, with tests included.
 
-    ### Your app, your way
-    Radian is highly customisable; from the offset you can start with the barebones app or reverse engineer the example code.
+    div.col.col-3
+      :markdown
+        ## Your app, your way
+        Radian is highly customisable; from the offset you can start with the barebones app or reverse engineer the example code.
 
-    ### Quick start
-    The purpose of Radian is to help your team and you start building your app with minimal set up. There are two ways to create a Radian project:
+  div.row
+    :markdown
+      ## Quick start
+      The purpose of Radian is to help your team and you start building your app with minimal set up. There are two ways to create a Radian project:
 
-    #### Radian using Yeoman
-    Firstly you need to install [Yeoman](http://yeoman.io), then you can set up Radian by simply running:
+  div.row
+    :markdown
+      ### Radian using Yeoman
+      Firstly you need to install [Yeoman](http://yeoman.io), then you can set up Radian by simply running:
 
-        npm install -g generator-radian
-        yo radian
+          npm install -g generator-radian
+          yo radian
 
-    You can then make use of the built in subgenerators to create your project files, you have the choice of two types of generators:
+      You can then make use of the built in subgenerators to create your project files, you have the choice of two types of generators, you use them by running:
 
-    - The first type creates `coffee` files and follows the pattern of `yo radian:TYPE 'NAME'`; this will create a `TYPE`, say `controller`, in `assets/js/TYPE` and create a test in `test/unit/TYPE`, then where `NAME` is the name of the file you're creating (also used as the module name and class, it'll be slugified/camelised/classified automatically) `TYPE` is one of the following:
-        - `controller`
-        - `service`
-        - `factory`
-        - `directive`
-        - `collection`
-        - `vo`
-    - The second type creates a `jade` partial and an accompanying `sass` partial and follows the pattern of `yo radian:partial 'NAME'` (`NAME` is treated the same as the first type), the files are placed in `assets/partial/` and `assets/css/partial` respectively and the `assets/css/_partials.sass` file is updated accordingly.
+        yo radian:TYPE 'NAME'
 
-    #### Radian without using Yeoman
-    All you need to have installed is [git](http://git-scm.org), [NodeJS](http://nodejs.org) and the following NodeJS `cli` tools:
+      - **TYPE**: is the generator you're wanting to use and...
+      - **NAME**: is the file/class/module name; this will be automatically slugified/camelized/classified for you, so it's better to write something like 'foo bar', rather than 'fooBar'.
 
-    - [GruntJS](http://gruntjs.com)
-    - [Bower](http://bower.io)
-    - [Karma](http://karma-runner.github.io)
+      ### Generating CoffeeScript files
 
-    To start using Radian simply download the code from [github.com](https://github.com/ahmednuaman/radian) and set it up:
+      This generator will create a **TYPE**, say controller, in `assets/js/TYPE` and create a test spec in `test/unit/TYPE`; where **TYPE** is one of the following:
 
-        npm install
-        grunt install
-        grunt
+      - controller
+      - service
+      - factory
+      - directive
+      - collection
+      - vo
 
-    #### And then...
+      Eg running:
 
-    Running `grunt` will generate all the JS, CSS and HTML, and it'll also start the local server, so point your browser to [http://localhost:8000](http://localhost:8000) and you're laughing.
+          yo radian:controller 'foo bar'
 
-    ### What about [angular-seed](https://github.com/angular/angular-seed)?
-    The angular-seed project is a good place for a developer new to AngularJS to start, but if you want to build a truly scalable and multi developer app then you need a more robust approach.
+      Creates `assets/js/controller/foo-bar-controller.coffee` containing:
 
-    Radian provides a common style and set up to dealing with problems faced by teams when working on AngularJS apps. The beauty of using AMD to handle the loading of dependancies outside of the releams of AngularJS provides a higher level of abstraction and modulartiry to your code.
+          define [
+            'config'
+            'angular'
+          ], (cfg, A) ->
+            class FooBarController
+              @$inject = [
+                '$scope'
+              ]
 
-    Radian is also pretty simple: all that's really happening is that you're splitting up your app into small, managable and decoupled components; this means you write more modulised code that helps you adopt the [DRY](http://en.wikipedia.org/wiki/Dont_repeat_yourself) approach to your app.
+              constructor: (@$scope) ->
+                @init()
 
-    ### What if you don't use SASS, Jade or CoffeeScript?
-    Don't worry buddy, that's cool. You can simply grab all the JS, CSS and HTML by running the `grunt` command and dump all that precompiler nonsense.
+              init: () ->
 
-    The advantage (IMHO) to using precompiled languages is that they require a strict style and thus code is cleaner and more consistent; but that's a discussion for another day.
+            app = A.module cfg.ngApp
+            app.controller 'fooBarController', FooBarController
 
-    ### What about tests?
-    That's been covered too. Since the point of Radian is to highlight a style of app development I've also written unit and client tests to make sure that all the code is pretty nice, open your terminal and run:
+      And `test/unit/controller/foo-bar-controller-spec.coffee` containing:
 
-        npm test
+          define [
+            'config'
+            'angular'
+            'controller/foo-bar-controller'
+          ], (cfg, A) ->
+            describe 'Foo Bar controller', () ->
+              $scope = null
+              createController = null
 
-    ### Are there any docs?
-    Yep, the source code is all commented and I've used [Docco](https://github.com/jashkenas/docco) to [compile the docs](/docs/app.html).
+              beforeEach module cfg.ngApp
 
-    ### Who are you?
-    I'm [Ahmed Nuaman](http://ahmednuaman.com), I wrestle dachshunds and solve problems.
+              beforeEach inject ($injector) ->
+                $controller = $injector.get '$controller'
+                $rootScope = $injector.get '$rootScope'
+
+                $scope = $rootScope.$new()
+
+                createController = () ->
+                  $controller 'fooBarController',
+                    $scope: $scope
+
+              it 'should load', () ->
+                controller = createController()
+
+      ### Generating Jade and SASS files
+
+      This generator creates a Jade partial and an accompanying SASS partial, eg running:
+
+          yo radian:partial 'my new view'
+
+      Creates `assets/css/partial/_my-new-view.sass` and `assets/partial/my-new-view-partial.jade`, and finally updates `assets/css/_partials.sass` to include the newly created SASS file.
+
+      ### Radian without using Yeoman
+      All you need to have installed is [git](http://git-scm.org), [NodeJS](http://nodejs.org) and the following NodeJS `cli` tools:
+
+      - [GruntJS](http://gruntjs.com)
+      - [Bower](http://bower.io)
+      - [Karma](http://karma-runner.github.io)
+
+      To start using Radian simply download the code from [github.com](https://github.com/ahmednuaman/radian) and set it up:
+
+          npm install
+          grunt install
+          grunt
+
+  div.row
+    :markdown
+      ### And then...
+
+      Running `grunt` will generate all the JS, CSS and HTML, and it'll also start the local server, so point your browser to [http://localhost:8000](http://localhost:8000) and you're laughing.
+
+  div.row
+    :markdown
+      ## FAQs
+      ### What about [angular-seed](https://github.com/angular/angular-seed)?
+      The angular-seed project is a good place for a developer new to AngularJS to start, but if you want to build a truly scalable and multi developer app then you need a more robust approach.
+
+      Radian provides a common style and set up to dealing with problems faced by teams when working on AngularJS apps. The beauty of using AMD to handle the loading of dependancies outside of the releams of AngularJS provides a higher level of abstraction and modulartiry to your code.
+
+      Radian is also pretty simple: all that's really happening is that you're splitting up your app into small, managable and decoupled components; this means you write more modulised code that helps you adopt the [DRY](http://en.wikipedia.org/wiki/Dont_repeat_yourself) approach to your app.
+
+      ### What if you don't use SASS, Jade or CoffeeScript?
+      Don't worry buddy, that's cool. You can simply grab all the JS, CSS and HTML by running the `grunt` command and dump all that precompiler nonsense.
+
+      The advantage (IMHO) to using precompiled languages is that they require a strict style and thus code is cleaner and more consistent; but that's a discussion for another day.
+
+      ### What about tests?
+      That's been covered too. Since the point of Radian is to highlight a style of app development I've also written unit and client tests to make sure that all the code is pretty nice, open your terminal and run:
+
+          npm test
+
+      ### Are there any docs?
+      Yep, the source code is all commented and I've used [Docco](https://github.com/jashkenas/docco) to [compile the docs](/docs/app.html).
+
+      ### Who are you?
+      I'm [Ahmed Nuaman](http://ahmednuaman.com), I wrestle dachshunds and solve problems.
