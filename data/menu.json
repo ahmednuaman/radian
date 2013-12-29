@@ -11,5 +11,8 @@
   }, {
     "title": "FAQs",
     "href": "/faqs"
+  }, {
+    "title": "Repo",
+    "href": "http://github.com/ahmednuaman/radian"
   }]
 }
