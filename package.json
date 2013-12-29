@@ -52,7 +52,7 @@
     "karma-jasmine": "0.1.5",
     "karma-junit-reporter": "0.2.1",
     "karma-requirejs": "0.2.1",
-    "markdown": "0.5.0"
+    "marked": "0.3.0"
   },
   "peerDependencies": {
     "grunt": "0.4.2",
