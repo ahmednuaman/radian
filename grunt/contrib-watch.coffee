@@ -27,7 +27,7 @@ module.exports = (grunt) ->
         'assets/partial/**/*.jade'
       ]
       tasks: [
-        'jade'
+        'jade:dev'
       ]
       options:
         livereload: true
