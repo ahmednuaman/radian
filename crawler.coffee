@@ -13,8 +13,8 @@ system = require 'system'
 # `phantomjs crawler.coffee http://your-server/ output-folder/ page-timeout ignore-regex`.
 base = system.args[2]
 home = system.args[1]
-timeout = system.args[3] || 3000
 ignoreRegex = system.args[4]
+timeout = system.args[3] || 3000
 
 if ignoreRegex
   ignoreRegex = new RegExp system.args[4]
@@ -57,7 +57,7 @@ save = (address, html) ->
 
   if name
     # Creates a file path tree according to the named address of the document.
-    fs.makeTree name
+    fs.makeTree base + name
 
     # Checks for and adds a trailing slash if there isn't one there.
     if (name.charAt name.length - 1) isnt '/'
