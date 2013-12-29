@@ -33,6 +33,9 @@ define [
       .when '/error',
         templateUrl: cfg.path.partial + 'error-partial.html'
 
+      .when '/faqs',
+        templateUrl: cfg.path.partial + 'faqs-partial.html'
+
       .when '/',
         templateUrl: cfg.path.partial + 'home-partial.html'
 
