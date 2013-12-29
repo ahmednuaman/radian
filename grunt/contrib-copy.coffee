@@ -5,7 +5,8 @@ module.exports = (grunt) ->
           src: [
             'index.html'
             'assets/font/*'
-            'assets/img/*.png'
+            'assets/img/*.{gif,png,svg}'
+            'assets/img/**/*.jpg'
             'assets/partial/**/*.html'
           ]
           dest: 'build/'
