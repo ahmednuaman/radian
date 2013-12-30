@@ -44,7 +44,7 @@ define [
         success: () ->
           expect(factory.get().length).toBe(data.items.length)
 
-      $httpBackend.expectGET('/' + cfg.api.data).respond 201, JSON.stringify data
+      $httpBackend.expectGET(cfg.api.data).respond 201, JSON.stringify data
 
       service.get().then cb.success
 
