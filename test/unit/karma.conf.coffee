@@ -35,8 +35,12 @@ module.exports = (config) ->
       'progress'
     ]
     coverageReporter:
-      dir: 'test/report/coverage/html'
-      type: 'html'
+      dir: 'test/report/coverage'
+      reporters: [
+          type: 'html'
+        ,
+          type: 'text-summary'
+      ]
     junitReporter:
       outputFile: 'test/report/karma-unit.xml'
     logLevel: config.LOG_INFO
