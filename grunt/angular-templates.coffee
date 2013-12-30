@@ -7,6 +7,8 @@ module.exports = (grunt) ->
       dest: 'assets/js/partials.js'
       options:
         bootstrap: (module, script) ->
+          # To save ourselves duplicating code, we take the [`assets/js/partials.coffee`](partials.html) file,
+          # compile it to JS and then inject the compiled templates in; this then forms our `$templateCache` bootstrap.
           src = grunt.config 'ngtemplates.prod.dest'
           file = grunt.file.read src.replace '.js', '.coffee'
           template = cs.compile file
