@@ -1,25 +1,16 @@
 module.exports = (grunt) ->
+  cs = require 'coffee-script'
+
   grunt.config 'ngtemplates',
     prod:
       src: 'assets/partial/**/*.html'
       dest: 'assets/js/partials.js'
       options:
         bootstrap: (module, script) ->
-          """
-          define(['config', 'angular'], function(cfg, A) {
-            var app = A.module(cfg.ngApp),
-                module;
-
-            module = function ($templateCache) {
-              console.log('sheeett');
-              #{script}
-            };
-
-            module.$inject = ['$templateCache'];
-
-            app.run(module);
-          });
-          """
+          src = grunt.config 'ngtemplates.prod.dest'
+          file = grunt.file.read src.replace '.js', '.coffee'
+          template = cs.compile file
+          template.replace '\'#{script}\'', script
         htmlmin:
           collapseBooleanAttributes: true
           collapseWhitespace: true
