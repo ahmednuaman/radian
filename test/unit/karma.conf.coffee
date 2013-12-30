@@ -20,6 +20,7 @@ module.exports = (config) ->
     ]
     exclude: [
       'assets/js/app.coffee'
+      'assets/js/partials.coffee'
     ]
     frameworks: [
       'jasmine'

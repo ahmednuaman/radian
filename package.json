@@ -28,6 +28,7 @@
     "test": "grunt unit"
   },
   "devDependencies": {
+    "coffee-script": "1.6.3",
     "express": "3.4.7",
     "grunt": "0.4.2",
     "grunt-coffeelint": "0.0.8",
