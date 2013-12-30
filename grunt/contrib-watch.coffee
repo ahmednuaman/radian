@@ -10,6 +10,7 @@ module.exports = (grunt) ->
       ]
       options:
         livereload: true
+        spawn: false
     compass:
       files: [
         '<%= compass.dev.options.sassDir %>/**/*.sass'
