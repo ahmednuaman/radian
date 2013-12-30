@@ -464,14 +464,14 @@ Jump to <a href="menu-items-collection.html"><code>collection/menu-items-collect
         <span class="keyword">if</span> factory.selectedItem
           factory.selectedItem.selected = <span class="literal">false</span>
 
-        A.forEach factory.collection, <span class="function"><span class="params">(vo)</span> -&gt;</span>
+        A.forEach factory.collection, <span class="function"><span class="params">(vo, i)</span> -&gt;</span>
           <span class="keyword">if</span> href <span class="keyword">is</span> <span class="string">'/'</span>
             vo.selected = vo.href <span class="keyword">is</span> href
           <span class="keyword">else</span>
             vo.selected = !!~vo.href.indexOf href
 
           <span class="keyword">if</span> vo.selected
-            factory.selectedItem = vo
+            factory.selectedItem = factory.collection[i] = vo
 
             pageTitleFactory.setTitle vo.title
 

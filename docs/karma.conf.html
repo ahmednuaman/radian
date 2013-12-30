@@ -401,8 +401,12 @@ eye on the code then <a href="http://phantomjs.org">PhantomJS</a> is used as the
       <span class="string">'progress'</span>
     ]
     <span class="attribute">coverageReporter</span>:
-      <span class="attribute">dir</span>: <span class="string">'test/report/coverage/html'</span>
-      <span class="attribute">type</span>: <span class="string">'html'</span>
+      <span class="attribute">dir</span>: <span class="string">'test/report/coverage'</span>
+      <span class="attribute">reporters</span>: [
+          <span class="attribute">type</span>: <span class="string">'html'</span>
+        ,
+          <span class="attribute">type</span>: <span class="string">'text-summary'</span>
+      ]
     <span class="attribute">junitReporter</span>:
       <span class="attribute">outputFile</span>: <span class="string">'test/report/karma-unit.xml'</span>
     <span class="attribute">logLevel</span>: config.LOG_INFO</pre></div></div>
