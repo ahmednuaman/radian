@@ -109,6 +109,11 @@
               </a>
             
               
+              <a class="source" href="partials.html">
+                partials.coffee
+              </a>
+            
+              
               <a class="source" href="routes.html">
                 routes.coffee
               </a>
@@ -141,6 +146,11 @@
               
               <a class="source" href="crawler.html">
                 crawler.coffee
+              </a>
+            
+              
+              <a class="source" href="angular-templates.html">
+                angular-templates.coffee
               </a>
             
               
@@ -370,6 +380,25 @@ but from experience following this pattern provides a clean and adaptable layout
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
+              <p>Fast apps are nice, and in order to keep your app nice and fast it&#39;s a good idea to make use of
+<a href="http://docs.angularjs.org/api/ng.$templateCache"><code>$templateCache</code></a>, so here we have a file that takes care of that;
+during development it&#39;s left empty on purpose and it&#39;s then filled with the compiled <a href="http://jade-lang.com">Jade</a>
+templates during build time.
+Jump to <a href="partials.html"><code>partials.coffee</code></a> ☛</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'partials'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
               <p>Before <code>appController</code> is added to the app it is vital to load in the
 <a href="http://docs.angularjs.org/api/ngRoute.$routeProvider"><code>ngRoute</code></a> configuration. If your app is driven from an API
 and thus the navigation needs to be loaded before the app can work out where to go then it&#39;s a good idea to use
@@ -383,11 +412,11 @@ Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
         </li>
         
         
-        <li id="section-4">
+        <li id="section-5">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+                <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <p>Jump to <a href="header-controller.html"><code>controller/header/header-controller.coffee</code></a> ☛</p>
 
@@ -398,11 +427,11 @@ Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
         </li>
         
         
-        <li id="section-5">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>Jump to <a href="footer-controller.html"><code>controller/footer-controller.coffee</code></a> ☛</p>
 
@@ -413,11 +442,11 @@ Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
         </li>
         
         
-        <li id="section-6">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p>One problem that people struggled with regarding <a href="http://angularjs.org">AngularJS</a> is how to deal with sending data
 between modules in the app. This has been resolved here by the use of factories, in this case it&#39;s a factory that
@@ -434,11 +463,11 @@ Jump to <a href="page-title-factory.html"><code>factory/page-title-factory.coffe
         </li>
         
         
-        <li id="section-7">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>Every controller class in radian follows the same pattern. It&#39;s also preferable to explicity specify the <code>$inject</code>
 modules as this code will be minified.</p>

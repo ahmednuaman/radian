@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>docco.coffee</title>
+  <title>angular-templates.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -336,7 +336,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>docco.coffee</h1>
+                  <h1>angular-templates.coffee</h1>
               </div>
           </li>
         
@@ -352,13 +352,41 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(grunt)</span> -&gt;</span>
-  grunt.config <span class="string">'docco'</span>,
-    <span class="attribute">all</span>:
-      <span class="attribute">src</span>: [<span class="string">'&lt;%= coffeelint.all %&gt;'</span>]
-      <span class="attribute">options</span>:
-        <span class="attribute">output</span>: <span class="string">'docs/'</span>
+  cs = <span class="built_in">require</span> <span class="string">'coffee-script'</span>
 
-  grunt.loadNpmTasks <span class="string">'grunt-docco'</span></pre></div></div>
+  grunt.config <span class="string">'ngtemplates'</span>,
+    <span class="attribute">prod</span>:
+      <span class="attribute">src</span>: <span class="string">'assets/partial/**/*.html'</span>
+      <span class="attribute">dest</span>: <span class="string">'assets/js/partials.js'</span>
+      <span class="attribute">options</span>:
+        <span class="attribute">bootstrap</span>: <span class="function"><span class="params">(<span class="built_in">module</span>, script)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>To save ourselves duplicating code, we take the <a href="partials.html"><code>assets/js/partials.coffee</code></a> file,
+compile it to JS and then inject the compiled templates in; this then forms our <code>$templateCache</code> bootstrap.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          src = grunt.config <span class="string">'ngtemplates.prod.dest'</span>
+          file = grunt.file.read src.replace <span class="string">'.js'</span>, <span class="string">'.coffee'</span>
+          template = cs.compile file
+          template.replace <span class="string">'return \'#{script}\''</span>, script
+        <span class="attribute">htmlmin</span>:
+          <span class="attribute">collapseBooleanAttributes</span>: <span class="literal">true</span>
+          <span class="attribute">collapseWhitespace</span>: <span class="literal">true</span>
+          <span class="attribute">removeComments</span>: <span class="literal">true</span>
+          <span class="attribute">removeEmptyAttributes</span>: <span class="literal">true</span>
+        <span class="attribute">prefix</span>: <span class="string">'/'</span>
+
+  grunt.loadNpmTasks <span class="string">'grunt-angular-templates'</span></pre></div></div>
             
         </li>
         

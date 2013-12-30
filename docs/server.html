@@ -109,6 +109,11 @@
               </a>
             
               
+              <a class="source" href="partials.html">
+                partials.coffee
+              </a>
+            
+              
               <a class="source" href="routes.html">
                 routes.coffee
               </a>
@@ -141,6 +146,11 @@
               
               <a class="source" href="crawler.html">
                 crawler.coffee
+              </a>
+            
+              
+              <a class="source" href="angular-templates.html">
+                angular-templates.coffee
               </a>
             
               
@@ -416,13 +426,13 @@ then you can do a quick and sneaky change here to point it to the <code>/build</
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  app.use <span class="string">'/'</span>, express.static __dirname + <span class="string">'/build/'</span>
+            <div class="content"><div class='highlight'><pre>  app.use <span class="string">'/'</span>, express.static __dirname + <span class="string">'/'</span>
 
 app.options <span class="string">'*'</span>, <span class="function"><span class="params">(request, response, next)</span> -&gt;</span>
   response.send <span class="number">200</span>
 
 app.all <span class="string">'*'</span>, <span class="function"><span class="params">(request, response, next)</span> -&gt;</span>
-  response.sendfile __dirname + <span class="string">'/build/index.html'</span>
+  response.sendfile __dirname + <span class="string">'/index.html'</span>
 
 app.listen port, <span class="function"><span class="params">()</span> -&gt;</span>
   console.log <span class="string">'Listening on port: '</span> + port</pre></div></div>

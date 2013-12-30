@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>docco.coffee</title>
+  <title>partials.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -336,7 +336,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>docco.coffee</h1>
+                  <h1>partials.coffee</h1>
               </div>
           </li>
         
@@ -348,17 +348,51 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>This is a dummy file used for local debugging. It is replaced by <code>grunt-angular-templates</code> during the build process.</p>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(grunt)</span> -&gt;</span>
-  grunt.config <span class="string">'docco'</span>,
-    <span class="attribute">all</span>:
-      <span class="attribute">src</span>: [<span class="string">'&lt;%= coffeelint.all %&gt;'</span>]
-      <span class="attribute">options</span>:
-        <span class="attribute">output</span>: <span class="string">'docs/'</span>
+            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Jump to <a href="config.html"><code>config.coffee</code></a> ☛</p>
 
-  grunt.loadNpmTasks <span class="string">'grunt-docco'</span></pre></div></div>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'config'</span>
+  <span class="string">'angular'</span>
+], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
+  <span class="function"><span class="title">partials</span> = <span class="params">($templateCache)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>This is on purpose as <code>grunt-angular-templates</code> will replace this with the compiled partials.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="string">'#{script}'</span>
+
+  partials.$inject = [
+    <span class="string">'$templateCache'</span>
+  ]
+
+  app = A.<span class="built_in">module</span> cfg.ngApp
+  app.run partials</pre></div></div>
             
         </li>
         
