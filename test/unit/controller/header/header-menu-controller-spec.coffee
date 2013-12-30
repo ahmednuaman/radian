@@ -53,7 +53,7 @@ define [
         success: () ->
           expect(menuFactory.get().length).toBe(data.items.length)
 
-      $httpBackend.expectGET(cfg.api.data).respond 201, JSON.stringify data
+      $httpBackend.expectGET('/' + cfg.api.data).respond 201, JSON.stringify data
 
       controller = createController()
 
@@ -64,7 +64,7 @@ define [
     it 'should throw a 500 error if loading the menu fails', () ->
       spyOn pageErrorFactory, 'show500'
 
-      $httpBackend.expectGET(cfg.api.data).respond 500
+      $httpBackend.expectGET('/' + cfg.api.data).respond 500
 
       controller = createController()
 
