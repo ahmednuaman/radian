@@ -10,11 +10,12 @@ module.exports = (grunt) ->
           src = grunt.config 'ngtemplates.prod.dest'
           file = grunt.file.read src.replace '.js', '.coffee'
           template = cs.compile file
-          template.replace '\'#{script}\'', script
+          template.replace 'return \'#{script}\'', script
         htmlmin:
           collapseBooleanAttributes: true
           collapseWhitespace: true
           removeComments: true
           removeEmptyAttributes: true
+        prefix: '/'
 
   grunt.loadNpmTasks 'grunt-angular-templates'

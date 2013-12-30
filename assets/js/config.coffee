@@ -6,4 +6,4 @@ define [], () ->
   api:
     data: '/data/menu.json'
   path:
-    partial: 'assets/partial/'
+    partial: '/assets/partial/'

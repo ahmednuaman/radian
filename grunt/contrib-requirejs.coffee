@@ -6,7 +6,6 @@ module.exports = (grunt) ->
         name: 'app'
         out: 'build/assets/js/app-<%= grunt.config.get("git-commit") %>.js'
         include: [
-          'partials'
           'startup'
           'controller/app-controller'
         ]
