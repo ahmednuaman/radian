@@ -48,14 +48,14 @@ define [
         if factory.selectedItem
           factory.selectedItem.selected = false
 
-        A.forEach factory.collection, (vo) ->
+        A.forEach factory.collection, (vo, i) ->
           if href is '/'
             vo.selected = vo.href is href
           else
             vo.selected = !!~vo.href.indexOf href
 
           if vo.selected
-            factory.selectedItem = vo
+            factory.selectedItem = factory.collection[i] = vo
 
             pageTitleFactory.setTitle vo.title
 
