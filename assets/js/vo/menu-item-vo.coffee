@@ -3,7 +3,8 @@
 # ```
 # {
 #   "title": "Getting started",
-#   "href": "/"
+#   "href": "/",
+#   "target": "_self" # optional
 # }
 # ```
 #
