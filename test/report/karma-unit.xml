@@ -1,35 +1,36 @@
 <?xml version="1.0"?>
 <testsuites>
-  <testsuite name="Chrome 31.0.1650 (Mac OS X 10.9.0)" package="" timestamp="2013-12-30T19:18:26" id="0" hostname="ahmed.local" tests="26" errors="0" failures="0" time="0.177">
+  <testsuite name="Chrome 31.0.1650 (Mac OS X 10.9.0)" package="" timestamp="2013-12-31T12:01:01" id="0" hostname="ahmed.local" tests="27" errors="0" failures="0" time="0.177">
     <properties>
       <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36"/>
     </properties>
-    <testcase name="should $emit an event that contains a new title" time="0.011" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Page title factory"/>
-    <testcase name="should change the $scope.code according to $routeParams.code" time="0.006" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Error controller"/>
-    <testcase name="should default $scope.code to 404 if there is no $routeParams.code" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Error controller"/>
+    <testcase name="should $emit an event that contains a new title" time="0.012" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Page title factory"/>
+    <testcase name="should change the $scope.code according to $routeParams.code" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Error controller"/>
+    <testcase name="should default $scope.code to 404 if there is no $routeParams.code" time="0.004" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Error controller"/>
     <testcase name="should load" time="0.004" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Footer controller"/>
     <testcase name="should load" time="0.007" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Home controller"/>
     <testcase name="should load" time="0.003" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub controller"/>
-    <testcase name="should generate a menu from a modal" time="0.036" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu component directive"/>
+    <testcase name="should generate a menu from a modal" time="0.039" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu component directive"/>
     <testcase name="should load" time="0.013" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub directive"/>
     <testcase name="should load" time="0.007" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub factory"/>
+    <testcase name="should run the filter" time="0.006" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub filter"/>
     <testcase name="should load" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub service"/>
-    <testcase name="should return a nice VO" time="0.001" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu item VO"/>
-    <testcase name="should return a nice collection" time="0.002" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu items collection"/>
+    <testcase name="should return a nice VO" time="0" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu item VO"/>
+    <testcase name="should return a nice collection" time="0.004" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu items collection"/>
     <testcase name="should return a nice VO" time="0" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub VO"/>
-    <testcase name="should return a nice collection" time="0.002" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub collection"/>
+    <testcase name="should return a nice collection" time="0.003" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Stub collection"/>
     <testcase name="should populate the factory and return the collection" time="0.009" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu factory"/>
-    <testcase name="should select an item by a specified href" time="0.007" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu factory"/>
-    <testcase name="should update the selected item if the location changes" time="0.006" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu factory"/>
-    <testcase name="should get the menu and populate the factory" time="0.007" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu service"/>
+    <testcase name="should select an item by a specified href" time="0.003" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu factory"/>
+    <testcase name="should update the selected item if the location changes" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu factory"/>
+    <testcase name="should get the menu and populate the factory" time="0.008" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu service"/>
     <testcase name="should populate the factory" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu service"/>
-    <testcase name="should reject the dfd in case of an error" time="0.006" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu service"/>
-    <testcase name="should change the $location according to an error code" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Page error factory"/>
-    <testcase name="should populate $scope.menuItems" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Header menu controller"/>
-    <testcase name="should throw a 500 error if loading the menu fails" time="0.006" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Header menu controller"/>
-    <testcase name="should add the menu partial" time="0.004" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Header controller"/>
-    <testcase name="should add the header and footer partials" time="0.004" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).App controller"/>
-    <testcase name="should change the title when an event is fired from pageTitleFactory" time="0.011" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).App controller"/>
+    <testcase name="should reject the dfd in case of an error" time="0.005" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Menu service"/>
+    <testcase name="should change the $location according to an error code" time="0.004" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Page error factory"/>
+    <testcase name="should populate $scope.menuItems" time="0.006" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Header menu controller"/>
+    <testcase name="should throw a 500 error if loading the menu fails" time="0.004" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Header menu controller"/>
+    <testcase name="should add the menu partial" time="0.002" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).Header controller"/>
+    <testcase name="should add the header and footer partials" time="0.011" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).App controller"/>
+    <testcase name="should change the title when an event is fired from pageTitleFactory" time="0.003" classname="Chrome 31.0.1650 (Mac OS X 10.9.0).App controller"/>
     <system-out><![CDATA[
 ]]></system-out>
     <system-err/>

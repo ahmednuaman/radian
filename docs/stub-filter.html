@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>docco.coffee</title>
+  <title>stub-filter.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -346,7 +346,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>docco.coffee</h1>
+                  <h1>stub-filter.coffee</h1>
               </div>
           </li>
         
@@ -358,17 +358,24 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>This is a stub filter. It does nothing.</p>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(grunt)</span> -&gt;</span>
-  grunt.config <span class="string">'docco'</span>,
-    <span class="attribute">all</span>:
-      <span class="attribute">src</span>: [<span class="string">'&lt;%= coffeelint.all %&gt;'</span>]
-      <span class="attribute">options</span>:
-        <span class="attribute">output</span>: <span class="string">'docs/'</span>
+            <div class="content"><div class='highlight'><pre>define [
+  <span class="string">'config'</span>
+  <span class="string">'angular'</span>
+], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
+  <span class="function"><span class="title">stubFilter</span> = <span class="params">($location)</span> -&gt;</span>
+    <span class="function"><span class="params">(input)</span> -&gt;</span>
+      <span class="string">"input <span class="subst">#{input}</span>, $location.path() <span class="subst">#{$location.path()}</span>"</span>
 
-  grunt.loadNpmTasks <span class="string">'grunt-docco'</span></pre></div></div>
+  stubFilter.$inject = [
+    <span class="string">'$location'</span>
+  ]
+
+  app = A.<span class="built_in">module</span> cfg.ngApp
+  app.filter <span class="string">'stubFilter'</span>, stubFilter</pre></div></div>
             
         </li>
         
