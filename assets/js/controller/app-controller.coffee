@@ -4,6 +4,9 @@ define [
   # Jump to [`config.coffee`](config.html) ☛
   'config'
   'angular'
+  # Load up the base controller, all controllers inherit from it. All hail the base controller. Wow.
+  # Jump to [`controller/controller.coffee`](controller.html) ☛
+  'controller/controller'
   # Fast apps are nice, and in order to keep your app nice and fast it's a good idea to make use of
   # [`$templateCache`](http://docs.angularjs.org/api/ng.$templateCache), so here we have a file that takes care of that;
   # during development it's left empty on purpose and it's then filled with the compiled [Jade](http://jade-lang.com)
@@ -27,17 +30,14 @@ define [
   # everything testable.
   # Jump to [`factory/page-title-factory.coffee`](page-title-factory.html) ☛
   'factory/page-title-factory'
-], (cfg, A) ->
+], (cfg, A, Controller) ->
   # Every controller class in radian follows the same pattern. It's also preferable to explicity specify the `$inject`
   # modules as this code will be minified.
-  class AppController
-    @$inject = [
+  class AppController extends Controller
+    @register 'appController', [
       '$scope'
       'pageTitleFactory'
     ]
-
-    constructor: (@$scope, @pageTitleFactory) ->
-      @init()
 
     init: () ->
       @addListeners()
@@ -53,6 +53,3 @@ define [
 
     handlePageTitleChange: (event, title) ->
       @$scope.pageTitle = "Radian ~ A scalable AngularJS framework ~ #{title}"
-
-  app = A.module cfg.ngApp
-  app.controller 'appController', AppController
