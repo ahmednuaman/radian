@@ -364,13 +364,9 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(config)</span> -&gt;</span>
-  <span class="function"><span class="title">exclude</span> = <span class="params">(path)</span> -&gt;</span>
-    <span class="attribute">pattern</span>: path
-    <span class="attribute">included</span>: <span class="literal">false</span>
-
-  config.set
-    <span class="attribute">basePath</span>: <span class="string">'../../'</span>
-    <span class="attribute">browsers</span>: [</pre></div></div>
+  browsers = [
+    <span class="string">'PhantomJS'</span>
+  ]</pre></div></div>
             
         </li>
         
@@ -386,8 +382,16 @@ eye on the code then <a href="http://phantomjs.org">PhantomJS</a> is used as the
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="keyword">if</span> process.env.TRAVIS <span class="keyword">then</span> <span class="string">'PhantomJS'</span> <span class="keyword">else</span> <span class="string">'Chrome'</span>
-    ]
+            <div class="content"><div class='highlight'><pre>  <span class="keyword">if</span> !process.env.TRAVIS
+    browsers.push <span class="string">'Chrome'</span>, <span class="string">'Firefox'</span>
+
+  <span class="function"><span class="title">exclude</span> = <span class="params">(path)</span> -&gt;</span>
+    <span class="attribute">pattern</span>: path
+    <span class="attribute">included</span>: <span class="literal">false</span>
+
+  config.set
+    <span class="attribute">basePath</span>: <span class="string">'../../'</span>
+    <span class="attribute">browsers</span>: browsers
     <span class="attribute">files</span>: [
       exclude <span class="string">'assets/vendor/**/*.js'</span>
       exclude <span class="string">'assets/js/**/*.js'</span>
