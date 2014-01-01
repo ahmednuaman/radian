@@ -19,7 +19,7 @@ define [
       $scope = $rootScope.$new()
 
       createController = () ->
-        $controller 'appController',
+        $controller 'AppController',
           $scope: $scope
           pageTitleFactory: pageTitleFactory
 

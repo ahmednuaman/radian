@@ -5,8 +5,13 @@ define [
   'lodash'
 ], (cfg, A, _) ->
   helper =
+    # Specifically set types.
     type:
       controller: 'controller'
+      directive: 'directive'
+      factory: 'factory'
+      filter: 'filter'
+      service: 'service'
 
     bindAll: (module) ->
       # If called this will [`A.bind`](http://docs.angularjs.org/api/angular.bind) on all the `module`'s functions.
@@ -17,7 +22,7 @@ define [
 
     construct: (module, args) ->
       # Takes the `$inject` dependancies and assigns a class-wide (`@`) variable to each one.
-      _.forEach module.constructor.$inject, (key, i) =>
+      _.forEach module.constructor.$inject, (key, i) ->
         module[key] = args[i]
 
       module.init?()

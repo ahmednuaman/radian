@@ -30,10 +30,10 @@ define [
   # everything testable.
   # Jump to [`factory/page-title-factory.coffee`](page-title-factory.html) ☛
   'factory/page-title-factory'
-], (cfg, A, Controller) ->
+], (cfg, A, RC) ->
   # Every controller class in radian follows the same pattern. It's also preferable to explicity specify the `$inject`
   # modules as this code will be minified.
-  class AppController extends Controller
+  class AppController extends RC
     # You register your controller by calling `@register` and passing in the class's name and then the dependancies as
     # an array.
     @register 'AppController', [
@@ -42,12 +42,11 @@ define [
     ]
 
     init: () ->
-      @bindAll()
       @addListeners()
       @addPartials()
 
     addListeners: () ->
-      @pageTitleFactory.addListener @handlePageTitleChange
+      @pageTitleFactory.addListener A.bind @, @handlePageTitleChange
 
     addPartials: () ->
       @$scope.ctaPartial = cfg.path.partial + 'cta-partial.html'

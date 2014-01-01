@@ -1,17 +1,10 @@
 define [
-  # Jump to [`config.coffee`](config.html) ☛
-  'config'
-  'angular'
-], (cfg, A) ->
-  class HomeController
-    @$inject = [
+  # Jump to [`controller/radian-controller.coffee`](radian-controller.html) ☛
+  'controller/radian-controller'
+], (RC) ->
+  class HomeController extends RC
+    @register 'HomeController', [
       '$scope'
     ]
 
-    constructor: (@$scope) ->
-      @init()
-
     init: () ->
-
-  app = A.module cfg.ngApp
-  app.controller 'homeController', HomeController

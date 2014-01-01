@@ -18,7 +18,7 @@ define [
       $scope = $rootScope.$new()
 
       createController = () ->
-        $controller 'errorController',
+        $controller 'ErrorController',
           $scope: $scope
           $routeParams: $routeParams
 
