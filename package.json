@@ -57,8 +57,7 @@
     "karma-junit-reporter": "0.2.1",
     "karma-phantomjs-launcher": "0.1.1",
     "karma-requirejs": "0.2.1",
-    "marked": "0.3.0",
-    "protractor": "0.15.0"
+    "marked": "0.3.0"
   },
   "peerDependencies": {
     "express": "3.4.7",
