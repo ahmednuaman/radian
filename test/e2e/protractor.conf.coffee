@@ -5,7 +5,7 @@ onPrepare = () ->
   global.select = global.by
 
   # https://github.com/angular/protractor/issues/268
-  jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter '../report/protractor/'
+  jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter 'report/protractor/', true, true
 
 
 exports.config =
