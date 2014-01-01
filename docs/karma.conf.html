@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
               <a class="source" href="stub-controller.html">
                 stub-controller.coffee
               </a>
@@ -114,6 +119,11 @@
               </a>
             
               
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
               <a class="source" href="partials.html">
                 partials.coffee
               </a>
@@ -126,6 +136,11 @@
               
               <a class="source" href="menu-service.html">
                 menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
               </a>
             
               
@@ -394,21 +409,33 @@ eye on the code then <a href="http://phantomjs.org">PhantomJS</a> is used as the
     <span class="attribute">browsers</span>: browsers
     <span class="attribute">files</span>: [
       exclude <span class="string">'assets/vendor/**/*.js'</span>
-      exclude <span class="string">'assets/js/**/*.js'</span>
+      exclude <span class="string">'assets/js/**/*.coffee'</span>
       exclude <span class="string">'test/unit/**/*-spec.coffee'</span>
       <span class="string">'test/unit/test-main.coffee'</span>
     ]
     <span class="attribute">exclude</span>: [
       <span class="string">'assets/js/app.coffee'</span>
-      <span class="string">'assets/js/partials.coffee'</span>
     ]
     <span class="attribute">frameworks</span>: [
       <span class="string">'jasmine'</span>
       <span class="string">'requirejs'</span>
     ]
-    <span class="attribute">preprocessors</span>:
-      <span class="string">'assets/js/**/*.js'</span>: <span class="string">'coverage'</span>
-      <span class="string">'**/*.coffee'</span>: <span class="string">'coffee'</span>
+    <span class="attribute">preprocessors</span>:</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>&#39;assets/js/<em>*/</em>.coffee&#39;: &#39;coverage&#39;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="string">'**/*.coffee'</span>: <span class="string">'coffee'</span>
     <span class="attribute">reporters</span>: [
       <span class="string">'coverage'</span>
       <span class="string">'junit'</span>

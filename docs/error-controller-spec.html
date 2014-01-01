@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
               <a class="source" href="stub-controller.html">
                 stub-controller.coffee
               </a>
@@ -114,6 +119,11 @@
               </a>
             
               
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
               <a class="source" href="partials.html">
                 partials.coffee
               </a>
@@ -126,6 +136,11 @@
               
               <a class="source" href="menu-service.html">
                 menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
               </a>
             
               
@@ -370,6 +385,7 @@
     $routeParams = <span class="literal">null</span>
     $scope = <span class="literal">null</span>
     createController = <span class="literal">null</span>
+    pageTitleFactory = <span class="literal">null</span>
 
     beforeEach <span class="built_in">module</span> cfg.ngApp
 
@@ -377,20 +393,26 @@
       $controller = $injector.get <span class="string">'$controller'</span>
       $rootScope = $injector.get <span class="string">'$rootScope'</span>
       $routeParams = $injector.get <span class="string">'$routeParams'</span>
+      pageTitleFactory = $injector.get <span class="string">'pageTitleFactory'</span>
 
       $scope = $rootScope.$<span class="keyword">new</span>()
 
       <span class="function"><span class="title">createController</span> = <span class="params">()</span> -&gt;</span>
-        $controller <span class="string">'errorController'</span>,
+        $controller <span class="string">'ErrorController'</span>,
           <span class="attribute">$scope</span>: $scope
           <span class="attribute">$routeParams</span>: $routeParams
 
-    it <span class="string">'should change the $scope.code according to $routeParams.code'</span>, <span class="function"><span class="params">()</span> -&gt;</span>
+    it <span class="string">'should change the $scope.code and title according to $routeParams.code'</span>, <span class="function"><span class="params">()</span> -&gt;</span>
       code = <span class="string">'123'</span>
+      cb =
+        <span class="attribute">handleTitle</span>: <span class="function"><span class="params">(event, newTitle)</span> -&gt;</span>
+          expect(newTitle).toContain code
+          expect($scope.code).toBe code
+
+      pageTitleFactory.addListener cb.handleTitle
+
       $routeParams.code = code
       controller = createController()
-
-      expect($scope.code).toBe code
 
     it <span class="string">'should default $scope.code to 404 if there is no $routeParams.code'</span>, <span class="function"><span class="params">()</span> -&gt;</span>
       controller = createController()

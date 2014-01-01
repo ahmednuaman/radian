@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
               <a class="source" href="stub-controller.html">
                 stub-controller.coffee
               </a>
@@ -114,6 +119,11 @@
               </a>
             
               
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
               <a class="source" href="partials.html">
                 partials.coffee
               </a>
@@ -126,6 +136,11 @@
               
               <a class="source" href="menu-service.html">
                 menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
               </a>
             
               
@@ -376,8 +391,7 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="string">'config'</span>
-  <span class="string">'angular'</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="string">'config'</span></pre></div></div>
             
         </li>
         
@@ -388,28 +402,37 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
+              <p>Jump to <a href="radian-controller.html"><code>controller/radian-controller.coffee</code></a> ☛</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'controller/radian-controller'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
               <p>Jump to <a href="header-menu-controller.html"><code>controller/header/header-menu-controller.coffee</code></a> ☛</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="string">'controller/header/header-menu-controller'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="class"><span class="keyword">class</span> <span class="title">HeaderController</span></span>
-    <span class="property">@$inject</span> = [
+], <span class="function"><span class="params">(cfg, RC)</span> -&gt;</span>
+  <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">RC</span></span>
+    <span class="property">@register</span> <span class="string">'HeaderController'</span>, [
       <span class="string">'$scope'</span>
     ]
-
-    <span class="attribute">constructor</span>: <span class="function"><span class="params">(<span class="property">@$scope</span>)</span> -&gt;</span>
-      <span class="property">@init</span>()
 
     <span class="attribute">init</span>: <span class="function"><span class="params">()</span> -&gt;</span>
       <span class="property">@addPartials</span>()
 
     <span class="attribute">addPartials</span>: <span class="function"><span class="params">()</span> -&gt;</span>
-      <span class="property">@$scope</span>.menuPartial = cfg.path.partial + <span class="string">'header/header-menu-partial.html'</span>
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.controller <span class="string">'headerController'</span>, HeaderController</pre></div></div>
+      <span class="property">@$scope</span>.menuPartial = cfg.path.partial + <span class="string">'header/header-menu-partial.html'</span></pre></div></div>
             
         </li>
         

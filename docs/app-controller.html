@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
               <a class="source" href="stub-controller.html">
                 stub-controller.coffee
               </a>
@@ -114,6 +119,11 @@
               </a>
             
               
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
               <a class="source" href="partials.html">
                 partials.coffee
               </a>
@@ -126,6 +136,11 @@
               
               <a class="source" href="menu-service.html">
                 menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
               </a>
             
               
@@ -390,6 +405,22 @@ but from experience following this pattern provides a clean and adaptable layout
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
+              <p>Load up the base controller, all controllers inherit from it. All hail the base controller. Wow.
+Jump to <a href="radian-controller.html"><code>controller/radian-controller.coffee</code></a> ☛</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'controller/radian-controller'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
               <p>Fast apps are nice, and in order to keep your app nice and fast it&#39;s a good idea to make use of
 <a href="http://docs.angularjs.org/api/ng.$templateCache"><code>$templateCache</code></a>, so here we have a file that takes care of that;
 during development it&#39;s left empty on purpose and it&#39;s then filled with the compiled <a href="http://jade-lang.com">Jade</a>
@@ -403,11 +434,11 @@ Jump to <a href="partials.html"><code>partials.coffee</code></a> ☛</p>
         </li>
         
         
-        <li id="section-4">
+        <li id="section-5">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+                <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <p>Before <code>appController</code> is added to the app it is vital to load in the
 <a href="http://docs.angularjs.org/api/ngRoute.$routeProvider"><code>ngRoute</code></a> configuration. If your app is driven from an API
@@ -422,11 +453,11 @@ Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
         </li>
         
         
-        <li id="section-5">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>Jump to <a href="header-controller.html"><code>controller/header/header-controller.coffee</code></a> ☛</p>
 
@@ -437,11 +468,11 @@ Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
         </li>
         
         
-        <li id="section-6">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p>Jump to <a href="footer-controller.html"><code>controller/footer-controller.coffee</code></a> ☛</p>
 
@@ -452,11 +483,11 @@ Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
         </li>
         
         
-        <li id="section-7">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>One problem that people struggled with regarding <a href="http://angularjs.org">AngularJS</a> is how to deal with sending data
 between modules in the app. This has been resolved here by the use of factories, in this case it&#39;s a factory that
@@ -468,30 +499,42 @@ Jump to <a href="page-title-factory.html"><code>factory/page-title-factory.coffe
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="string">'factory/page-title-factory'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span></pre></div></div>
+], <span class="function"><span class="params">(cfg, A, RC)</span> -&gt;</span></pre></div></div>
             
         </li>
         
         
-        <li id="section-8">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>Every controller class in radian follows the same pattern. It&#39;s also preferable to explicity specify the <code>$inject</code>
 modules as this code will be minified.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="class"><span class="keyword">class</span> <span class="title">AppController</span></span>
-    <span class="property">@$inject</span> = [
+            <div class="content"><div class='highlight'><pre>  <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">RC</span></span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>You register your controller by calling <code>@register</code> and passing in the class&#39;s name and then the dependancies as
+an array.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@register</span> <span class="string">'AppController'</span>, [
       <span class="string">'$scope'</span>
       <span class="string">'pageTitleFactory'</span>
     ]
-
-    <span class="attribute">constructor</span>: <span class="function"><span class="params">(<span class="property">@$scope</span>, <span class="property">@pageTitleFactory</span>)</span> -&gt;</span>
-      <span class="property">@init</span>()
 
     <span class="attribute">init</span>: <span class="function"><span class="params">()</span> -&gt;</span>
       <span class="property">@addListeners</span>()
@@ -506,10 +549,7 @@ modules as this code will be minified.</p>
       <span class="property">@$scope</span>.headerPartial = cfg.path.partial + <span class="string">'header/header-partial.html'</span>
 
     <span class="attribute">handlePageTitleChange</span>: <span class="function"><span class="params">(event, title)</span> -&gt;</span>
-      <span class="property">@$scope</span>.pageTitle = <span class="string">"Radian ~ A scalable AngularJS framework ~ <span class="subst">#{title}</span>"</span>
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.controller <span class="string">'appController'</span>, AppController</pre></div></div>
+      <span class="property">@$scope</span>.pageTitle = <span class="string">"Radian ~ A scalable AngularJS framework ~ <span class="subst">#{title}</span>"</span></pre></div></div>
             
         </li>
         

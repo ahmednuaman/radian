@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
               <a class="source" href="stub-controller.html">
                 stub-controller.coffee
               </a>
@@ -114,6 +119,11 @@
               </a>
             
               
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
               <a class="source" href="partials.html">
                 partials.coffee
               </a>
@@ -126,6 +136,11 @@
               
               <a class="source" href="menu-service.html">
                 menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
               </a>
             
               
@@ -362,22 +377,40 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [
-  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="class"><span class="keyword">class</span> <span class="title">StubController</span></span>
-    <span class="property">@$inject</span> = [
+            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Jump to <a href="radian-controller.html"><code>controller/radian-controller.coffee</code></a> ☛</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'controller/radian-controller'</span>
+], <span class="function"><span class="params">(RC)</span> -&gt;</span>
+  <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">RC</span></span>
+    <span class="property">@register</span> <span class="string">'StubController'</span>, [
       <span class="string">'$scope'</span>
-    ]
+    ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>init: () -&gt;</p>
 
-    <span class="attribute">constructor</span>: <span class="function"><span class="params">(<span class="property">@$scope</span>)</span> -&gt;</span>
-      <span class="property">@init</span>()
-
-    <span class="attribute">init</span>: <span class="function"><span class="params">()</span> -&gt;</span>
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.controller <span class="string">'stubController'</span>, StubController</pre></div></div>
+            </div>
             
         </li>
         

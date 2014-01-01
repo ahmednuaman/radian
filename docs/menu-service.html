@@ -74,6 +74,11 @@
               </a>
             
               
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
               <a class="source" href="stub-controller.html">
                 stub-controller.coffee
               </a>
@@ -114,6 +119,11 @@
               </a>
             
               
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
               <a class="source" href="partials.html">
                 partials.coffee
               </a>
@@ -126,6 +136,11 @@
               
               <a class="source" href="menu-service.html">
                 menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
               </a>
             
               
@@ -392,23 +407,12 @@ APIs.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
               </div>
-              <p>Jump to <a href="menu-factory.html"><code>factory/menu-factory.coffee</code></a> ☛</p>
+              <p>Load up the base service, all services inherit from it. All hail the base service. Very extend.
+Jump to <a href="radian-service.html"><code>service/radian-service.coffee</code></a> ☛</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="string">'factory/menu-factory'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="class"><span class="keyword">class</span> <span class="title">MenuService</span></span>
-    <span class="property">@$inject</span> = [
-      <span class="string">'$q'</span>
-      <span class="string">'$resource'</span>
-      <span class="string">'menuFactory'</span>
-    ]
-
-    <span class="attribute">constructor</span>: <span class="function"><span class="params">(<span class="property">@$q</span>, <span class="property">@$resource</span>, <span class="property">@menuFactory</span>)</span> -&gt;</span>
-      <span class="property">@init</span>()
-
-    <span class="attribute">init</span>: <span class="function"><span class="params">()</span> -&gt;</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="string">'service/radian-service'</span></pre></div></div>
             
         </li>
         
@@ -419,11 +423,35 @@ APIs.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
+              <p>Jump to <a href="menu-factory.html"><code>factory/menu-factory.coffee</code></a> ☛</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'factory/menu-factory'</span>
+], <span class="function"><span class="params">(cfg, A, RS)</span> -&gt;</span>
+  <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">RS</span></span>
+    <span class="property">@register</span> <span class="string">'menuService'</span>, [
+      <span class="string">'$q'</span>
+      <span class="string">'$resource'</span>
+      <span class="string">'menuFactory'</span>
+    ]
+
+    <span class="attribute">init</span>: <span class="function"><span class="params">()</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
               <p>The <code>$resource</code> object is defined here and this is then used to make the calls</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="property">@menu</span> = <span class="property">@$resource</span> <span class="string">'/data/menu.json'</span>
+            <div class="content"><div class='highlight'><pre>      <span class="property">@menu</span> = <span class="property">@$resource</span> cfg.api.data
 
     <span class="attribute">get</span>: <span class="function"><span class="params">()</span> -&gt;</span>
       dfd = <span class="property">@$q</span>.defer()
@@ -435,11 +463,11 @@ APIs.</p>
         </li>
         
         
-        <li id="section-5">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>Rather than passing the <code>menu</code>&#39;s promise back to the controller, a new deferred object is created as this is
 then passed to the <code>menuFactory</code> and resolved once the <code>collection</code> and <code>VOs</code> are ready.</p>
@@ -452,10 +480,7 @@ then passed to the <code>menuFactory</code> and resolved once the <code>collecti
       <span class="property">@menuFactory</span>.set dfd, menu.items
 
     <span class="attribute">handleFailure</span>: <span class="function"><span class="params">(dfd)</span> -&gt;</span>
-      dfd.reject()
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.service <span class="string">'menuService'</span>, MenuService</pre></div></div>
+      dfd.reject()</pre></div></div>
             
         </li>
         
