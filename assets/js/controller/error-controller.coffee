@@ -1,19 +1,15 @@
 define [
-  # Jump to [`config.coffee`](config.html) ☛
-  'config'
-  'angular'
-], (cfg, A) ->
-  class ErrorController
-    @$inject = [
+  # Jump to [`controller/radian-controller.coffee`](radian-controller.html) ☛
+  'controller/radian-controller'
+], (RC) ->
+  class extends RC
+    @register 'ErrorController', [
       '$scope'
       '$routeParams'
+      'pageTitleFactory'
     ]
-
-    constructor: (@$scope, @$routeParams) ->
-      @init()
 
     init: () ->
       @$scope.code = @$routeParams.code || '404'
 
-  app = A.module cfg.ngApp
-  app.controller 'errorController', ErrorController
+      @pageTitleFactory.setTitle "Error #{@$scope.code}"

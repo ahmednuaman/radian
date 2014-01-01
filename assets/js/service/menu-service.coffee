@@ -6,22 +6,22 @@ define [
   # Jump to [`config.coffee`](config.html) ☛
   'config'
   'angular'
+  # Load up the base service, all services inherit from it. All hail the base service. Very extend.
+  # Jump to [`service/radian-service.coffee`](radian-service.html) ☛
+  'service/radian-service'
   # Jump to [`factory/menu-factory.coffee`](menu-factory.html) ☛
   'factory/menu-factory'
-], (cfg, A) ->
-  class MenuService
-    @$inject = [
+], (cfg, A, RS) ->
+  class extends RS
+    @register 'menuService', [
       '$q'
       '$resource'
       'menuFactory'
     ]
 
-    constructor: (@$q, @$resource, @menuFactory) ->
-      @init()
-
     init: () ->
       # The `$resource` object is defined here and this is then used to make the calls
-      @menu = @$resource '/data/menu.json'
+      @menu = @$resource cfg.api.data
 
     get: () ->
       dfd = @$q.defer()
@@ -39,6 +39,3 @@ define [
 
     handleFailure: (dfd) ->
       dfd.reject()
-
-  app = A.module cfg.ngApp
-  app.service 'menuService', MenuService

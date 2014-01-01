@@ -16,7 +16,7 @@ define [
       $scope = $rootScope.$new()
 
       createController = () ->
-        $controller 'homeController',
+        $controller 'HomeController',
           $scope: $scope
 
     it 'should load', () ->

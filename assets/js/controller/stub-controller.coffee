@@ -1,17 +1,11 @@
 # This is a stub controller. It does nothing.
 define [
-  'config'
-  'angular'
-], (cfg, A) ->
-  class StubController
-    @$inject = [
+  # Jump to [`controller/radian-controller.coffee`](radian-controller.html) ☛
+  'controller/radian-controller'
+], (RC) ->
+  class extends RC
+    @register 'StubController', [
       '$scope'
     ]
 
-    constructor: (@$scope) ->
-      @init()
-
-    init: () ->
-
-  app = A.module cfg.ngApp
-  app.controller 'stubController', StubController
+    # init: () ->

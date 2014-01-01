@@ -7,6 +7,7 @@ define [
     $routeParams = null
     $scope = null
     createController = null
+    pageTitleFactory = null
 
     beforeEach module cfg.ngApp
 
@@ -14,20 +15,26 @@ define [
       $controller = $injector.get '$controller'
       $rootScope = $injector.get '$rootScope'
       $routeParams = $injector.get '$routeParams'
+      pageTitleFactory = $injector.get 'pageTitleFactory'
 
       $scope = $rootScope.$new()
 
       createController = () ->
-        $controller 'errorController',
+        $controller 'ErrorController',
           $scope: $scope
           $routeParams: $routeParams
 
-    it 'should change the $scope.code according to $routeParams.code', () ->
+    it 'should change the $scope.code and title according to $routeParams.code', () ->
       code = '123'
+      cb =
+        handleTitle: (event, newTitle) ->
+          expect(newTitle).toContain code
+          expect($scope.code).toBe code
+
+      pageTitleFactory.addListener cb.handleTitle
+
       $routeParams.code = code
       controller = createController()
-
-      expect($scope.code).toBe code
 
     it 'should default $scope.code to 404 if there is no $routeParams.code', () ->
       controller = createController()

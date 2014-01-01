@@ -24,7 +24,7 @@ define [
       $scope = $rootScope.$new()
 
       createController = () ->
-        $controller 'headerMenuController',
+        $controller 'HeaderMenuController',
           $scope: $scope
           menuFactory: menuFactory
           pageErrorFactory: pageErrorFactory
