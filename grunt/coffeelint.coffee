@@ -3,7 +3,7 @@ module.exports = (grunt) ->
     all: [
       'assets/js/**/*.coffee'
       'grunt/*.coffee'
-      'test/unit/**/*.coffee'
+      'test/**/*.coffee'
       '*.coffee'
     ]
     options:
