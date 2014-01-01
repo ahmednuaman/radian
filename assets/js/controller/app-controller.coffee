@@ -4,6 +4,15 @@ define [
   # Jump to [`config.coffee`](config.html) ☛
   'config'
   'angular'
+  # Load up the base controller, all controllers inherit from it. All hail the base controller. Wow.
+  # Jump to [`controller/radian-controller.coffee`](radian-controller.html) ☛
+  'controller/radian-controller'
+  # Fast apps are nice, and in order to keep your app nice and fast it's a good idea to make use of
+  # [`$templateCache`](http://docs.angularjs.org/api/ng.$templateCache), so here we have a file that takes care of that;
+  # during development it's left empty on purpose and it's then filled with the compiled [Jade](http://jade-lang.com)
+  # templates during build time.
+  # Jump to [`partials.coffee`](partials.html) ☛
+  'partials'
   # Before `appController` is added to the app it is vital to load in the
   # [`ngRoute`](http://docs.angularjs.org/api/ngRoute.$routeProvider) configuration. If your app is driven from an API
   # and thus the navigation needs to be loaded before the app can work out where to go then it's a good idea to use
@@ -21,17 +30,16 @@ define [
   # everything testable.
   # Jump to [`factory/page-title-factory.coffee`](page-title-factory.html) ☛
   'factory/page-title-factory'
-], (cfg, A) ->
+], (cfg, A, RC) ->
   # Every controller class in radian follows the same pattern. It's also preferable to explicity specify the `$inject`
   # modules as this code will be minified.
-  class AppController
-    @$inject = [
+  class extends RC
+    # You register your controller by calling `@register` and passing in the class's name and then the dependancies as
+    # an array.
+    @register 'AppController', [
       '$scope'
       'pageTitleFactory'
     ]
-
-    constructor: (@$scope, @pageTitleFactory) ->
-      @init()
 
     init: () ->
       @addListeners()
@@ -46,7 +54,4 @@ define [
       @$scope.headerPartial = cfg.path.partial + 'header/header-partial.html'
 
     handlePageTitleChange: (event, title) ->
-      @$scope.pageTitle = "radian ~ #{title}"
-
-  app = A.module cfg.ngApp
-  app.controller 'appController', AppController
+      @$scope.pageTitle = "Radian ~ A scalable AngularJS framework ~ #{title}"

@@ -5,7 +5,7 @@ module.exports = (grunt) ->
       cwd: './'
       dest: '<%= coffee.dev.cwd %>'
       ext: '.js'
-      src: ['assets/js/**/*.coffee']
+      src: ['<%= watch.coffee.files %>']
       options:
         bare: true
         sourceMap: true

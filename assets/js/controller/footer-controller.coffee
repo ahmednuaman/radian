@@ -1,17 +1,10 @@
 define [
-  # Jump to [`config.coffee`](config.html) ☛
-  'config'
-  'angular'
-], (cfg, A) ->
-  class FooterController
-    @$inject = [
+  # Jump to [`controller/radian-controller.coffee`](radian-controller.html) ☛
+  'controller/radian-controller'
+], (RC) ->
+  class extends RC
+    @register 'FooterController', [
       '$scope'
     ]
 
-    constructor: (@$scope) ->
-      @init()
-
     init: () ->
-
-  app = A.module cfg.ngApp
-  app.controller 'footerController', FooterController

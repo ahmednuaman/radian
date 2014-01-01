@@ -3,7 +3,8 @@
 # ```
 # {
 #   "title": "Getting started",
-#   "href": "/"
+#   "href": "/",
+#   "target": "_self" # optional
 # }
 # ```
 #
@@ -15,3 +16,4 @@ define [
   (data) ->
     _.assign data,
       selected: false
+      target: data['target']

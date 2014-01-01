@@ -5,20 +5,20 @@ module.exports = (grunt) ->
       overwrite: true
       replacements: [
           from: '../vendor/angular/angular'
-          to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js'
+          to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min'
         ,
           from: '../vendor/angular-resource/angular-resource'
-          to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-resource.min.js'
+          to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-resource.min'
         ,
           from: '../vendor/angular-route/angular-route'
-          to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js'
+          to: '//ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min'
         ,
-          from: '../vendor/lodash/lodash'
-          to: '//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js'
+          from: '../vendor/lodash/dist/lodash'
+          to: '//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min'
         ,
       ]
     html:
-      src: ['build/index.html']
+      src: ['build/**/*.html']
       overwrite: true
       replacements: [
           from: 'js/app'

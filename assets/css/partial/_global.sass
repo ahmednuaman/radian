@@ -1,6 +1,18 @@
 .block
   display: block
 
+.col-3
+  @extend .left
+  padding-left: 20px
+  width: 33%
+
+  &:first-child
+    padding-left: 0
+
+  +small
+    width: 100%
+    padding-left: 0
+
 .left
   @extend .block
   float: left
@@ -32,25 +44,34 @@ p
 
 a
   +single-transition(color, 250ms)
-  color: #c1272d
+  color: #A6120D
   font-weight: bold
   text-decoration: none
 
   &:hover
     color: #000
 
-pre,
-code
+code,
+pre
   +border-radius(3px)
-  background: #666
-  color: #f8f8f8
-  font-family: 'Droid Sans Mono', monospace, serif
-  padding: .3em
+  font:
+    family: 'Droid Sans Mono', monospace, serif
+    size: .8em
+
+code
+  background: #f8f8f8
+  border: 1px solid #ccc
+  padding: 1px 2px
 
 pre
+  background: #333
+  color: #f8f8f8
   padding: 1em
 
   code
+    border: 0
+    background: none
+    font-size: 1em
     padding: 0
 
 ul.list-menu

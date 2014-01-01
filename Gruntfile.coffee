@@ -34,6 +34,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'unit', 'run unit tests', [
     'install'
     'coffeelint'
+    'coffee:dev'
     'karma:unit'
   ]
 
@@ -76,13 +77,14 @@ module.exports = (grunt) ->
       'install'
       'compass:prod'
       'imagemin'
-      'coffee:prod'
-      'requirejs'
       'jade:prod'
+      'coffee:prod'
+      'ngtemplates'
+      'requirejs'
       'copy'
-      'replace'
       'express'
       'exec'
+      'replace'
     ]
 
     config =

@@ -4,9 +4,9 @@
 # this means that should a requirement change and a controller is removed, then all its dependancies aren't packaged
 # up with the app during the build process; no dead code.
 define [
-  # Jump to [`config.coffee`](config.html) ☛
-  'config'
   'angular'
+  # Jump to [`controller/radian-controller.coffee`](radian-controller.html) ☛
+  'controller/radian-controller'
   # Jump to [`directive/menu-component-directive.coffee`](menu-component-directive.html) ☛
   'directive/menu-component-directive'
   # Jump to [`factory/menu-factory.coffee`](menu-factory.html) ☛
@@ -15,17 +15,14 @@ define [
   'factory/page-error-factory'
   # Jump to [`service/menu-service.coffee`](menu-service.html) ☛
   'service/menu-service'
-], (cfg, A) ->
-  class HeaderMenuController
-    @$inject = [
+], (A, RC) ->
+  class extends RC
+    @register 'HeaderMenuController', [
       '$scope'
       'menuFactory'
       'menuService'
       'pageErrorFactory'
     ]
-
-    constructor: (@$scope, @menuFactory, @menuService, @pageErrorFactory) ->
-      @init()
 
     init: () ->
       @loadMenu()
@@ -46,6 +43,3 @@ define [
       # Making use of another factory to deal with throwing errors should any problems occur.
       # Jump to [`factory/page-error-factory.coffee`](page-error-factory.html) ☛
       @pageErrorFactory.show500()
-
-  app = A.module cfg.ngApp
-  app.controller 'headerMenuController', HeaderMenuController

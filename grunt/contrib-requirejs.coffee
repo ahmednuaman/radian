@@ -7,6 +7,7 @@ module.exports = (grunt) ->
         out: 'build/assets/js/app-<%= grunt.config.get("git-commit") %>.js'
         include: [
           'startup'
+          'controller/app-controller'
         ]
         paths:
           'angular': 'empty:'
