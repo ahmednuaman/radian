@@ -2,7 +2,7 @@ module.exports = (grunt) ->
   grunt.config 'watch',
     coffee:
       files: [
-        '<%= coffee.dev.src %>'
+        'assets/js/**/*.coffee'
       ]
       tasks: [
         'coffeelint'
@@ -34,27 +34,32 @@ module.exports = (grunt) ->
       tasks: [
         'jade:dev'
       ]
-      options:
-        livereload: true
-        
-  changedFiles = []
-  onChange = grunt.util._.debounce ->
-    changedCoffeeFiles = []
+      options: '<%= watch.coffee.options %>'
 
-    for filePath in changedFiles
-      fileExtension = filePath.split('.').pop()
-      if fileExtension is 'coffee'
-        changedCoffeeFiles.push filePath
+  changedFiles = {}
+  onChange = grunt.util._.debounce () ->
+    changedCoffeeFiles = changedFiles['coffee']
+    changedJadeFiles = changedFiles['jade']
 
-    if changedCoffeeFiles.length
+    if changedCoffeeFiles
       grunt.config 'coffee.dev.src', changedCoffeeFiles
       grunt.config 'coffeelint.all', changedCoffeeFiles
-    
-    changedFiles = []
+
+    if changedJadeFiles
+      grunt.config 'jade.dev.files',
+        './': changedJadeFiles
+
+    changedFiles = {}
   , 200
 
-  grunt.event.on 'watch', (action, filepath) ->
-    changedFiles.push filepath
+  grunt.event.on 'watch', (action, file) ->
+    ext = file.split('.').pop()
+
+    if !changedFiles[ext]
+      changedFiles[ext] = []
+
+    changedFiles[ext].push file
+
     onChange()
 
   grunt.loadNpmTasks 'grunt-contrib-watch'
