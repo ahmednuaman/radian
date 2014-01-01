@@ -13,13 +13,6 @@ define [
       filter: 'filter'
       service: 'service'
 
-    bindAll: (module) ->
-      # If called this will [`A.bind`](http://docs.angularjs.org/api/angular.bind) on all the `module`'s functions.
-      _.forEach module.constructor.prototype, (fn, key) ->
-        return unless _.isFunction fn
-        return if key in ['constructor', 'init'] or key[0] is '_'
-        module.$scope[key] = module.constructor.prototype[key] = A.bind module, fn
-
     construct: (module, args) ->
       # Takes the `$inject` dependancies and assigns a class-wide (`@`) variable to each one.
       _.forEach module.constructor.$inject, (key, i) ->

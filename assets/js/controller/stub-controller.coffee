@@ -8,4 +8,4 @@ define [
       '$scope'
     ]
 
-    init: () ->
+    # init: () ->

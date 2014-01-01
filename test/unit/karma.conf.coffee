@@ -7,7 +7,7 @@ module.exports = (config) ->
 
   # You may not need this but since [Travis](https://travis-ci.org/ahmednuaman/radian) is being used to keep an
   # eye on the code then [PhantomJS](http://phantomjs.org) is used as the runner browser.
-  if !process.env.TRAVIS
+  # if !process.env.TRAVIS
     browsers.push 'Chrome', 'Firefox'
 
   exclude = (path) ->
@@ -19,20 +19,19 @@ module.exports = (config) ->
     browsers: browsers
     files: [
       exclude 'assets/vendor/**/*.js'
-      exclude 'assets/js/**/*.js'
+      exclude 'assets/js/**/*.coffee'
       exclude 'test/unit/**/*-spec.coffee'
       'test/unit/test-main.coffee'
     ]
     exclude: [
       'assets/js/app.coffee'
-      'assets/js/partials.coffee'
     ]
     frameworks: [
       'jasmine'
       'requirejs'
     ]
     preprocessors:
-      'assets/js/**/*.js': 'coverage'
+      # 'assets/js/**/*.coffee': 'coverage'
       '**/*.coffee': 'coffee'
     reporters: [
       'coverage'

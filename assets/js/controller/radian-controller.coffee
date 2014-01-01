@@ -6,8 +6,5 @@ define [
     @register: (name, deps) ->
       helper.register @, helper.type.controller, name, deps
 
-    bindAll: () ->
-      helper.bindAll @
-
-    constructor: (args...) ->
-      helper.construct @, args
+    constructor: () ->
+      helper.construct @, arguments
