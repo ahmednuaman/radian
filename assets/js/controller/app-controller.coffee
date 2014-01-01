@@ -5,8 +5,8 @@ define [
   'config'
   'angular'
   # Load up the base controller, all controllers inherit from it. All hail the base controller. Wow.
-  # Jump to [`controller/controller.coffee`](controller.html) ☛
-  'controller/controller'
+  # Jump to [`controller/radian-controller.coffee`](radian-controller.html) ☛
+  'controller/radian-controller'
   # Fast apps are nice, and in order to keep your app nice and fast it's a good idea to make use of
   # [`$templateCache`](http://docs.angularjs.org/api/ng.$templateCache), so here we have a file that takes care of that;
   # during development it's left empty on purpose and it's then filled with the compiled [Jade](http://jade-lang.com)
@@ -34,6 +34,27 @@ define [
   # Every controller class in radian follows the same pattern. It's also preferable to explicity specify the `$inject`
   # modules as this code will be minified.
   class AppController extends Controller
+    # You can register a controller by using any of the following methods
+    # 1. Specify the `name` and `$inject` (recommended and fastest):
+    # ```
+    # @register 'appController', [
+    #   '$scope'
+    #   'pageTitleFactory'
+    # ]
+    # ```
+    #
+    # 2. Just specify the `$inject`, the `name` is picked up from CoffeeScript's `@name`:
+    # ```
+    # @register [
+    #   '$scope'
+    #   'pageTitleFactory'
+    # ]
+    # ```
+    #
+    # 3. Specify the `$inject` as args, this may create long lines or weird white space:
+    # ```
+    # @register '$scope', 'pageTitleFactory'
+    # ```
     @register 'appController', [
       '$scope'
       'pageTitleFactory'
