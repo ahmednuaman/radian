@@ -380,15 +380,15 @@
   grunt.config <span class="string">'watch'</span>,
     <span class="attribute">coffee</span>:
       <span class="attribute">files</span>: [
-        <span class="string">'&lt;%= coffee.dev.src %&gt;'</span>
+        <span class="string">'assets/js/**/*.coffee'</span>
       ]
       <span class="attribute">tasks</span>: [
         <span class="string">'coffeelint'</span>
         <span class="string">'coffee:dev'</span>
-        <span class="string">'docco'</span>
       ]
       <span class="attribute">options</span>:
         <span class="attribute">livereload</span>: <span class="literal">true</span>
+        <span class="attribute">spawn</span>: <span class="literal">false</span>
     <span class="attribute">compass</span>:
       <span class="attribute">files</span>: [
         <span class="string">'&lt;%= compass.dev.options.sassDir %&gt;/**/*.sass'</span>
@@ -412,8 +412,33 @@
       <span class="attribute">tasks</span>: [
         <span class="string">'jade:dev'</span>
       ]
-      <span class="attribute">options</span>:
-        <span class="attribute">livereload</span>: <span class="literal">true</span>
+      <span class="attribute">options</span>: <span class="string">'&lt;%= watch.coffee.options %&gt;'</span>
+
+  changedFiles = {}
+  onChange = grunt.util._.debounce <span class="function"><span class="params">()</span> -&gt;</span>
+    changedCoffeeFiles = changedFiles[<span class="string">'coffee'</span>]
+    changedJadeFiles = changedFiles[<span class="string">'jade'</span>]
+
+    <span class="keyword">if</span> changedCoffeeFiles
+      grunt.config <span class="string">'coffee.dev.src'</span>, changedCoffeeFiles
+      grunt.config <span class="string">'coffeelint.all'</span>, changedCoffeeFiles
+
+    <span class="keyword">if</span> changedJadeFiles
+      grunt.config <span class="string">'jade.dev.files'</span>,
+        <span class="string">'./'</span>: changedJadeFiles
+
+    changedFiles = {}
+  , <span class="number">200</span>
+
+  grunt.event.<span class="literal">on</span> <span class="string">'watch'</span>, <span class="function"><span class="params">(action, file)</span> -&gt;</span>
+    ext = file.split(<span class="string">'.'</span>).pop()
+
+    <span class="keyword">if</span> !changedFiles[ext]
+      changedFiles[ext] = []
+
+    changedFiles[ext].push file
+
+    onChange()
 
   grunt.loadNpmTasks <span class="string">'grunt-contrib-watch'</span></pre></div></div>
             
