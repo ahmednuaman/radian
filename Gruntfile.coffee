@@ -19,34 +19,39 @@ module.exports = (grunt) ->
   ]
 
   # ## grunt test
-  # This task runs both the unit and client tests in [karma](http://karma-runner.github.io).
+  # This task runs both the unit and e2d tests.
   grunt.registerTask 'test', 'compile the app and run the tests', [
     'install'
     'compass:dev'
     'coffeelint'
     'coffee:dev'
-    'express'
     'karma'
+    'coffee:e2e'
+    'jade:dev'
+    'express'
+    'exec:e2e'
   ]
 
   # ## grunt unit
-  # This task runs the unit tests in karma.
+  # This task runs the unit tests in [karma](http://karma-runner.github.io).
   grunt.registerTask 'unit', 'run unit tests', [
     'install'
     'coffeelint'
     'coffee:dev'
-    'karma:unit'
+    'karma'
   ]
 
-  # ## grunt client
-  # This task runs the client tests in karma.
-  grunt.registerTask 'client', 'run client tests', [
+  # ## grunt e2e
+  # This task runs the e2e tests in [protractor](https://github.com/angular/protractor).
+  grunt.registerTask 'e2e', 'run e2e tests', [
     'install'
     'compass:dev'
     'coffeelint'
     'coffee:dev'
+    'coffee:e2e'
+    'jade:dev'
     'express'
-    'karma:client'
+    'exec:e2e'
   ]
 
   # ## grunt install
@@ -85,6 +90,7 @@ module.exports = (grunt) ->
       'express'
       'exec'
       'replace'
+      'docco'
     ]
 
     config =

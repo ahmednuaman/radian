@@ -9,6 +9,14 @@ module.exports = (grunt) ->
       options:
         bare: true
         sourceMap: true
+    e2e:
+      expand: '<%= coffee.dev.expand %>'
+      cwd: '<%= coffee.dev.cwd %>'
+      dest: '<%= coffee.dev.cwd %>'
+      ext: '<%= coffee.dev.ext %>'
+      src: [
+        'test/e2e/**/*.coffee'
+      ]
     prod:
       expand: '<%= coffee.dev.expand %>'
       cwd: '<%= coffee.dev.cwd %>'

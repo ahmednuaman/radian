@@ -1,4 +1,3 @@
-require 'coffee-script'
 require 'jasmine-reporters'
 
 onPrepare = () ->
@@ -11,8 +10,6 @@ onPrepare = () ->
 
 exports.config =
   onPrepare: onPrepare
-  preprocessors:
-    '**/*.coffee': 'coffee'
   specs: [
-    '**/*-step.coffee'
+    '**/*-step.js'
   ]
