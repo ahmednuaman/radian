@@ -34,38 +34,20 @@ define [
   # Every controller class in radian follows the same pattern. It's also preferable to explicity specify the `$inject`
   # modules as this code will be minified.
   class AppController extends Controller
-    # You can register a controller by using any of the following methods
-    # 1. Specify the `name` and `$inject` (recommended and fastest):
-    # ```
-    # @register 'appController', [
-    #   '$scope'
-    #   'pageTitleFactory'
-    # ]
-    # ```
-    #
-    # 2. Just specify the `$inject`, the `name` is picked up from CoffeeScript's `@name`:
-    # ```
-    # @register [
-    #   '$scope'
-    #   'pageTitleFactory'
-    # ]
-    # ```
-    #
-    # 3. Specify the `$inject` as args, this may create long lines or weird white space:
-    # ```
-    # @register '$scope', 'pageTitleFactory'
-    # ```
-    @register 'appController', [
+    # You register your controller by calling `@register` and passing in the class's name and then the dependancies as
+    # an array.
+    @register 'AppController', [
       '$scope'
       'pageTitleFactory'
     ]
 
     init: () ->
+      @bindAll()
       @addListeners()
       @addPartials()
 
     addListeners: () ->
-      @pageTitleFactory.addListener A.bind @, @handlePageTitleChange
+      @pageTitleFactory.addListener @handlePageTitleChange
 
     addPartials: () ->
       @$scope.ctaPartial = cfg.path.partial + 'cta-partial.html'

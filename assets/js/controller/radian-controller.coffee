@@ -1,41 +1,13 @@
 define [
-  'lodash'
+  # Jump to [`helper/radian-module-helper.coffee`](radian-module-helper.html) ☛
   'helper/radian-module-helper'
-], (_, hlpr) ->
+], (helper) ->
   class Controller
-    @inject: (args...) ->
-      hlpr.inject @, args
-
     @register: (name, deps) ->
-      # Check if the user has used this pattern:
-      # ```
-      # @register '$scope', 'pageTitleFactory'
-      # ```
-      if _.isString deps
-        deps = _.flatten arguments
-        name = null
+      helper.register @, helper.type.controller, name, deps
 
-      # Check if the user has used this pattern:
-      # ```
-      # @register [
-      #   '$scope'
-      #   'pageTitleFactory'
-      # ]
-      # ```
-      if _.isArray name
-        deps = name
-        name = null
-
-      # Otherwise assume the user has used this pattern:
-      # ```
-      # @register 'appController', [
-      #   '$scope'
-      #   'pageTitleFactory'
-      # ]
-      # ```
-
-      @inject.apply @, deps
-      hlpr.register @, 'controller', name
+    bindAll: () ->
+      helper.bindAll @
 
     constructor: (args...) ->
-      hlpr.construct @, args
+      helper.construct @, args

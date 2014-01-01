@@ -89,7 +89,7 @@ index = (address) ->
     if (indexed.indexOf href) isnt -1 or (queue.indexOf href) isnt -1
       continue
 
-    # Checks to see that the `link` doesn't match the `ignoreRegex`, if any
+    # Checks to see that the `link` doesn't match the `ignoreRegex`, if any.
     if ignoreRegex
       if href.match ignoreRegex
         continue
