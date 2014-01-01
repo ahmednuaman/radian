@@ -16,7 +16,7 @@ define [
       $scope = $rootScope.$new()
 
       createController = () ->
-        $controller 'headerController',
+        $controller 'HeaderController',
           $scope: $scope
 
     it 'should add the menu partial', () ->

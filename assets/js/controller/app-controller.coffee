@@ -33,7 +33,7 @@ define [
 ], (cfg, A, RC) ->
   # Every controller class in radian follows the same pattern. It's also preferable to explicity specify the `$inject`
   # modules as this code will be minified.
-  class AppController extends RC
+  class extends RC
     # You register your controller by calling `@register` and passing in the class's name and then the dependancies as
     # an array.
     @register 'AppController', [
