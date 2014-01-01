@@ -1,19 +1,13 @@
 # This is a stub service. It does nothing.
 define [
-  'config'
-  'angular'
-], (cfg, A) ->
-  class StubService
-    @$inject = [
+  # Jump to [`service/radian-service.coffee`](radian-service.html) ☛
+  'service/radian-service'
+], (RS) ->
+  class extends RS
+    @register 'stubService', [
       '$q'
       '$resource'
     ]
 
-    constructor: (@$q, @$resource) ->
-      @init()
-
     init: () ->
       @fooBar = @$resource '/foo/bar.json'
-
-  app = A.module cfg.ngApp
-  app.service 'stubService', StubService
