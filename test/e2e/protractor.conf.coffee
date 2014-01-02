@@ -21,5 +21,6 @@ if process.env.TRAVIS
   config.capabilities =
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
     'build': process.env.TRAVIS_BUILD_NUMBER
+    'name': "Radian build #{process.env.TRAVIS_BUILD_NUMBER}"
 
 exports.config = config
