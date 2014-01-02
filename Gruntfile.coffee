@@ -88,9 +88,8 @@ module.exports = (grunt) ->
       'requirejs'
       'copy'
       'express'
-      'exec'
+      'exec:crawl'
       'replace'
-      'docco'
     ]
 
     config =
