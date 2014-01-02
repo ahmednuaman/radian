@@ -1,11 +1,16 @@
 require 'jasmine-reporters'
+wrench = require 'wrench'
 
 onPrepare = () ->
+  dir = 'test/report/protractor/'
+
   # https://github.com/angular/protractor/issues/38#issuecomment-29801069
   global.select = global.by
 
+  wrench.mkdirSyncRecursive dir
+
   # https://github.com/angular/protractor/issues/268
-  jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter 'report/protractor/', true, true
+  jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter dir, true, true
 
 config =
   onPrepare: onPrepare
