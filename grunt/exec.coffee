@@ -4,5 +4,6 @@ module.exports = (grunt) ->
       cmd: 'phantomjs crawler.coffee http://localhost:8000/ build/ 3000 "docs|test"'
     e2e:
       cmd: 'protractor test/e2e/protractor.js'
+      stdout: !process.env.TRAVIS
 
   grunt.loadNpmTasks 'grunt-exec'
