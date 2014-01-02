@@ -25,7 +25,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt unit"
+    "test": "grunt test"
   },
   "devDependencies": {
     "coffee-script": "1.6.3",
