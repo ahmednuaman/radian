@@ -244,6 +244,16 @@
               </a>
             
               
+              <a class="source" href="main-menu-step.html">
+                main-menu-step.coffee
+              </a>
+            
+              
+              <a class="source" href="protractor.conf.html">
+                protractor.conf.coffee
+              </a>
+            
+              
               <a class="source" href="menu-items-collection-spec.html">
                 menu-items-collection-spec.coffee
               </a>
@@ -387,6 +397,14 @@
       <span class="attribute">options</span>:
         <span class="attribute">bare</span>: <span class="literal">true</span>
         <span class="attribute">sourceMap</span>: <span class="literal">true</span>
+    <span class="attribute">e2e</span>:
+      <span class="attribute">expand</span>: <span class="string">'&lt;%= coffee.dev.expand %&gt;'</span>
+      <span class="attribute">cwd</span>: <span class="string">'&lt;%= coffee.dev.cwd %&gt;'</span>
+      <span class="attribute">dest</span>: <span class="string">'&lt;%= coffee.dev.cwd %&gt;'</span>
+      <span class="attribute">ext</span>: <span class="string">'&lt;%= coffee.dev.ext %&gt;'</span>
+      <span class="attribute">src</span>: [
+        <span class="string">'test/e2e/**/*.coffee'</span>
+      ]
     <span class="attribute">prod</span>:
       <span class="attribute">expand</span>: <span class="string">'&lt;%= coffee.dev.expand %&gt;'</span>
       <span class="attribute">cwd</span>: <span class="string">'&lt;%= coffee.dev.cwd %&gt;'</span>

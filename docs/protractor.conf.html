@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>config.coffee</title>
+  <title>protractor.conf.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -371,7 +371,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>config.coffee</h1>
+                  <h1>protractor.conf.coffee</h1>
               </div>
           </li>
         
@@ -383,18 +383,76 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p>This config file acts as a safe and logical place to house variables that will be used throughout the app.
-The most prominent variable here is <code>ngApp</code>; this is used to store the app&#39;s <a href="http://angularjs.org">AngularJS</a> module
-name and all of the app&#39;s AngularJS module files will use this variable to add themselves to the module.</p>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="built_in">require</span> <span class="string">'jasmine-reporters'</span>
+wrench = <span class="built_in">require</span> <span class="string">'wrench'</span>
+
+<span class="function"><span class="title">onPrepare</span> = <span class="params">()</span> -&gt;</span>
+  dir = <span class="string">'test/report/protractor/'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><a href="https://github.com/angular/protractor/issues/38#issuecomment-29801069">https://github.com/angular/protractor/issues/38#issuecomment-29801069</a></p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [], <span class="function"><span class="params">()</span> -&gt;</span>
-  <span class="attribute">ngApp</span>: <span class="string">'radian'</span>
-  <span class="attribute">api</span>:
-    <span class="attribute">data</span>: <span class="string">'/data/menu.json'</span>
-  <span class="attribute">path</span>:
-    <span class="attribute">partial</span>: <span class="string">'/assets/partial/'</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  global.select = global.<span class="keyword">by</span>
+
+  wrench.mkdirSyncRecursive dir</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><a href="https://github.com/angular/protractor/issues/268">https://github.com/angular/protractor/issues/268</a></p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  jasmine.getEnv().addReporter <span class="keyword">new</span> jasmine.JUnitXmlReporter dir, <span class="literal">true</span>, <span class="literal">true</span>
+
+config =
+  <span class="attribute">onPrepare</span>: onPrepare
+  <span class="attribute">specs</span>: [
+    <span class="string">'**/*-step.js'</span>
+  ]</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>If this is running on <a href="http://travis-ci.org">Travis</a> then we add additional details to run the tests on the
+<a href="https://saucelabs.com/opensource/travis">Sauce labs</a> cloud.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="keyword">if</span> process.env.TRAVIS
+  config.sauceUser = process.env.SAUCE_USERNAME
+  config.sauceKey = process.env.SAUCE_ACCESS_KEY
+  config.capabilities =
+    <span class="string">'tunnel-identifier'</span>: process.env.TRAVIS_JOB_NUMBER
+    <span class="string">'build'</span>: process.env.TRAVIS_BUILD_NUMBER
+    <span class="string">'name'</span>: <span class="string">"Radian build <span class="subst">#{process.env.TRAVIS_BUILD_NUMBER}</span>"</span>
+
+exports.config = config</pre></div></div>
             
         </li>
         

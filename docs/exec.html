@@ -244,6 +244,16 @@
               </a>
             
               
+              <a class="source" href="main-menu-step.html">
+                main-menu-step.coffee
+              </a>
+            
+              
+              <a class="source" href="protractor.conf.html">
+                protractor.conf.coffee
+              </a>
+            
+              
               <a class="source" href="menu-items-collection-spec.html">
                 menu-items-collection-spec.coffee
               </a>
@@ -380,6 +390,9 @@
   grunt.config <span class="string">'exec'</span>,
     <span class="attribute">crawl</span>:
       <span class="attribute">cmd</span>: <span class="string">'phantomjs crawler.coffee http://localhost:8000/ build/ 3000 "docs|test"'</span>
+    <span class="attribute">e2e</span>:
+      <span class="attribute">cmd</span>: <span class="string">'protractor test/e2e/protractor.js'</span>
+      <span class="attribute">stdout</span>: !process.env.TRAVIS
 
   grunt.loadNpmTasks <span class="string">'grunt-exec'</span></pre></div></div>
             

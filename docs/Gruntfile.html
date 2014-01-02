@@ -244,6 +244,16 @@
               </a>
             
               
+              <a class="source" href="main-menu-step.html">
+                main-menu-step.coffee
+              </a>
+            
+              
+              <a class="source" href="protractor.conf.html">
+                protractor.conf.coffee
+              </a>
+            
+              
               <a class="source" href="menu-items-collection-spec.html">
                 menu-items-collection-spec.coffee
               </a>
@@ -431,7 +441,7 @@ as you code your awsome app.</p>
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
               <h2 id="grunt-test">grunt test</h2>
-<p>This task runs both the unit and client tests in <a href="http://karma-runner.github.io">karma</a>.</p>
+<p>This task runs both the unit and e2d tests.</p>
 
             </div>
             
@@ -440,8 +450,11 @@ as you code your awsome app.</p>
     <span class="string">'compass:dev'</span>
     <span class="string">'coffeelint'</span>
     <span class="string">'coffee:dev'</span>
-    <span class="string">'express'</span>
     <span class="string">'karma'</span>
+    <span class="string">'coffee:e2e'</span>
+    <span class="string">'jade:dev'</span>
+    <span class="string">'express'</span>
+    <span class="string">'exec:e2e'</span>
   ]</pre></div></div>
             
         </li>
@@ -454,7 +467,7 @@ as you code your awsome app.</p>
                 <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <h2 id="grunt-unit">grunt unit</h2>
-<p>This task runs the unit tests in karma.</p>
+<p>This task runs the unit tests in <a href="http://karma-runner.github.io">karma</a>.</p>
 
             </div>
             
@@ -462,7 +475,7 @@ as you code your awsome app.</p>
     <span class="string">'install'</span>
     <span class="string">'coffeelint'</span>
     <span class="string">'coffee:dev'</span>
-    <span class="string">'karma:unit'</span>
+    <span class="string">'karma'</span>
   ]</pre></div></div>
             
         </li>
@@ -474,18 +487,20 @@ as you code your awsome app.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
-              <h2 id="grunt-client">grunt client</h2>
-<p>This task runs the client tests in karma.</p>
+              <h2 id="grunt-e2e">grunt e2e</h2>
+<p>This task runs the e2e tests in <a href="https://github.com/angular/protractor">protractor</a>.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  grunt.registerTask <span class="string">'client'</span>, <span class="string">'run client tests'</span>, [
+            <div class="content"><div class='highlight'><pre>  grunt.registerTask <span class="string">'e2e'</span>, <span class="string">'run e2e tests'</span>, [
     <span class="string">'install'</span>
     <span class="string">'compass:dev'</span>
     <span class="string">'coffeelint'</span>
     <span class="string">'coffee:dev'</span>
+    <span class="string">'coffee:e2e'</span>
+    <span class="string">'jade:dev'</span>
     <span class="string">'express'</span>
-    <span class="string">'karma:client'</span>
+    <span class="string">'exec:e2e'</span>
   ]</pre></div></div>
             
         </li>
@@ -546,7 +561,7 @@ CDN versions. Finally it executes the crawler to make the app SEO friendly.</p>
       <span class="string">'requirejs'</span>
       <span class="string">'copy'</span>
       <span class="string">'express'</span>
-      <span class="string">'exec'</span>
+      <span class="string">'exec:crawl'</span>
       <span class="string">'replace'</span>
     ]
 

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>config.coffee</title>
+  <title>main-menu-step.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -371,7 +371,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>config.coffee</h1>
+                  <h1>main-menu-step.coffee</h1>
               </div>
           </li>
         
@@ -383,18 +383,30 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p>This config file acts as a safe and logical place to house variables that will be used throughout the app.
-The most prominent variable here is <code>ngApp</code>; this is used to store the app&#39;s <a href="http://angularjs.org">AngularJS</a> module
-name and all of the app&#39;s AngularJS module files will use this variable to add themselves to the module.</p>
-
+              
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [], <span class="function"><span class="params">()</span> -&gt;</span>
-  <span class="attribute">ngApp</span>: <span class="string">'radian'</span>
-  <span class="attribute">api</span>:
-    <span class="attribute">data</span>: <span class="string">'/data/menu.json'</span>
-  <span class="attribute">path</span>:
-    <span class="attribute">partial</span>: <span class="string">'/assets/partial/'</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>describe <span class="string">'Main menu navigation'</span>, <span class="function"><span class="params">()</span> -&gt;</span>
+  beforeEach <span class="function"><span class="params">()</span> -&gt;</span>
+    browser.get <span class="string">'http://localhost:8000'</span>
+
+  it <span class="string">'should select the homepage'</span>, <span class="function"><span class="params">()</span> -&gt;</span>
+    el = $ <span class="string">'.menu-component li:first-child a'</span>
+
+    expect(el.getAttribute(<span class="string">'class'</span>)).toContain <span class="string">'selected'</span>
+
+  it <span class="string">'should change the page'</span>, <span class="function"><span class="params">()</span> -&gt;</span>
+    el = $ <span class="string">'.menu-component li:nth-child(2) a'</span>
+    href = el.getAttribute <span class="string">'href'</span>
+
+    runs <span class="function"><span class="params">()</span> -&gt;</span>
+      el.click()
+
+    waits <span class="number">500</span>
+
+    runs <span class="function"><span class="params">()</span> -&gt;</span>
+      expect(browser.getCurrentUrl()).toContain href
+      expect(el.getAttribute(<span class="string">'class'</span>)).toContain <span class="string">'selected'</span></pre></div></div>
             
         </li>
         
