@@ -25,7 +25,7 @@
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt unit"
+    "test": "grunt test"
   },
   "devDependencies": {
     "coffee-script": "1.6.3",
@@ -57,7 +57,8 @@
     "karma-junit-reporter": "0.2.1",
     "karma-phantomjs-launcher": "0.1.1",
     "karma-requirejs": "0.2.1",
-    "marked": "0.3.0"
+    "marked": "0.3.0",
+    "wrench": "1.5.4"
   },
   "peerDependencies": {
     "express": "3.4.7",
