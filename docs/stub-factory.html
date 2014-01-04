@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -387,22 +402,31 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [
-  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="function"><span class="title">stubFactory</span> = <span class="params">($rootScope)</span> -&gt;</span>
+            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Load up the base factory, all controllers inherit from it. All hail the base factory. Such meta.
+Jump to <a href="radian-factory.html"><code>factory/radian-factory.coffee</code></a> ☛</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'factory/radian-factory'</span>
+], <span class="function"><span class="params">(RF)</span> -&gt;</span>
+  RF <span class="string">'stubFactory'</span>, [
+    <span class="string">'$rootScope'</span>
+  ], <span class="function"><span class="params">($rootScope)</span> -&gt;</span>
     <span class="function"><span class="title">privateMethod</span> = <span class="params">()</span> -&gt;</span>
 
     factory =
-      <span class="attribute">publicMethod</span>: <span class="function"><span class="params">()</span> -&gt;</span>
-
-  stubFactory.$inject = [
-    <span class="string">'$rootScope'</span>
-  ]
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.factory <span class="string">'stubFactory'</span>, stubFactory</pre></div></div>
+      <span class="attribute">publicMethod</span>: <span class="function"><span class="params">()</span> -&gt;</span></pre></div></div>
             
         </li>
         

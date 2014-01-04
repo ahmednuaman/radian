@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -383,7 +398,9 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>This is a base controller class to ease the controller creation process. To see an example of how to use this have a
+look at <a href="stub-controller.html"><code>controller/stub-controller.coffee</code></a>.</p>
+
             </div>
             
             <div class="content"><div class='highlight'><pre>define [</pre></div></div>
@@ -405,7 +422,7 @@
 ], <span class="function"><span class="params">(helper)</span> -&gt;</span>
   <span class="class"><span class="keyword">class</span> <span class="title">RadianController</span></span>
     <span class="property">@register</span>: <span class="function"><span class="params">(name, deps)</span> -&gt;</span>
-      helper.register @, helper.type.controller, name, deps
+      helper.registerController [name, deps, @]
 
     <span class="attribute">constructor</span>: <span class="function"><span class="params">()</span> -&gt;</span>
       helper.construct @, arguments</pre></div></div>

@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -387,20 +402,29 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [
-  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="function"><span class="title">stubFilter</span> = <span class="params">($location)</span> -&gt;</span>
-    <span class="function"><span class="params">(input)</span> -&gt;</span>
-      <span class="string">"input <span class="subst">#{input}</span>, $location.path() <span class="subst">#{$location.path()}</span>"</span>
+            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Load up the base filter, all controllers inherit from it. All hail the base filter. Such meta.
+Jump to <a href="radian-filter.html"><code>filter/radian-filter.coffee</code></a> ☛</p>
 
-  stubFilter.$inject = [
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'filter/radian-filter'</span>
+], <span class="function"><span class="params">(RF)</span> -&gt;</span>
+  RF <span class="string">'stub'</span>, [
     <span class="string">'$location'</span>
-  ]
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.filter <span class="string">'stubFilter'</span>, stubFilter</pre></div></div>
+  ], <span class="function"><span class="params">($location)</span> -&gt;</span>
+    <span class="function"><span class="params">(input)</span> -&gt;</span>
+      <span class="string">"input <span class="subst">#{input}</span>, $location.path() <span class="subst">#{$location.path()}</span>"</span></pre></div></div>
             
         </li>
         

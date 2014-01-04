@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -388,7 +403,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            <div class="content"><div class='highlight'><pre>define [
+  <span class="string">'config'</span></pre></div></div>
             
         </li>
         
@@ -399,22 +415,19 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Jump to <a href="config.html"><code>config.coffee</code></a> ☛</p>
+              <p>Load up the base directive, all controllers inherit from it. All hail the base directive. Such meta.
+Jump to <a href="radian-directive.html"><code>directive/radian-directive.coffee</code></a> ☛</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="function"><span class="title">menuComponentDirective</span> = <span class="params">()</span> -&gt;</span>
+            <div class="content"><div class='highlight'><pre>  <span class="string">'directive/radian-directive'</span>
+], <span class="function"><span class="params">(cfg, RD)</span> -&gt;</span>
+  RD <span class="string">'menuComponent'</span>, [], <span class="function"><span class="params">()</span> -&gt;</span>
     <span class="attribute">templateUrl</span>: cfg.path.partial + <span class="string">'directive/menu-component-partial.html'</span>
     <span class="attribute">restrict</span>: <span class="string">'A'</span>
     <span class="attribute">replace</span>: <span class="literal">true</span>
     <span class="attribute">scope</span>:
-      <span class="attribute">items</span>: <span class="string">'=ngModel'</span>
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.directive <span class="string">'menuComponent'</span>, menuComponentDirective</pre></div></div>
+      <span class="attribute">items</span>: <span class="string">'=ngModel'</span></pre></div></div>
             
         </li>
         

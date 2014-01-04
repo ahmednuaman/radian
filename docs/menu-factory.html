@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -389,7 +404,9 @@ items from the raw data recieved from the API.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            <div class="content"><div class='highlight'><pre>define [
+  <span class="string">'angular'</span>
+  <span class="string">'lodash'</span></pre></div></div>
             
         </li>
         
@@ -400,13 +417,11 @@ items from the raw data recieved from the API.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Jump to <a href="config.html"><code>config.coffee</code></a> ☛</p>
+              <p>Jump to <a href="radian-factory.html"><code>factory/radian-factory.coffee</code></a> ☛</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-  <span class="string">'lodash'</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  <span class="string">'factory/radian-factory'</span></pre></div></div>
             
         </li>
         
@@ -437,8 +452,13 @@ items from the raw data recieved from the API.</p>
             </div>
             
             <div class="content"><div class='highlight'><pre>  <span class="string">'factory/page-title-factory'</span>
-], <span class="function"><span class="params">(cfg, A, _, menuItemsCollection)</span> -&gt;</span>
-  <span class="function"><span class="title">menuFactory</span> = <span class="params">($location, $q, $rootScope, pageTitleFactory)</span> -&gt;</span>
+], <span class="function"><span class="params">(A, _, RF, menuItemsCollection)</span> -&gt;</span>
+  RF <span class="string">'menuFactory'</span>, [
+    <span class="string">'$location'</span>
+    <span class="string">'$q'</span>
+    <span class="string">'$rootScope'</span>
+    <span class="string">'pageTitleFactory'</span>
+  ], <span class="function"><span class="params">($location, $q, $rootScope, pageTitleFactory)</span> -&gt;</span>
     <span class="function"><span class="title">handleFactorySetSuccess</span> = <span class="params">(dfd, collection)</span> -&gt;</span>
       factory.collection = collection
 
@@ -508,17 +528,7 @@ Jump to <a href="menu-items-collection.html"><code>collection/menu-items-collect
           <span class="keyword">if</span> vo.selected
             factory.selectedItem = factory.collection[i] = vo
 
-            pageTitleFactory.setTitle vo.title
-
-  menuFactory.$inject = [
-    <span class="string">'$location'</span>
-    <span class="string">'$q'</span>
-    <span class="string">'$rootScope'</span>
-    <span class="string">'pageTitleFactory'</span>
-  ]
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.factory <span class="string">'menuFactory'</span>, menuFactory</pre></div></div>
+            pageTitleFactory.setTitle vo.title</pre></div></div>
             
         </li>
         

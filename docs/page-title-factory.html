@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -402,14 +417,15 @@ and callback. This means that any part of the application can set the title by c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Jump to <a href="config.html"><code>config.coffee</code></a> ☛</p>
+              <p>Jump to <a href="radian-factory.html"><code>factory/radian-factory.coffee</code></a> ☛</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="function"><span class="title">pageTitleFactory</span> = <span class="params">($rootScope)</span> -&gt;</span>
+            <div class="content"><div class='highlight'><pre>  <span class="string">'factory/radian-factory'</span>
+], <span class="function"><span class="params">(RF)</span> -&gt;</span>
+  RF <span class="string">'pageTitleFactory'</span>, [
+    <span class="string">'$rootScope'</span>
+  ], <span class="function"><span class="params">($rootScope)</span> -&gt;</span>
     event = <span class="string">'pageTitleChange'</span>
 
     <span class="function"><span class="title">emit</span> = <span class="params">(title)</span> -&gt;</span>
@@ -420,14 +436,7 @@ and callback. This means that any part of the application can set the title by c
         emit title
 
       <span class="attribute">addListener</span>: <span class="function"><span class="params">(callback)</span> -&gt;</span>
-        $rootScope.$<span class="literal">on</span> event, callback
-
-  pageTitleFactory.$inject = [
-    <span class="string">'$rootScope'</span>
-  ]
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.factory <span class="string">'pageTitleFactory'</span>, pageTitleFactory</pre></div></div>
+        $rootScope.$<span class="literal">on</span> event, callback</pre></div></div>
             
         </li>
         

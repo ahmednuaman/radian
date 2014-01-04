@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>docco.coffee</title>
+  <title>radian-filter.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -386,7 +386,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>docco.coffee</h1>
+                  <h1>radian-filter.coffee</h1>
               </div>
           </li>
         
@@ -398,17 +398,31 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>This is a base filter class to ease the creation filter process. To see an example of how to use this have a look at
+<a href="stub-filter.html"><code>filter/stub-filter.coffee</code></a>. The useage is pretty simple:</p>
+<pre><code>RC &#39;filterName&#39;, [&#39;deps&#39;, &#39;as&#39;, &#39;array&#39;], filterFunc
+</code></pre>
             </div>
             
-            <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(grunt)</span> -&gt;</span>
-  grunt.config <span class="string">'docco'</span>,
-    <span class="attribute">all</span>:
-      <span class="attribute">src</span>: [<span class="string">'&lt;%= coffeelint.all %&gt;'</span>]
-      <span class="attribute">options</span>:
-        <span class="attribute">output</span>: <span class="string">'docs/'</span>
+            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Jump to <a href="radian-module-helper.html"><code>helper/radian-module-helper.coffee</code></a> ☛</p>
 
-  grunt.loadNpmTasks <span class="string">'grunt-docco'</span></pre></div></div>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'helper/radian-module-helper'</span>
+], <span class="function"><span class="params">(helper)</span> -&gt;</span>
+  <span class="function"><span class="title">RadianFilter</span> = <span class="params">()</span> -&gt;</span>
+    helper.registerFilter arguments</pre></div></div>
             
         </li>
         

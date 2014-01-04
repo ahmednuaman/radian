@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -389,7 +404,8 @@ errors that the app can throw and exposing specific methods to throw those error
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            <div class="content"><div class='highlight'><pre>define [
+  <span class="string">'lodash'</span></pre></div></div>
             
         </li>
         
@@ -400,15 +416,15 @@ errors that the app can throw and exposing specific methods to throw those error
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Jump to <a href="config.html"><code>config.coffee</code></a> ☛</p>
+              <p>Jump to <a href="radian-factory.html"><code>factory/radian-factory.coffee</code></a> ☛</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-  <span class="string">'lodash'</span>
-], <span class="function"><span class="params">(cfg, A, _)</span> -&gt;</span>
-  <span class="function"><span class="title">pageErrorFactory</span> = <span class="params">($location)</span> -&gt;</span>
+            <div class="content"><div class='highlight'><pre>  <span class="string">'factory/radian-factory'</span>
+], <span class="function"><span class="params">(_, RF)</span> -&gt;</span>
+  RF <span class="string">'pageErrorFactory'</span>, [
+    <span class="string">'$location'</span>
+  ], <span class="function"><span class="params">($location)</span> -&gt;</span>
     <span class="function"><span class="title">redirect</span> = <span class="params">(code)</span> -&gt;</span>
       $location.path <span class="string">"/error/<span class="subst">#{code}</span>"</span>
 
@@ -434,14 +450,7 @@ then create a function specific for throwing that error code, eg <code>pageError
       factory[<span class="string">"show<span class="subst">#{code}</span>"</span>] = <span class="function"><span class="params">()</span> -&gt;</span>
         factory.showError code
 
-    factory
-
-  pageErrorFactory.$inject = [
-    <span class="string">'$location'</span>
-  ]
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.factory <span class="string">'pageErrorFactory'</span>, pageErrorFactory</pre></div></div>
+    factory</pre></div></div>
             
         </li>
         

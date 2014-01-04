@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -388,20 +403,33 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>define [
-  <span class="string">'config'</span>
-  <span class="string">'angular'</span>
-], <span class="function"><span class="params">(cfg, A)</span> -&gt;</span>
-  <span class="function"><span class="title">stubDirective</span> = <span class="params">()</span> -&gt;</span>
+  <span class="string">'config'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Load up the base directive, all controllers inherit from it. All hail the base directive. Such meta.
+Jump to <a href="radian-directive.html"><code>directive/radian-directive.coffee</code></a> ☛</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="string">'directive/radian-directive'</span>
+], <span class="function"><span class="params">(cfg, RD)</span> -&gt;</span>
+  RD <span class="string">'stub'</span>, [
+    <span class="string">'$rootScope'</span>
+  ], <span class="function"><span class="params">($rootScope)</span> -&gt;</span>
     <span class="attribute">templateUrl</span>: cfg.path.partial + <span class="string">'directive/stub-partial.html'</span>
     <span class="attribute">restrict</span>: <span class="string">'A'</span>
     <span class="attribute">replace</span>: <span class="literal">true</span>
     <span class="attribute">scope</span>:
       <span class="attribute">items</span>: <span class="string">'=ngModel'</span>
-    <span class="attribute">link</span>: <span class="function"><span class="params">($scope, $element, $attrs)</span> -&gt;</span>
-
-
-  app = A.<span class="built_in">module</span> cfg.ngApp
-  app.directive <span class="string">'stub'</span>, stubDirective</pre></div></div>
+    <span class="attribute">link</span>: <span class="function"><span class="params">($scope, $element, $attrs)</span> -&gt;</span></pre></div></div>
             
         </li>
         

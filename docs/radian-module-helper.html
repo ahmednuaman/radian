@@ -89,6 +89,11 @@
               </a>
             
               
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
               <a class="source" href="stub-directive.html">
                 stub-directive.coffee
               </a>
@@ -109,8 +114,18 @@
               </a>
             
               
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
               <a class="source" href="stub-factory.html">
                 stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
               </a>
             
               
@@ -405,7 +420,8 @@
   <span class="string">'angular'</span>
   <span class="string">'lodash'</span>
 ], <span class="function"><span class="params">(cfg, A, _)</span> -&gt;</span>
-  helper =</pre></div></div>
+  helper =
+    <span class="attribute">construct</span>: <span class="function"><span class="params">(<span class="built_in">module</span>, args)</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -415,28 +431,6 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p>Specifically set types.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>    <span class="attribute">type</span>:
-      <span class="attribute">controller</span>: <span class="string">'controller'</span>
-      <span class="attribute">directive</span>: <span class="string">'directive'</span>
-      <span class="attribute">factory</span>: <span class="string">'factory'</span>
-      <span class="attribute">filter</span>: <span class="string">'filter'</span>
-      <span class="attribute">service</span>: <span class="string">'service'</span>
-
-    <span class="attribute">construct</span>: <span class="function"><span class="params">(<span class="built_in">module</span>, args)</span> -&gt;</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-4">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
               <p>Takes the <code>$inject</code> dependancies and assigns a class-wide (<code>@</code>) variable to each one.</p>
 
@@ -452,11 +446,11 @@
         </li>
         
         
-        <li id="section-5">
+        <li id="section-4">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
               <p>Takes <code>deps</code> and creates a <code>$inject</code> var for <a href="http://docs.angularjs.org/guide/di">AngularJS</a> to read.
 This is better for minification.</p>
@@ -465,16 +459,16 @@ This is better for minification.</p>
             
             <div class="content"><div class='highlight'><pre>      module.$inject = _.toArray deps
 
-    <span class="attribute">register</span>: <span class="function"><span class="params">(<span class="built_in">module</span>, type, name, deps)</span> -&gt;</span></pre></div></div>
+    <span class="attribute">register</span>: <span class="function"><span class="params">(type, name, deps, <span class="built_in">module</span>)</span> -&gt;</span></pre></div></div>
             
         </li>
         
         
-        <li id="section-6">
+        <li id="section-5">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-5">&#182;</a>
               </div>
               <p>Inject the <code>deps</code>.</p>
 
@@ -485,18 +479,46 @@ This is better for minification.</p>
         </li>
         
         
-        <li id="section-7">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>Register the module.</p>
 
             </div>
             
             <div class="content"><div class='highlight'><pre>      app = A.<span class="built_in">module</span> cfg.ngApp
-      app[type] name, <span class="built_in">module</span></pre></div></div>
+      app[type] name, <span class="built_in">module</span>
+
+    <span class="attribute">uppercaseFirstLetter</span>: <span class="function"><span class="params">(str)</span> -&gt;</span>
+      str.charAt(<span class="number">0</span>).toUpperCase() + str.slice <span class="number">1</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Add a dash of specific register functions keep our code tidy and small</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  _.forEach [
+    <span class="string">'controller'</span>
+    <span class="string">'directive'</span>
+    <span class="string">'factory'</span>
+    <span class="string">'filter'</span>
+    <span class="string">'service'</span>
+  ], <span class="function"><span class="params">(type)</span> -&gt;</span>
+    helper[<span class="string">'register'</span> + helper.uppercaseFirstLetter<span class="function"><span class="params">(type)</span>] = <span class="params">(args)</span> -&gt;</span>
+      helper.register.apply @, [type].concat _.toArray args
+
+  helper</pre></div></div>
             
         </li>
         
