@@ -6,7 +6,7 @@ define [
 ], (helper) ->
   class RadianService
     @register: (name, deps) ->
-      helper.registerService, name, deps, @
+      helper.registerService [name, deps, @]
 
     constructor: () ->
       helper.construct @, arguments

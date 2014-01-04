@@ -5,14 +5,6 @@ define [
   'lodash'
 ], (cfg, A, _) ->
   helper =
-    # Specifically set types.
-    type:
-      controller
-      directive
-      factory
-      filter
-      service
-
     construct: (module, args) ->
       # Takes the `$inject` dependancies and assigns a class-wide (`@`) variable to each one.
       _.forEach module.constructor.$inject, (key, i) ->
@@ -37,7 +29,13 @@ define [
       str.charAt(0).toUpperCase() + str.slice 1
 
   # Add a dash of specific register functions keep our code tidy and small
-  _.forEach helper.type, (v, type) ->
+  _.forEach [
+    'controller'
+    'directive'
+    'factory'
+    'filter'
+    'service'
+  ], (type) ->
     helper['register' + helper.uppercaseFirstLetter(type)] = (args) ->
       helper.register.apply @, [type].concat _.toArray args
 
