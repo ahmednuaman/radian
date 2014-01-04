@@ -4,11 +4,12 @@
 # `pageTitleFactory.setTitle 'foo'` and listen to a title change by passing a callback into
 # `pageTitleFactory.addListener cb`.
 define [
-  # Jump to [`config.coffee`](config.html) ☛
-  'config'
-  'angular'
-], (cfg, A) ->
-  pageTitleFactory = ($rootScope) ->
+  # Jump to [`factory/radian-factory.coffee`](radian-factory.html) ☛
+  'factory/radian-factory'
+], (RF) ->
+  RF 'pageTitleFactory', [
+    '$rootScope'
+  ], ($rootScope) ->
     event = 'pageTitleChange'
 
     emit = (title) ->
@@ -20,10 +21,3 @@ define [
 
       addListener: (callback) ->
         $rootScope.$on event, callback
-
-  pageTitleFactory.$inject = [
-    '$rootScope'
-  ]
-
-  app = A.module cfg.ngApp
-  app.factory 'pageTitleFactory', pageTitleFactory
