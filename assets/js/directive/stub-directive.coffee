@@ -1,6 +1,7 @@
 # This is a stub directive. It does nothing.
 define [
   'config'
+  # Load up the base directive, all controllers inherit from it. All hail the base directive. Such meta.
   # Jump to [`directive/radian-directive.coffee`](radian-directive.html) ☛
   'directive/radian-directive'
 ], (cfg, RD) ->
