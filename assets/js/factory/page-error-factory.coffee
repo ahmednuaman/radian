@@ -2,12 +2,13 @@
 # [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself) development principles by making it very simple to define
 # errors that the app can throw and exposing specific methods to throw those errors.
 define [
-  # Jump to [`config.coffee`](config.html) ☛
-  'config'
-  'angular'
   'lodash'
-], (cfg, A, _) ->
-  pageErrorFactory = ($location) ->
+  # Jump to [`factory/radian-factory.coffee`](radian-factory.html) ☛
+  'factory/radian-factory'
+], (_, RF) ->
+  RF 'pageErrorFactory', [
+    '$location'
+  ], ($location) ->
     redirect = (code) ->
       $location.path "/error/#{code}"
 
@@ -22,10 +23,3 @@ define [
         factory.showError code
 
     factory
-
-  pageErrorFactory.$inject = [
-    '$location'
-  ]
-
-  app = A.module cfg.ngApp
-  app.factory 'pageErrorFactory', pageErrorFactory

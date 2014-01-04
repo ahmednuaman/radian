@@ -2,16 +2,21 @@
 # when the [`$location`](http://docs.angularjs.org/api/ng.$location) has changed and populating and preparing the menu
 # items from the raw data recieved from the API.
 define [
-  # Jump to [`config.coffee`](config.html) ☛
-  'config'
   'angular'
   'lodash'
+  # Jump to [`factory/radian-factory.coffee`](radian-factory.html) ☛
+  'factory/radian-factory'
   # Jump to [`collection/menu-items-collection.coffee`](menu-items-collection.html) ☛
   'collection/menu-items-collection'
   # Jump to [`factory/page-title-factory.coffee`](page-title-factory.html) ☛
   'factory/page-title-factory'
-], (cfg, A, _, menuItemsCollection) ->
-  menuFactory = ($location, $q, $rootScope, pageTitleFactory) ->
+], (A, _, RF, menuItemsCollection) ->
+  RF 'menuFactory', [
+    '$location'
+    '$q'
+    '$rootScope'
+    'pageTitleFactory'
+  ], ($location, $q, $rootScope, pageTitleFactory) ->
     handleFactorySetSuccess = (dfd, collection) ->
       factory.collection = collection
 
@@ -58,13 +63,3 @@ define [
             factory.selectedItem = factory.collection[i] = vo
 
             pageTitleFactory.setTitle vo.title
-
-  menuFactory.$inject = [
-    '$location'
-    '$q'
-    '$rootScope'
-    'pageTitleFactory'
-  ]
-
-  app = A.module cfg.ngApp
-  app.factory 'menuFactory', menuFactory
