@@ -6,7 +6,7 @@ define [
 ], (helper) ->
   class RadianController
     @register: (name, deps) ->
-      helper.register helper.type.controller, name, deps, @
+      helper.registeController, name, deps, @
 
     constructor: () ->
       helper.construct @, arguments
