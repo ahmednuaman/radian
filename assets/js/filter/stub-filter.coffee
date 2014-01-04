@@ -4,7 +4,7 @@ define [
   # Jump to [`filter/radian-filter.coffee`](radian-filter.html) ☛
   'filter/radian-filter'
 ], (RF) ->
-  RF 'stubFilter', [
+  RF 'stub', [
     '$location'
   ], ($location) ->
     (input) ->

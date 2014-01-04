@@ -12,7 +12,7 @@ define [
     beforeEach inject ($injector) ->
       $filter = $injector.get '$filter'
       $location = $injector.get '$location'
-      filter = $filter 'stubFilter'
+      filter = $filter 'stub'
 
     it 'should run the filter', () ->
       input = 'foo'
