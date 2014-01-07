@@ -1,23 +1,23 @@
-@mixin small {
+.small() {
   @media only screen and (max-width: 768px) {
-    @content;
+    .content;
   }
 }
 
-@mixin medium {
+.medium() {
   @media only screen and (min-width: 768px) {
-    @content;
+    .content;
   }
 }
 
-@mixin large {
+.large() {
   @media only screen and (min-width: 992px) {
-    @content;
+    .content;
   }
 }
 
-@mixin xlarge {
+.xlarge() {
   @media only screen and (min-width: 1200px) {
-    @content;
+    .content;
   }
 }

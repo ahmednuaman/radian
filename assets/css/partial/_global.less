@@ -3,7 +3,7 @@
 }
 
 .col-3 {
-  @extend .left;
+  .left;
   padding-left: 20px;
   width: 33%;
 
@@ -11,29 +11,32 @@
     padding-left: 0;
   }
 
-  @include small {
-    width: 100%;
-    padding-left: 0;
+  & {
+    .small;
+    .content() {
+      width: 100%;
+      padding-left: 0;
+    }
   }
 }
 
 .left {
-  @extend .block;
+  .block;
   float: left;
 }
 
 .relative {
-  @extend .block;
+  .block;
   position: relative;
 }
 
 .right {
-  @extend .block;
+  .block;
   float: right;
 }
 
 .row {
-  @extend .left;
+  .left;
   width: 100%;
 }
 
@@ -42,7 +45,7 @@
 }
 
 * {
-  @include box-sizing(border-box);
+  .box-sizing(border-box);
   font-family: 'Droid Sans', Arial, sans-serif;
 }
 
@@ -54,7 +57,7 @@ p {
 }
 
 a {
-  @include single-transition(color, 250ms);
+  .transition(color 250ms);
   color: #a6120d;
   font-weight: bold;
   text-decoration: none;
@@ -66,11 +69,9 @@ a {
 
 code,
 pre {
-  @include border-radius(3px);
-  font: {
-    family: 'Droid Sans Mono', monospace, serif;
-    size: 0.8em;
-  };
+  .border-radius(3px);
+  font-family: 'Droid Sans Mono', monospace, serif;
+  font-size: 0.8em;
 }
 
 code {

@@ -14,8 +14,8 @@
 
   #logo {
     background: {
-      image: image-url("logo.png");
-      image: image-url("logo.svg");
+      image: image-url('logo.png');
+      image: image-url('logo.svg');
       repeat: no-repeat;
       size: 100%;
     };

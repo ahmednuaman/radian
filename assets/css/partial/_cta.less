@@ -2,31 +2,37 @@
   margin: 30px 0;
   text-align: center;
 
-  @include large {
-    margin: 50px 0;
+  & {
+    .large;
+    .content() {
+      margin: 50px 0;
+    }
   }
 
   a {
-    @include border-radius(3px);
-    @include box-shadow(#666666 2px 2px 0);
-    @include single-transition(background-color, 250ms);
-    @include single-transition(box-shadow, 250ms);
+    .border-radius(3px);
+    .box-shadow(#666666 2px 2px 0);
+    .transition(background-color 250ms);
+    .transition(box-shadow 250ms);
     background: #c1272d;
     color: white;
     display: inline-block;
     padding: 1em;
 
-    @include small {
-      padding: 0.5em;
+    & {
+      .small;
+      .content() {
+        padding: 0.5em;
+      }
     }
 
     &:hover {
-      @include box-shadow(#333333 2px 2px 0);
+      .box-shadow(#333333 2px 2px 0);
       background: #666666;
     }
 
     &:active {
-      @include box-shadow(none);
+      .box-shadow(none);
       margin: 3px 0 0 3px;
     }
   }

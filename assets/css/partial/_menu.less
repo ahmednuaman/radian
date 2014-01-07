@@ -2,8 +2,11 @@
   margin: 40px 0;
   text-align: center;
 
-  @include large {
-    margin: 60px 0;
+  & {
+    .large;
+    .content() {
+      margin: 60px 0;
+    }
   }
 
   li {
