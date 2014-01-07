@@ -37,21 +37,19 @@ module.exports = (grunt) ->
       ]
       options: '<%= watch.coffee.options %>'
     less:
-      compass:
-        files: [
-          '<%= less.dev.options.paths[0] %>/**/*.less'
-        ]
-        tasks: [
-          'less:dev'
-        ]
+      files: [
+        '<%= less.dev.options.paths[0] %>/**/*.less'
+      ]
+      tasks: [
+        'less:dev'
+      ]
     stylus:
-      compass:
-        files: [
-          'assets/css/**/*.styl'
-        ]
-        tasks: [
-          'stylus:dev'
-        ]
+      files: [
+        'assets/css/**/*.styl'
+      ]
+      tasks: [
+        'stylus:dev'
+      ]
 
   changedFiles = {}
   onChange = grunt.util._.debounce () ->
