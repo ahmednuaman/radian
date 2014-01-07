@@ -1,18 +1,6 @@
 .block
   display: block
 
-.col-3
-  @extend .left
-  padding-left: 20px
-  width: 33%
-
-  &:first-child
-    padding-left: 0
-
-  +small
-    width: 100%
-    padding-left: 0
-
 .left
   @extend .block
   float: left
@@ -29,11 +17,23 @@
   @extend .left
   width: 100%
 
+.col-3
+  @extend .left
+  padding-left: 20px
+  width: 33%
+
+  &:first-child
+    padding-left: 0
+
+  +small()
+    width: 100%
+    padding-left: 0
+
 .text-centre
   text-align: center
 
 *
-  +box-sizing(border-box)
+  box-sizing(border-box)
   font-family: 'Droid Sans', Arial, sans-serif
 
 body,
@@ -43,7 +43,7 @@ p
   line-height: 1.7em
 
 a
-  +single-transition(color, 250ms)
+  single-transition(color, 250ms)
   color: #A6120D
   font-weight: bold
   text-decoration: none
@@ -53,10 +53,9 @@ a
 
 code,
 pre
-  +border-radius(3px)
-  font:
-    family: 'Droid Sans Mono', monospace, serif
-    size: .8em
+  border-radius(3px)
+  font-family: 'Droid Sans Mono', monospace, serif
+  font-size: .8em
 
 code
   background: #f8f8f8

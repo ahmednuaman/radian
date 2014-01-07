@@ -47,7 +47,7 @@ module.exports = (grunt) ->
     stylus:
       compass:
         files: [
-          'assets/css/**/*.stylus'
+          'assets/css/**/*.styl'
         ]
         tasks: [
           'stylus:dev'

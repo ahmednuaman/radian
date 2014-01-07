@@ -6,24 +6,23 @@
     margin: 60px auto
     max-width: 605px
 
-    +small
+    +small()
       font-size: 1.5em
       margin: 30px auto
 
   #logo
-    background:
-      image: image-url('logo.png')
-      image: image-url('logo.svg')
-      repeat: no-repeat
-      size: 100%
+    background-image: url('../img/logo.png')
+    background-image: url('../img/logo.svg')
+    background-repeat: no-repeat
+    background-size: 100%
     display: inline-block
     height: 100px
     width: 100px
 
-    +medium
+    +medium()
       height: 200px
       width: 200px
 
-    +large
+    +large()
       height: 300px
       width: 300px
