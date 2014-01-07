@@ -59,7 +59,8 @@
     "karma-phantomjs-launcher": "0.1.1",
     "karma-requirejs": "0.2.1",
     "marked": "0.3.0",
-    "wrench": "1.5.4"
+    "wrench": "1.5.4",
+    "grunt-contrib-stylus": "~0.11.0"
   },
   "peerDependencies": {
     "express": "3.4.7",

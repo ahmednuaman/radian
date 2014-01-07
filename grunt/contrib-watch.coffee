@@ -40,10 +40,17 @@ module.exports = (grunt) ->
       compass:
         files: [
           '<%= less.dev.options.paths[0] %>/**/*.less'
-          '<%= less.dev.options.paths[0] %>/**/*.png'
         ]
         tasks: [
           'less:dev'
+        ]
+    stylus:
+      compass:
+        files: [
+          'assets/css/**/*.stylus'
+        ]
+        tasks: [
+          'stylus:dev'
         ]
 
   changedFiles = {}
