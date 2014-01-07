@@ -1,0 +1,27 @@
+#header-menu {
+  margin: 40px 0;
+  text-align: center;
+
+  @include large {
+    margin: 60px 0;
+  }
+
+  li {
+    a {
+      font-size: 1.2em;
+      padding: 0 1em;
+
+      &.selected {
+        color: #666666;
+
+        &:before {
+          content: '> ';
+        }
+      }
+    }
+
+    &:first-child a {
+      padding-left: 0;
+    }
+  }
+}

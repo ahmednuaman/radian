@@ -36,6 +36,15 @@ module.exports = (grunt) ->
         'jade:dev'
       ]
       options: '<%= watch.coffee.options %>'
+    less:
+      compass:
+        files: [
+          '<%= less.dev.options.paths[0] %>/**/*.less'
+          '<%= less.dev.options.paths[0] %>/**/*.png'
+        ]
+        tasks: [
+          'less:dev'
+        ]
 
   changedFiles = {}
   onChange = grunt.util._.debounce () ->
