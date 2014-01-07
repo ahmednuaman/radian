@@ -50,6 +50,15 @@ div#home(data-ng-controller='HomeController')
           npm install -g generator-radian
           yo radian
 
+      Radian gives you the option of how you want to code your app. By default it will use CoffeeScript, SASS and Jade; however as you run the set up via Yeoman it will give you the options of which CSS preprocessors you want to use, if any, from the following list:
+
+      - [SASS](http://sass-lang.com/)
+      - [SCSS](http://sass-lang.com/)
+      - [Less](http://lesscss.org/)
+      - [Stylus](http://learnboost.github.io/stylus/)
+
+      You can also choose not to use any preprocessors and instead just use vanilla JS, CSS and HTML. All the fun!
+
       You can then make use of the built in subgenerators to create your project files, you have the choice of two types of generators, you use them by running:
 
           yo radian:TYPE 'NAME'
@@ -111,9 +120,9 @@ div#home(data-ng-controller='HomeController')
               it 'should load', () ->
                 controller = createController()
 
-      ### Generating Jade and SASS files
+      ### Generating partials
 
-      This generator creates a Jade partial and an accompanying SASS partial, eg running:
+      This generator creates a partial and an accompanying style partial (note that the types of partial will depend on your Yeoman set up options, eg if you chose to use Jade and SASS, then a Jade partial with a SASS style partial would be created), eg running:
 
           yo radian:partial 'my new view'
 
