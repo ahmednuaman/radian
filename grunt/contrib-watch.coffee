@@ -14,6 +14,7 @@ module.exports = (grunt) ->
     compass:
       files: [
         '<%= compass.dev.options.sassDir %>/**/*.sass'
+        '<%= compass.dev.options.sassDir %>/**/*.scss'
         '<%= compass.dev.options.imagesDir %>/**/*.png'
       ]
       tasks: [
