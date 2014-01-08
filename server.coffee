@@ -2,8 +2,9 @@
 express = require 'express'
 fs = require 'fs'
 app = express()
-# By default the server launches at `http://localhost:8000`, you can change the port here.
-port = 8000
+# By default the server launches at `http://localhost:8000`, you can change it in the
+# [`grunt/express-server.coffee`](express-server.html) file config.
+port = process.env.PORT || 8000
 
 app.configure () ->
   # The server is also configured to allow CORS.
