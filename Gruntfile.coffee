@@ -89,6 +89,7 @@ module.exports = (grunt) ->
   # It then copies files into place (by default into the `./build/` directory) and replaces the bower libraries with
   # CDN versions. Finally it executes the crawler to make the app SEO friendly.
   grunt.registerTask 'build', 'build and package the app', [
+    'clean'
     'githash'
     'install'
     'sprite'
