@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>page-title-factory.coffee</title>
+  <title>spritesmith.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -24,161 +24,6 @@
               </a>
             
               
-              <a class="source" href="app.html">
-                app.coffee
-              </a>
-            
-              
-              <a class="source" href="menu-items-collection.html">
-                menu-items-collection.coffee
-              </a>
-            
-              
-              <a class="source" href="stub-collection.html">
-                stub-collection.coffee
-              </a>
-            
-              
-              <a class="source" href="config.html">
-                config.coffee
-              </a>
-            
-              
-              <a class="source" href="app-controller.html">
-                app-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="error-controller.html">
-                error-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="footer-controller.html">
-                footer-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="header-controller.html">
-                header-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="header-menu-controller.html">
-                header-menu-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="home-controller.html">
-                home-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="radian-controller.html">
-                radian-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="stub-controller.html">
-                stub-controller.coffee
-              </a>
-            
-              
-              <a class="source" href="menu-component-directive.html">
-                menu-component-directive.coffee
-              </a>
-            
-              
-              <a class="source" href="radian-directive.html">
-                radian-directive.coffee
-              </a>
-            
-              
-              <a class="source" href="stub-directive.html">
-                stub-directive.coffee
-              </a>
-            
-              
-              <a class="source" href="menu-factory.html">
-                menu-factory.coffee
-              </a>
-            
-              
-              <a class="source" href="page-error-factory.html">
-                page-error-factory.coffee
-              </a>
-            
-              
-              <a class="source" href="page-title-factory.html">
-                page-title-factory.coffee
-              </a>
-            
-              
-              <a class="source" href="radian-factory.html">
-                radian-factory.coffee
-              </a>
-            
-              
-              <a class="source" href="stub-factory.html">
-                stub-factory.coffee
-              </a>
-            
-              
-              <a class="source" href="radian-filter.html">
-                radian-filter.coffee
-              </a>
-            
-              
-              <a class="source" href="stub-filter.html">
-                stub-filter.coffee
-              </a>
-            
-              
-              <a class="source" href="radian-module-helper.html">
-                radian-module-helper.coffee
-              </a>
-            
-              
-              <a class="source" href="partials.html">
-                partials.coffee
-              </a>
-            
-              
-              <a class="source" href="routes.html">
-                routes.coffee
-              </a>
-            
-              
-              <a class="source" href="menu-service.html">
-                menu-service.coffee
-              </a>
-            
-              
-              <a class="source" href="radian-service.html">
-                radian-service.coffee
-              </a>
-            
-              
-              <a class="source" href="stub-service.html">
-                stub-service.coffee
-              </a>
-            
-              
-              <a class="source" href="startup.html">
-                startup.coffee
-              </a>
-            
-              
-              <a class="source" href="menu-item-vo.html">
-                menu-item-vo.coffee
-              </a>
-            
-              
-              <a class="source" href="stub-vo.html">
-                stub-vo.coffee
-              </a>
-            
-              
               <a class="source" href="crawler.html">
                 crawler.coffee
               </a>
@@ -191,6 +36,11 @@
               
               <a class="source" href="coffeelint.html">
                 coffeelint.coffee
+              </a>
+            
+              
+              <a class="source" href="contrib-clean.html">
+                contrib-clean.coffee
               </a>
             
               
@@ -214,8 +64,18 @@
               </a>
             
               
+              <a class="source" href="contrib-less.html">
+                contrib-less.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-requirejs.html">
                 contrib-requirejs.coffee
+              </a>
+            
+              
+              <a class="source" href="contrib-stylus.html">
+                contrib-stylus.coffee
               </a>
             
               
@@ -246,6 +106,11 @@
               
               <a class="source" href="karma.html">
                 karma.coffee
+              </a>
+            
+              
+              <a class="source" href="spritesmith.html">
+                spritesmith.coffee
               </a>
             
               
@@ -386,7 +251,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>page-title-factory.coffee</h1>
+                  <h1>spritesmith.coffee</h1>
               </div>
           </li>
         
@@ -398,15 +263,18 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p>This factory deals with a common problem in <a href="https://www.google.co.uk/search?q=passing+%24scope+variables">AngularJS</a>
-relating to passing data up and down the <code>$scope</code> chain. The solution is simple yet elegant: use a <code>$rootScope</code> event
-and callback. This means that any part of the application can set the title by calling
-<code>pageTitleFactory.setTitle &#39;foo&#39;</code> and listen to a title change by passing a callback into
-<code>pageTitleFactory.addListener cb</code>.</p>
-
+              
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(grunt)</span> -&gt;</span>
+  config =
+    <span class="attribute">icon</span>:
+      <span class="attribute">src</span>: [
+        <span class="string">'assets/img/icon/*.png'</span>
+      ]
+      <span class="attribute">destImg</span>: <span class="string">'assets/img/icon-&lt;%= grunt.config("git-commit") %&gt;.png'</span>
+      <span class="attribute">imgPath</span>: <span class="string">'../img/icon-&lt;%= grunt.config("git-commit") %&gt;.png'</span>
+      <span class="attribute">destCSS</span>: <span class="string">'assets/sass/partial/_sprite-icon.sass'</span></pre></div></div>
             
         </li>
         
@@ -417,26 +285,39 @@ and callback. This means that any part of the application can set the title by c
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>Jump to <a href="radian-factory.html"><code>factory/radian-factory.coffee</code></a> ☛</p>
+              <p>destCSS: &#39;assets/scss/partial/_sprite-icon.scss&#39;
+destCSS: &#39;assets/less/partial/_sprite-icon.less&#39;
+destCSS: &#39;assets/styl/partial/_sprite-icon.styl&#39;</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="string">'factory/radian-factory'</span>
-], <span class="function"><span class="params">(RF)</span> -&gt;</span>
-  RF <span class="string">'pageTitleFactory'</span>, [
-    <span class="string">'$rootScope'</span>
-  ], <span class="function"><span class="params">($rootScope)</span> -&gt;</span>
-    event = <span class="string">'pageTitleChange'</span>
+            <div class="content"><div class='highlight'><pre>      <span class="attribute">cssTemplate</span>: <span class="string">'assets/sass/template.mustache'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>cssTemplate: &#39;assets/scss/template.mustache&#39;
+cssTemplate: &#39;assets/less/template.mustache&#39;
+cssTemplate: &#39;assets/styl/template.mustache&#39;</p>
 
-    <span class="function"><span class="title">emit</span> = <span class="params">(title)</span> -&gt;</span>
-      $rootScope.$emit event, title
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="attribute">cssOpts</span>:
+        <span class="attribute">target</span>: <span class="string">'icon'</span>
 
-    factory =
-      <span class="attribute">setTitle</span>: <span class="function"><span class="params">(title)</span> -&gt;</span>
-        emit title
+  <span class="keyword">if</span> process.env.TRAVIS
+    <span class="keyword">for</span> key <span class="keyword">of</span> config
+      config[key].engineOpts =
+        <span class="attribute">imagemagick</span>: <span class="literal">true</span>
 
-      <span class="attribute">addListener</span>: <span class="function"><span class="params">(callback)</span> -&gt;</span>
-        $rootScope.$<span class="literal">on</span> event, callback</pre></div></div>
+  grunt.config <span class="string">'sprite'</span>, config
+  grunt.loadNpmTasks <span class="string">'grunt-spritesmith'</span></pre></div></div>
             
         </li>
         
