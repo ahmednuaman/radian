@@ -16,7 +16,7 @@ app.configure () ->
 
   # This is for debugging purposes, it allows you to view the raw files as plain text.
   app.use (request, response, next) ->
-    if /\.(coffee|jade|sass)$/.test request.url
+    if /\.(coffee|jade|sass|scss|styl|less)$/.test request.url
       response.set 'Content-Type', 'text/plain'
 
     next()
