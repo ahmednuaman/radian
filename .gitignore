@@ -6,7 +6,7 @@
 *.map
 *.sassc
 *.sublime-workspace
-assets/css/partial/_sprite*
+assets/*/partial/_sprite*
 assets/img/*.png
 !assets/img/logo.png
 assets/vendor
