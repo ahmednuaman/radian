@@ -5,15 +5,6 @@
 }
 
 {{#items}}
-  ${{options.target}}-{{name}}-x: {{px.x}};
-  ${{options.target}}-{{name}}-y: {{px.y}};
-  ${{options.target}}-{{name}}-offset-x: {{px.offset_x}};
-  ${{options.target}}-{{name}}-offset-y: {{px.offset_y}};
-  ${{options.target}}-{{name}}-width: {{px.width}};
-  ${{options.target}}-{{name}}-height: {{px.height}};
-  ${{options.target}}-{{name}}-total-width: {{px.total_width}};
-  ${{options.target}}-{{name}}-total-height: {{px.total_height}};
-  ${{options.target}}-{{name}}-image: '{{{escaped_image}}}';
   ${{options.target}}-{{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}';
 {{/items}}
 
