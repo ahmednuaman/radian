@@ -68,7 +68,7 @@ div#home(data-ng-controller='HomeController')
 
       ### Generating CoffeeScript files
 
-      This generator will create a **TYPE**, say controller, in `assets/js/TYPE` and create a test spec in `test/unit/TYPE`; where **TYPE** is one of the following:
+      This generator will create a **TYPE**, say controller, in `assets/coffee/TYPE` and create a test spec in `test/unit/TYPE`; where **TYPE** is one of the following:
 
       - controller
       - service
@@ -82,7 +82,7 @@ div#home(data-ng-controller='HomeController')
 
           yo radian:controller 'foo bar'
 
-      Creates `assets/js/controller/foo-bar-controller.coffee` containing:
+      Creates `assets/coffee/controller/foo-bar-controller.coffee` containing:
 
           define [
             'controller/radian-controller'
@@ -119,6 +119,8 @@ div#home(data-ng-controller='HomeController')
 
               it 'should load', () ->
                 controller = createController()
+
+      Note that you can also use the generator to create vanilla JavaScript files. It's all down to the config options you choose when you create your project using Yeoman.
 
       ### Generating partials
 
