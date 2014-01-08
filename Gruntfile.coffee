@@ -5,6 +5,48 @@ module.exports = (grunt) ->
   # individual files for each task.
   grunt.loadTasks 'grunt'
 
+  # ## grunt install
+  # This task installs the bower dependancies.
+  grunt.registerTask 'install', 'install bower dependancies', () ->
+    done = @async()
+    config =
+      cmd: 'bower'
+      args: [
+        'install'
+      ]
+
+    child = grunt.util.spawn config, (err, result) ->
+      grunt.log.ok 'Installed bower dependancies'
+      done()
+
+    child.stdout.on 'data', (data) ->
+      grunt.log.write data
+
+  ###
+  ## grunt githash
+  This task creates a Grunt config variable called `git-commit` that contains the latest git commit sha1 hash.
+  ###
+  grunt.registerTask 'githash', 'grabs the latest git commit hash', () ->
+    done = @async()
+
+    config =
+      cmd: 'git'
+      args: [
+        'rev-parse'
+        '--verify'
+        'HEAD'
+      ]
+
+    grunt.util.spawn config, (err, result) ->
+      ###
+      To deal with cache busting this task grabs the latest git commit sha1 and uses this for naming the optimised
+      CSS and JS files.
+      ###
+      grunt.config 'git-commit', result.stdout
+      grunt.log.ok "Setting `git-commit` to #{result.stdout}"
+
+      done()
+
   # ## grunt default
   # This task is useful for running whilst you're developing your app. It installs the [Bower](http://bower.io)
   # dependancies, runs the development preprocessor tasks, starts the local express server and watches your files
@@ -66,22 +108,6 @@ module.exports = (grunt) ->
     'express'
     'exec:e2e'
   ]
-
-  # ## grunt install
-  # This task installs the bower dependancies.
-  grunt.registerTask 'install', 'install bower dependancies', () ->
-    done = @async()
-    config =
-      cmd: 'bower'
-      args: [
-        'install'
-      ]
-
-    child = grunt.util.spawn config, (err, result) ->
-      done()
-
-    child.stdout.on 'data', (data) ->
-      grunt.log.write data
 
   # ## grunt build
   # This task builds the app. It starts by running all the preprocessors in production mode, compressing the images
