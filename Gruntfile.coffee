@@ -10,6 +10,7 @@ module.exports = (grunt) ->
   # dependancies, runs the development preprocessor tasks, starts the local express server and watches your files
   # as you code your awsome app.
   grunt.registerTask 'default', 'run the server and watch for changes', [
+    'githash'
     'install'
     'sprite'
     'compass:dev'
@@ -24,6 +25,7 @@ module.exports = (grunt) ->
   # ## grunt test
   # This task runs both the unit and e2d tests.
   grunt.registerTask 'test', 'compile the app and run the tests', [
+    'githash'
     'install'
     'sprite'
     'compass:dev'
@@ -41,6 +43,7 @@ module.exports = (grunt) ->
   # ## grunt unit
   # This task runs the unit tests in [karma](http://karma-runner.github.io).
   grunt.registerTask 'unit', 'run unit tests', [
+    'githash'
     'install'
     'coffeelint'
     'coffee:dev'
@@ -50,6 +53,7 @@ module.exports = (grunt) ->
   # ## grunt e2e
   # This task runs the e2e tests in [protractor](https://github.com/angular/protractor).
   grunt.registerTask 'e2e', 'run e2e tests', [
+    'githash'
     'install'
     'sprite'
     'compass:dev'
@@ -84,42 +88,20 @@ module.exports = (grunt) ->
   # and packages up the app using the awesome [`r.js`](http://requirejs.org/docs/optimization.html) optimiser.
   # It then copies files into place (by default into the `./build/` directory) and replaces the bower libraries with
   # CDN versions. Finally it executes the crawler to make the app SEO friendly.
-  grunt.registerTask 'build', 'build and package the app', () ->
-    done = @async()
-
-    tasks = [
-      'install'
-      'sprite'
-      'compass:prod'
-      # 'less:prod'
-      # 'stylus:prod'
-      'imagemin'
-      'jade:prod'
-      'coffee:prod'
-      'ngtemplates'
-      'requirejs'
-      'copy'
-      'express'
-      'exec:crawl'
-      'replace'
-    ]
-
-    config =
-      cmd: 'git'
-      args: [
-        'rev-parse'
-        '--verify'
-        'HEAD'
-      ]
-
-    grunt.util.spawn config, (err, result) ->
-      # To deal with cache busting this task grabs the latest git commit sha1 and uses this for naming the optimised
-      # CSS and JS files.
-      grunt.config 'git-commit', result.stdout
-
-      grunt.file.delete './build',
-        force: true
-
-      grunt.task.run tasks
-
-      done()
+  grunt.registerTask 'build', 'build and package the app', [
+    'githash'
+    'install'
+    'sprite'
+    'compass:prod'
+    # 'less:prod'
+    # 'stylus:prod'
+    'imagemin'
+    'jade:prod'
+    'coffee:prod'
+    'ngtemplates'
+    'requirejs'
+    'copy'
+    'express'
+    'exec:crawl'
+    'replace'
+  ]
