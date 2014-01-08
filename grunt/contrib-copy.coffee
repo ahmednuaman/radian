@@ -11,8 +11,8 @@ module.exports = (grunt) ->
           ]
           dest: 'build/'
         ,
-          src: '<%= compass.dev.options.sassDir %>/styles.css'
-          dest: 'build/assets/css/styles-<%= grunt.config.get("git-commit") %>.css'
+          src: 'assets/css/styles.css'
+          dest: 'build/assets/css/styles-<%= grunt.config("git-commit") %>.css'
       ]
 
   grunt.loadNpmTasks 'grunt-contrib-copy'

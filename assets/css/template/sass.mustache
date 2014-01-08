@@ -1,0 +1,48 @@
+{
+// Default options
+'functions': true,
+'classes': true
+}
+
+{{#items}}
+${{name}}-x: {{px.x}}
+${{name}}-y: {{px.y}}
+${{name}}-offset-x: {{px.offset_x}}
+${{name}}-offset-y: {{px.offset_y}}
+${{name}}-width: {{px.width}}
+${{name}}-height: {{px.height}}
+${{name}}-total-width: {{px.total_width}}
+${{name}}-total-height: {{px.total_height}}
+${{name}}-image: '{{{escaped_image}}}'
+${{name}}: {{px.x}} {{px.y}} {{px.offset_x}} {{px.offset_y}} {{px.width}} {{px.height}} {{px.total_width}} {{px.total_height}} '{{{escaped_image}}}'
+{{/items}}
+
+{{#options.functions}}
+=sprite-width($sprite)
+  width: nth($sprite, 5)
+
+=sprite-height($sprite)
+  height: nth($sprite, 6)
+
+=sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+=sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+=sprite($sprite)
+  +sprite-image($sprite)
+  +sprite-position($sprite)
+  +sprite-width($sprite)
+  +sprite-height($sprite)
+{{/options.functions}}
+
+{{#options.classes}}
+{{#items}}
+.{{name}}
+  +sprite(${{name}})
+{{/items}}
+{{/options.classes}}

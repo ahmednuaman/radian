@@ -15,15 +15,15 @@ module.exports = (grunt) ->
       files: [
         '<%= compass.dev.options.sassDir %>/**/*.sass'
         '<%= compass.dev.options.sassDir %>/**/*.scss'
-        '<%= compass.dev.options.imagesDir %>/**/*.png'
       ]
       tasks: [
         'compass:dev'
       ]
     css:
       files: [
-        '<%= compass.dev.options.sassDir %>/styles.css'
-        '<%= compass.dev.options.imagesDir %>/**/*.png'
+        'assets/css/*.css'
+        'assets/img/*.{gif,png,svg}'
+        'assets/img/**/*.jpg'
       ]
       options:
         livereload: true
@@ -42,6 +42,13 @@ module.exports = (grunt) ->
       ]
       tasks: [
         'less:dev'
+      ]
+    sprite:
+      files: [
+        'assets/img/**/*.png'
+      ]
+      tasks: [
+        'sprite'
       ]
     stylus:
       files: [

@@ -40,6 +40,7 @@
     "grunt-contrib-imagemin": "0.4.0",
     "grunt-contrib-less": "0.8.3",
     "grunt-contrib-requirejs": "0.4.1",
+    "grunt-contrib-stylus": "0.11.0",
     "grunt-contrib-uglify": "0.2.7",
     "grunt-contrib-watch": "0.5.3",
     "grunt-docco": "0.3.0",
@@ -47,6 +48,7 @@
     "grunt-express-server": "0.4.11",
     "grunt-jade": "0.4.0",
     "grunt-karma": "0.7.2",
+    "grunt-spritesmith": "1.21.0",
     "grunt-text-replace": "0.3.10",
     "jasmine-reporters": "0.2.1",
     "karma": "0.11.12",
@@ -59,8 +61,7 @@
     "karma-phantomjs-launcher": "0.1.1",
     "karma-requirejs": "0.2.1",
     "marked": "0.3.0",
-    "wrench": "1.5.4",
-    "grunt-contrib-stylus": "~0.11.0"
+    "wrench": "1.5.4"
   },
   "peerDependencies": {
     "express": "3.4.7",

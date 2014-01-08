@@ -11,7 +11,10 @@ module.exports = (grunt) ->
   # as you code your awsome app.
   grunt.registerTask 'default', 'run the server and watch for changes', [
     'install'
+    'sprite'
     'compass:dev'
+    # 'less:dev'
+    # 'stylus:dev'
     'coffee:dev'
     'jade:dev'
     'express'
@@ -22,7 +25,10 @@ module.exports = (grunt) ->
   # This task runs both the unit and e2d tests.
   grunt.registerTask 'test', 'compile the app and run the tests', [
     'install'
+    'sprite'
     'compass:dev'
+    # 'less:dev'
+    # 'stylus:dev'
     'coffeelint'
     'coffee:dev'
     'karma'
@@ -45,7 +51,10 @@ module.exports = (grunt) ->
   # This task runs the e2e tests in [protractor](https://github.com/angular/protractor).
   grunt.registerTask 'e2e', 'run e2e tests', [
     'install'
+    'sprite'
     'compass:dev'
+    # 'less:dev'
+    # 'stylus:dev'
     'coffeelint'
     'coffee:dev'
     'coffee:e2e'
@@ -80,7 +89,10 @@ module.exports = (grunt) ->
 
     tasks = [
       'install'
+      'sprite'
       'compass:prod'
+      # 'less:prod'
+      # 'stylus:prod'
       'imagemin'
       'jade:prod'
       'coffee:prod'
