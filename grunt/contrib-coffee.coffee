@@ -2,25 +2,25 @@ module.exports = (grunt) ->
   grunt.config 'coffee',
     dev:
       expand: true
-      cwd: './'
-      dest: '<%= coffee.dev.cwd %>'
+      cwd: 'assets/coffee/'
+      dest: 'assets/js/'
       ext: '.js'
-      src: ['<%= watch.coffee.files %>']
+      src: [
+        '**/*.coffee'
+      ]
       options:
         bare: true
         sourceMap: true
     e2e:
       expand: '<%= coffee.dev.expand %>'
-      cwd: '<%= coffee.dev.cwd %>'
-      dest: '<%= coffee.dev.cwd %>'
+      cwd: 'test/e2e/'
+      dest: '<%= coffee.e2e.cwd %>'
       ext: '<%= coffee.dev.ext %>'
-      src: [
-        'test/e2e/**/*.coffee'
-      ]
+      src: ['<%= coffee.dev.src %>']
     prod:
       expand: '<%= coffee.dev.expand %>'
       cwd: '<%= coffee.dev.cwd %>'
-      dest: '<%= coffee.dev.cwd %>'
+      dest: '<%= coffee.dev.dest %>'
       ext: '<%= coffee.dev.ext %>'
       src: ['<%= coffee.dev.src %>']
 
