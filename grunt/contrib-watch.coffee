@@ -14,7 +14,7 @@ module.exports = (grunt) ->
     compass:
       files: [
         '<%= compass.dev.options.sassDir %>/**/*.sass'
-        '<%= compass.dev.options.sassDir %>/**/*.scss'
+        # '<%= compass.dev.options.sassDir %>/**/*.scss'
       ]
       tasks: [
         'compass:dev'
@@ -52,7 +52,7 @@ module.exports = (grunt) ->
       ]
     stylus:
       files: [
-        'assets/css/**/*.styl'
+        'assets/styl/**/*.styl'
       ]
       tasks: [
         'stylus:dev'

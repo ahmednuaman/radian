@@ -1,0 +1,102 @@
+$icon-customise_x = 0px;
+$icon-customise_y = 0px;
+$icon-customise_offset_x = 0px;
+$icon-customise_offset_y = 0px;
+$icon-customise_width = 30px;
+$icon-customise_height = 30px;
+$icon-customise_total_width = 30px;
+$icon-customise_total_height = 180px;
+$icon-customise_image = '../img/icon-.png';
+$icon-customise = 0px 0px 0px 0px 30px 30px 30px 180px '../img/icon-.png';
+$icon-lightweight_x = 0px;
+$icon-lightweight_y = 30px;
+$icon-lightweight_offset_x = 0px;
+$icon-lightweight_offset_y = -30px;
+$icon-lightweight_width = 30px;
+$icon-lightweight_height = 30px;
+$icon-lightweight_total_width = 30px;
+$icon-lightweight_total_height = 180px;
+$icon-lightweight_image = '../img/icon-.png';
+$icon-lightweight = 0px 30px 0px -30px 30px 30px 30px 180px '../img/icon-.png';
+$icon-scale_x = 0px;
+$icon-scale_y = 60px;
+$icon-scale_offset_x = 0px;
+$icon-scale_offset_y = -60px;
+$icon-scale_width = 30px;
+$icon-scale_height = 30px;
+$icon-scale_total_width = 30px;
+$icon-scale_total_height = 180px;
+$icon-scale_image = '../img/icon-.png';
+$icon-scale = 0px 60px 0px -60px 30px 30px 30px 180px '../img/icon-.png';
+$icon-setup_x = 0px;
+$icon-setup_y = 90px;
+$icon-setup_offset_x = 0px;
+$icon-setup_offset_y = -90px;
+$icon-setup_width = 30px;
+$icon-setup_height = 30px;
+$icon-setup_total_width = 30px;
+$icon-setup_total_height = 180px;
+$icon-setup_image = '../img/icon-.png';
+$icon-setup = 0px 90px 0px -90px 30px 30px 30px 180px '../img/icon-.png';
+$icon-tests_x = 0px;
+$icon-tests_y = 120px;
+$icon-tests_offset_x = 0px;
+$icon-tests_offset_y = -120px;
+$icon-tests_width = 30px;
+$icon-tests_height = 30px;
+$icon-tests_total_width = 30px;
+$icon-tests_total_height = 180px;
+$icon-tests_image = '../img/icon-.png';
+$icon-tests = 0px 120px 0px -120px 30px 30px 30px 180px '../img/icon-.png';
+$icon-yeoman_x = 0px;
+$icon-yeoman_y = 150px;
+$icon-yeoman_offset_x = 0px;
+$icon-yeoman_offset_y = -150px;
+$icon-yeoman_width = 30px;
+$icon-yeoman_height = 30px;
+$icon-yeoman_total_width = 30px;
+$icon-yeoman_total_height = 180px;
+$icon-yeoman_image = '../img/icon-.png';
+$icon-yeoman = 0px 150px 0px -150px 30px 30px 30px 180px '../img/icon-.png';
+
+spriteWidth($sprite) {
+  width: $sprite[4];
+}
+
+spriteHeight($sprite) {
+  height: $sprite[5];
+}
+
+spritePosition($sprite) {
+  background-position: $sprite[2] $sprite[3];
+}
+
+spriteImage($sprite) {
+  background-image: url($sprite[8]);
+}
+
+sprite($sprite) {
+  spriteImage($sprite)
+  spritePosition($sprite)
+  spriteWidth($sprite)
+  spriteHeight($sprite)
+}
+
+.icon-customise {
+  sprite($icon-customise);
+}
+.icon-lightweight {
+  sprite($icon-lightweight);
+}
+.icon-scale {
+  sprite($icon-scale);
+}
+.icon-setup {
+  sprite($icon-setup);
+}
+.icon-tests {
+  sprite($icon-tests);
+}
+.icon-yeoman {
+  sprite($icon-yeoman);
+}

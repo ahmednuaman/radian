@@ -1,0 +1,105 @@
+  $icon-customise-x: 0px;
+  $icon-customise-y: 0px;
+  $icon-customise-offset-x: 0px;
+  $icon-customise-offset-y: 0px;
+  $icon-customise-width: 30px;
+  $icon-customise-height: 30px;
+  $icon-customise-total-width: 30px;
+  $icon-customise-total-height: 180px;
+  $icon-customise-image: '../img/icon-.png';
+  $icon-customise: 0px 0px 0px 0px 30px 30px 30px 180px '../img/icon-.png';
+  $icon-lightweight-x: 0px;
+  $icon-lightweight-y: 30px;
+  $icon-lightweight-offset-x: 0px;
+  $icon-lightweight-offset-y: -30px;
+  $icon-lightweight-width: 30px;
+  $icon-lightweight-height: 30px;
+  $icon-lightweight-total-width: 30px;
+  $icon-lightweight-total-height: 180px;
+  $icon-lightweight-image: '../img/icon-.png';
+  $icon-lightweight: 0px 30px 0px -30px 30px 30px 30px 180px '../img/icon-.png';
+  $icon-scale-x: 0px;
+  $icon-scale-y: 60px;
+  $icon-scale-offset-x: 0px;
+  $icon-scale-offset-y: -60px;
+  $icon-scale-width: 30px;
+  $icon-scale-height: 30px;
+  $icon-scale-total-width: 30px;
+  $icon-scale-total-height: 180px;
+  $icon-scale-image: '../img/icon-.png';
+  $icon-scale: 0px 60px 0px -60px 30px 30px 30px 180px '../img/icon-.png';
+  $icon-setup-x: 0px;
+  $icon-setup-y: 90px;
+  $icon-setup-offset-x: 0px;
+  $icon-setup-offset-y: -90px;
+  $icon-setup-width: 30px;
+  $icon-setup-height: 30px;
+  $icon-setup-total-width: 30px;
+  $icon-setup-total-height: 180px;
+  $icon-setup-image: '../img/icon-.png';
+  $icon-setup: 0px 90px 0px -90px 30px 30px 30px 180px '../img/icon-.png';
+  $icon-tests-x: 0px;
+  $icon-tests-y: 120px;
+  $icon-tests-offset-x: 0px;
+  $icon-tests-offset-y: -120px;
+  $icon-tests-width: 30px;
+  $icon-tests-height: 30px;
+  $icon-tests-total-width: 30px;
+  $icon-tests-total-height: 180px;
+  $icon-tests-image: '../img/icon-.png';
+  $icon-tests: 0px 120px 0px -120px 30px 30px 30px 180px '../img/icon-.png';
+  $icon-yeoman-x: 0px;
+  $icon-yeoman-y: 150px;
+  $icon-yeoman-offset-x: 0px;
+  $icon-yeoman-offset-y: -150px;
+  $icon-yeoman-width: 30px;
+  $icon-yeoman-height: 30px;
+  $icon-yeoman-total-width: 30px;
+  $icon-yeoman-total-height: 180px;
+  $icon-yeoman-image: '../img/icon-.png';
+  $icon-yeoman: 0px 150px 0px -150px 30px 30px 30px 180px '../img/icon-.png';
+
+  @mixin sprite-width($sprite) {
+    width: nth($sprite, 5);
+  }
+
+  @mixin sprite-height($sprite) {
+    height: nth($sprite, 6);
+  }
+
+  @mixin sprite-position($sprite) {
+    $sprite-offset-x: nth($sprite, 3);
+    $sprite-offset-y: nth($sprite, 4);
+    background-position: $sprite-offset-x  $sprite-offset-y;
+  }
+
+  @mixin sprite-image($sprite) {
+    $sprite-image: nth($sprite, 9);
+    background-image: url(#{$sprite-image});
+  }
+
+  @mixin sprite($sprite) {
+    @include sprite-image($sprite);
+    @include sprite-position($sprite);
+    @include sprite-width($sprite);
+    @include sprite-height($sprite);
+  }
+
+  .icon-customise {
+    @include sprite($icon-customise);
+  }
+  .icon-lightweight {
+    @include sprite($icon-lightweight);
+  }
+  .icon-scale {
+    @include sprite($icon-scale);
+  }
+  .icon-setup {
+    @include sprite($icon-setup);
+  }
+  .icon-tests {
+    @include sprite($icon-tests);
+  }
+  .icon-yeoman {
+    @include sprite($icon-yeoman);
+  }
