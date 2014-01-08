@@ -24,13 +24,13 @@ app.configure () ->
 
   # The server will server everything in the root folder it's launched from. If you want to test the built files
   # then you can do a quick and sneaky change here to point it to the `/build` directory instead.
-  app.use '/', express.static __dirname + '/'
+  app.use '/', express.static "#{__dirname}/"
 
 app.options '*', (request, response, next) ->
   response.send 200
 
 app.all '*', (request, response, next) ->
-  response.sendfile __dirname + '/index.html'
+  response.sendfile "#{__dirname}/index.html"
 
 app.listen port, () ->
-  console.log 'Listening on port: ' + port
+  console.log "Listening on port: #{port}"
