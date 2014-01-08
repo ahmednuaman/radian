@@ -14,15 +14,16 @@ module.exports = (grunt) ->
     compass:
       files: [
         '<%= compass.dev.options.sassDir %>/**/*.sass'
-        '<%= compass.dev.options.imagesDir %>/**/*.png'
+        # '<%= compass.dev.options.sassDir %>/**/*.scss'
       ]
       tasks: [
         'compass:dev'
       ]
     css:
       files: [
-        '<%= compass.dev.options.sassDir %>/styles.css'
-        '<%= compass.dev.options.imagesDir %>/**/*.png'
+        'assets/css/*.css'
+        'assets/img/*.{gif,png,svg}'
+        'assets/img/**/*.jpg'
       ]
       options:
         livereload: true
@@ -35,6 +36,27 @@ module.exports = (grunt) ->
         'jade:dev'
       ]
       options: '<%= watch.coffee.options %>'
+    less:
+      files: [
+        '<%= less.dev.options.paths[0] %>/**/*.less'
+      ]
+      tasks: [
+        'less:dev'
+      ]
+    sprite:
+      files: [
+        'assets/img/**/*.png'
+      ]
+      tasks: [
+        'sprite'
+      ]
+    stylus:
+      files: [
+        'assets/styl/**/*.styl'
+      ]
+      tasks: [
+        'stylus:dev'
+      ]
 
   changedFiles = {}
   onChange = grunt.util._.debounce () ->

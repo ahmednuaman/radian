@@ -23,7 +23,7 @@ div#home(data-ng-controller='HomeController')
       span.icon.icon-tests
       :markdown
         ## 100% code coverage
-        Testing is at the heart of Radian, so out the box it comes complete with all the unit tests you could want, <a href="test/report/coverage/Chrome%2031.0.1650%20(Mac%20OS%20X%2010.9.0)/index.html" target="_self">here's the proof</a>.
+        Testing is at the heart of Radian, so out the box it comes complete with all the unit tests you could want, [here's the proof](https://travis-ci.org/ahmednuaman/radian).
 
     div.col-3
       span.icon.icon-yeoman
@@ -50,6 +50,15 @@ div#home(data-ng-controller='HomeController')
           npm install -g generator-radian
           yo radian
 
+      Radian gives you the option of how you want to code your app. By default it will use CoffeeScript, SASS and Jade; however as you run the set up via Yeoman it will give you the options of which CSS preprocessors you want to use, if any, from the following list:
+
+      - [SASS](http://sass-lang.com/)
+      - [SCSS](http://sass-lang.com/)
+      - [Less](http://lesscss.org/)
+      - [Stylus](http://learnboost.github.io/stylus/)
+
+      You can also choose not to use any preprocessors and instead just use vanilla JS, CSS and HTML. All the fun!
+
       You can then make use of the built in subgenerators to create your project files, you have the choice of two types of generators, you use them by running:
 
           yo radian:TYPE 'NAME'
@@ -59,7 +68,7 @@ div#home(data-ng-controller='HomeController')
 
       ### Generating CoffeeScript files
 
-      This generator will create a **TYPE**, say controller, in `assets/js/TYPE` and create a test spec in `test/unit/TYPE`; where **TYPE** is one of the following:
+      This generator will create a **TYPE**, say controller, in `assets/coffee/TYPE` and create a test spec in `test/unit/TYPE`; where **TYPE** is one of the following:
 
       - controller
       - service
@@ -73,7 +82,7 @@ div#home(data-ng-controller='HomeController')
 
           yo radian:controller 'foo bar'
 
-      Creates `assets/js/controller/foo-bar-controller.coffee` containing:
+      Creates `assets/coffee/controller/foo-bar-controller.coffee` containing:
 
           define [
             'controller/radian-controller'
@@ -111,9 +120,11 @@ div#home(data-ng-controller='HomeController')
               it 'should load', () ->
                 controller = createController()
 
-      ### Generating Jade and SASS files
+      Note that you can also use the generator to create vanilla JavaScript files. It's all down to the config options you choose when you create your project using Yeoman.
 
-      This generator creates a Jade partial and an accompanying SASS partial, eg running:
+      ### Generating partials
+
+      This generator creates a partial and an accompanying style partial (note that the types of partial will depend on your Yeoman set up options, eg if you chose to use Jade and SASS, then a Jade partial with a SASS style partial would be created), eg running:
 
           yo radian:partial 'my new view'
 

@@ -4,7 +4,7 @@ module.exports = (grunt) ->
       options:
         baseUrl: 'assets/js'
         name: 'app'
-        out: 'build/assets/js/app-<%= grunt.config.get("git-commit") %>.js'
+        out: 'build/assets/js/app-<%= grunt.config("git-commit") %>.js'
         include: [
           'startup'
           'controller/app-controller'

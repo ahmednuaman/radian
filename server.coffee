@@ -2,8 +2,9 @@
 express = require 'express'
 fs = require 'fs'
 app = express()
-# By default the server launches at `http://localhost:8000`, you can change the port here.
-port = 8000
+# By default the server launches at `http://localhost:8000`, you can change it in the
+# [`grunt/express-server.coffee`](express-server.html) file config.
+port = process.env.PORT || 8000
 
 app.configure () ->
   # The server is also configured to allow CORS.
@@ -16,20 +17,20 @@ app.configure () ->
 
   # This is for debugging purposes, it allows you to view the raw files as plain text.
   app.use (request, response, next) ->
-    if /\.(coffee|jade|sass)$/.test request.url
+    if /\.(coffee|jade|sass|scss|styl|less)$/.test request.url
       response.set 'Content-Type', 'text/plain'
 
     next()
 
   # The server will server everything in the root folder it's launched from. If you want to test the built files
   # then you can do a quick and sneaky change here to point it to the `/build` directory instead.
-  app.use '/', express.static __dirname + '/'
+  app.use '/', express.static "#{__dirname}/"
 
 app.options '*', (request, response, next) ->
   response.send 200
 
 app.all '*', (request, response, next) ->
-  response.sendfile __dirname + '/index.html'
+  response.sendfile "#{__dirname}/index.html"
 
 app.listen port, () ->
-  console.log 'Listening on port: ' + port
+  console.log "Listening on port: #{port}"
