@@ -1,5 +1,5 @@
 module.exports = (grunt) ->
-  grunt.config 'sprite',
+  config =
     icon:
       src: [
         'assets/img/icon/*.png'
@@ -15,4 +15,11 @@ module.exports = (grunt) ->
       # cssTemplate: 'assets/less/template.mustache'
       # cssTemplate: 'assets/styl/template.mustache'
 
+
+  if process.env.TRAVIS
+    for key of config
+      config[key].engineOpts =
+        imagemagick: true
+
+  grunt.config 'sprite', config
   grunt.loadNpmTasks 'grunt-spritesmith'
