@@ -14,7 +14,8 @@ module.exports = (grunt) ->
       # cssTemplate: 'assets/scss/template.mustache'
       # cssTemplate: 'assets/less/template.mustache'
       # cssTemplate: 'assets/styl/template.mustache'
-
+      cssOpts:
+        target: 'icon'
 
   if process.env.TRAVIS
     for key of config
