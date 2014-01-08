@@ -19,19 +19,19 @@ module.exports = (config) ->
     browsers: browsers
     files: [
       exclude 'assets/vendor/**/*.js'
-      exclude 'assets/js/**/*.coffee'
+      exclude 'assets/js/**/*.js'
       exclude 'test/unit/**/*-spec.coffee'
       'test/unit/test-main.coffee'
     ]
     exclude: [
-      'assets/js/app.coffee'
+      'assets/js/app.js'
     ]
     frameworks: [
       'jasmine'
       'requirejs'
     ]
     preprocessors:
-      # 'assets/js/**/*.coffee': 'coverage'
+      'assets/js/**/*.js': 'coverage'
       '**/*.coffee': 'coffee'
     reporters: [
       'coverage'
