@@ -22,10 +22,8 @@ module.exports = (grunt) ->
     child.stdout.on 'data', (data) ->
       grunt.log.write data
 
-  ###
-  ## grunt githash
-  This task creates a Grunt config variable called `git-commit` that contains the latest git commit sha1 hash.
-  ###
+  # ## grunt githash
+  # This task creates a Grunt config variable called `git-commit` that contains the latest git commit sha1 hash.
   grunt.registerTask 'githash', 'grabs the latest git commit hash', () ->
     done = @async()
 
@@ -38,10 +36,8 @@ module.exports = (grunt) ->
       ]
 
     grunt.util.spawn config, (err, result) ->
-      ###
-      To deal with cache busting this task grabs the latest git commit sha1 and uses this for naming the optimised
-      CSS and JS files.
-      ###
+      # To deal with cache busting this task grabs the latest git commit sha1 and uses this for naming the optimised
+      # CSS and JS files.
       grunt.config 'git-commit', result.stdout
       grunt.log.ok "Setting `git-commit` to #{result.stdout}"
 
