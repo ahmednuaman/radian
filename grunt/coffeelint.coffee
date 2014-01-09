@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
   grunt.config 'coffeelint',
     all: [
-      'assets/js/**/*.coffee'
+      'assets/coffee/**/*.coffee'
       'grunt/*.coffee'
       'test/**/*.coffee'
       '*.coffee'
