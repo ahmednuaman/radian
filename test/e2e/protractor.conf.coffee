@@ -1,16 +1,16 @@
-require 'jasmine-reporters'
+# require 'jasmine-reporters'
 wrench = require 'wrench'
 
 onPrepare = () ->
-  dir = 'test/report/protractor/'
+  # dir = 'test/report/protractor/'
 
   # https://github.com/angular/protractor/issues/38#issuecomment-29801069
   global.select = global.by
 
-  wrench.mkdirSyncRecursive dir
+  # wrench.mkdirSyncRecursive dir
 
-  # https://github.com/angular/protractor/issues/268
-  jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter dir, true, true
+  # # https://github.com/angular/protractor/issues/268
+  # jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter dir, true, true
 
 config =
   onPrepare: onPrepare
@@ -25,7 +25,7 @@ if process.env.TRAVIS
   config.sauceKey = process.env.SAUCE_ACCESS_KEY
   config.capabilities =
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER
-    'build': process.env.TRAVIS_BUILD_NUMBER
-    'name': "Radian build #{process.env.TRAVIS_BUILD_NUMBER}"
+    build: process.env.TRAVIS_BUILD_NUMBER
+    name: "Radian build #{process.env.TRAVIS_BUILD_NUMBER}"
 
 exports.config = config
