@@ -1,18 +1,19 @@
-# require 'jasmine-reporters'
-wrench = require 'wrench'
-
 onPrepare = () ->
-  # dir = 'test/report/protractor/'
+  require 'jasmine-reporters'
+  wrench = require 'wrench'
+
+  dir = 'test/report/protractor/'
 
   # https://github.com/angular/protractor/issues/38#issuecomment-29801069
   global.select = global.by
 
-  # wrench.mkdirSyncRecursive dir
+  wrench.mkdirSyncRecursive dir
 
-  # # https://github.com/angular/protractor/issues/268
-  # jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter dir, true, true
+  # https://github.com/angular/protractor/issues/268
+  jasmine.getEnv().addReporter new jasmine.JUnitXmlReporter dir, true, true
 
 config =
+  framework: 'jasmine'
   onPrepare: onPrepare
   specs: [
     '**/*-step.js'
