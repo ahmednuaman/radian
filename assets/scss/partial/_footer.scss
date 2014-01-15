@@ -4,13 +4,31 @@
   margin-top: 10px;
   padding: 1em;
 
+  @include small {
+    text-align: center;
+  }
+
+  a {
+    font-size: 0.8em;
+
+    @include large {
+      font-size: 1em;
+    }
+  }
+
   ul {
-    float: right;
+    @include medium {
+      float: right;
+    }
 
     li {
       a {
         border-left: 1px solid #999999;
         padding: 0 0.5em;
+
+        @include small {
+          border: 0;
+        }
       }
 
       &:first-child a {
