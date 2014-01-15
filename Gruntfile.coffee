@@ -119,6 +119,7 @@ module.exports = (grunt) ->
     'compass:prod'
     # 'less:prod'
     # 'stylus:prod'
+    'cmq'
     'coffee:prod'
     'jade:prod'
     'ngtemplates'
