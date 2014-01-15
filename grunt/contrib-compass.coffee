@@ -16,7 +16,6 @@ module.exports = (grunt) ->
           cssDir: '<%= compass.dev.options.cssDir %>'
           fontsDir: '<%= compass.dev.options.fontsDir %>'
           environment: 'production'
-          outputStyle: 'compressed'
           imagesDir: '<%= compass.dev.options.imagesDir %>'
           force: true
 

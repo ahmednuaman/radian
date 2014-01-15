@@ -10,7 +10,6 @@ module.exports = (grunt) ->
       prod:
         files: '<%= less.dev.files %>'
         options:
-          cleancss: true
           force: true
 
   grunt.loadNpmTasks 'grunt-contrib-less'

@@ -9,7 +9,6 @@ module.exports = (grunt) ->
       prod:
         files: '<%= stylus.dev.files %>'
         options:
-          compress: true
           force: true
 
   grunt.loadNpmTasks 'grunt-contrib-stylus'
