@@ -1,8 +1,10 @@
 module.exports = (grunt) ->
+  _ = require 'lodash'
+
   grunt.config 'watch',
     coffee:
       files: [
-        'assets/js/**/*.coffee'
+        'assets/coffee/**/*.coffee'
       ]
       tasks: [
         'coffeelint'
@@ -59,13 +61,14 @@ module.exports = (grunt) ->
       ]
 
   changedFiles = {}
-  onChange = grunt.util._.debounce () ->
+  onChange = _.debounce () ->
     changedCoffeeFiles = changedFiles['coffee']
     changedJadeFiles = changedFiles['jade']
 
     if changedCoffeeFiles
-      grunt.config 'coffee.dev.src', changedCoffeeFiles
       grunt.config 'coffeelint.all', changedCoffeeFiles
+      grunt.config 'coffee.dev.src', _.map changedCoffeeFiles, (file) ->
+        file.replace 'assets/coffee/', ''
 
     if changedJadeFiles
       grunt.config 'jade.dev.files',

@@ -11,6 +11,7 @@ module.exports = (grunt) ->
         ]
         paths:
           'angular': 'empty:'
+          'angular-animate': 'empty:'
           'angular-resource': 'empty:'
           'angular-route': 'empty:'
           'lodash': 'empty:'

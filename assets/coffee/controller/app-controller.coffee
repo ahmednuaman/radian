@@ -28,6 +28,8 @@ define [
   # broadcasts updates to the document's title and any module that can inject the factory can set the title.
   # This deals with issues around misuse of the `$rootScope`/`$scope` to pass data up and down the chain and keeps
   # everything testable.
+  # Jump to [`factory/page-loader-factory.coffee`](page-loader-factory.html) ☛
+  'factory/page-loader-factory'
   # Jump to [`factory/page-title-factory.coffee`](page-title-factory.html) ☛
   'factory/page-title-factory'
 ], (cfg, A, RC) ->
@@ -38,14 +40,17 @@ define [
     # an array.
     @register 'AppController', [
       '$scope'
+      'pageLoaderFactory'
       'pageTitleFactory'
     ]
 
     init: () ->
       @addListeners()
       @addPartials()
+      @addScopeMethods()
 
     addListeners: () ->
+      @pageLoaderFactory.addListener A.bind @, @handlePageLoaderChange
       @pageTitleFactory.addListener A.bind @, @handlePageTitleChange
 
     addPartials: () ->
@@ -53,5 +58,20 @@ define [
       @$scope.footerPartial = cfg.path.partial + 'footer-partial.html'
       @$scope.headerPartial = cfg.path.partial + 'header/header-partial.html'
 
+    addScopeMethods: () ->
+      @$scope.handleViewLoaded = A.bind @, @handleViewLoaded
+
     handlePageTitleChange: (event, title) ->
       @$scope.pageTitle = "Radian ~ A scalable AngularJS framework ~ #{title}"
+
+    handlePageLoaderChange: (event, show) ->
+      # _'Why is it `@$scope.hideLoader` instead of `@$scope.showLoader`?'_ Well, my old chum, by default we show the
+      # loader until our application sends an event via the [`pageLoaderFactory`](page-loader-factory.html), this way
+      # it is a more elegant experience.
+      @$scope.hideLoader = !show
+
+    handleViewLoaded: () ->
+      # _'Why not just set `@$scope.hideLoader` here instead of using `@pageLoaderFactory.hide()`?'_ Well, there may be
+      # more modules in the app that are listening to `pageLoaderFactory` than just this controller, so it's only polite
+      # to let them know what's up.
+      @pageLoaderFactory.hide()

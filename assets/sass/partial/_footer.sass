@@ -4,13 +4,26 @@
   margin-top: 10px
   padding: 1em
 
+  +small
+    text-align: center
+
+  a
+    font-size: .8em
+
+    +large
+      font-size: 1em
+
   ul
-    float: right
+    +medium
+      float: right
 
     li
       a
         border-left: 1px solid #999
         padding: 0 .5em
+
+        +small
+          border: 0
 
       &:first-child a
         border: 0

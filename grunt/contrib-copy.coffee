@@ -10,9 +10,6 @@ module.exports = (grunt) ->
             'data/*'
           ]
           dest: 'build/'
-        ,
-          src: 'assets/css/styles.css'
-          dest: 'build/assets/css/styles-<%= grunt.config("git-commit") %>.css'
       ]
 
   grunt.loadNpmTasks 'grunt-contrib-copy'

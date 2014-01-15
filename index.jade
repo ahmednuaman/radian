@@ -11,7 +11,8 @@ html(lang='en', data-ng-controller='AppController')
   body
     div#app
       div(data-ng-include, data-src='headerPartial')
-      div#view.row(data-ng-view)
+      div#view.row(data-ng-view, data-onload='handleViewLoaded()')
       div(data-ng-include, data-src='ctaPartial')
       div(data-ng-include, data-src='footerPartial')
+    div#mask(data-ng-hide='hideLoader')
     script(src='/assets/vendor/requirejs/require.js', data-main='/assets/js/app')
