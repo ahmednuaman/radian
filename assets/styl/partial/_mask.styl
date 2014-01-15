@@ -1,0 +1,15 @@
+#mask
+  single-transition(opacity, 250ms)
+  @extend .fixed
+  background: url('../img/ajax-loader.gif') no-repeat center center #fff
+  height: 100%
+  left: 0
+  opacity: 1
+  top: 0
+  width: 100%
+
+  &.ng-animate
+    display: block !important
+
+  &.ng-hide
+    opacity: 0
