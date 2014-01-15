@@ -17,6 +17,11 @@
   }
 }
 
+.fixed {
+  @extend .block;
+  position: fixed;
+}
+
 .left {
   @extend .block;
   float: left;
