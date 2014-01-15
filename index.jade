@@ -14,5 +14,6 @@ html(lang='en', data-ng-controller='AppController')
       div#view.row(data-ng-view, data-onload='handleViewLoaded()')
       div(data-ng-include, data-src='ctaPartial')
       div(data-ng-include, data-src='footerPartial')
-    div#mask(data-ng-hide='hideLoader')
+    script
+      document.write('<div id="mask" data-ng-hide="hideLoader"></div>')
     script(src='/assets/vendor/requirejs/require.js', data-main='/assets/js/app')

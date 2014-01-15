@@ -29,7 +29,8 @@ queue = []
 getHTML = () ->
   # Since radian uses [RequireJS](http://requirejs.org/), this strips the `<script>` tags from the `<head>` of the
   # document and also removes the `<style>` tag placed there to deal with any
-  # [`ngCloak`](http://docs.angularjs.org/api/ng.directive:ngCloak) CSS.
+  # [`ngCloak`](http://docs.angularjs.org/api/ng.directive:ngCloak) CSS. This is done because the site _should_ work
+  # if there is no javascript enabled.
   tags = document.querySelectorAll 'head script, head style'
   len = tags.length
 
