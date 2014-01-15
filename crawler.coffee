@@ -31,7 +31,7 @@ getHTML = () ->
   # document and also removes the `<style>` tag placed there to deal with any
   # [`ngCloak`](http://docs.angularjs.org/api/ng.directive:ngCloak) CSS. This is done because the site _should_ work
   # if there is no javascript enabled.
-  tags = document.querySelectorAll 'head script, head style'
+  tags = document.querySelectorAll 'head script, head style, #mask'
   len = tags.length
 
   while len--
