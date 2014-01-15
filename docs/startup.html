@@ -109,6 +109,11 @@
               </a>
             
               
+              <a class="source" href="page-loader-factory.html">
+                page-loader-factory.coffee
+              </a>
+            
+              
               <a class="source" href="page-title-factory.html">
                 page-title-factory.coffee
               </a>
@@ -194,6 +199,11 @@
               </a>
             
               
+              <a class="source" href="combine-media-queries.html">
+                combine-media-queries.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-clean.html">
                 contrib-clean.coffee
               </a>
@@ -211,6 +221,11 @@
               
               <a class="source" href="contrib-copy.html">
                 contrib-copy.coffee
+              </a>
+            
+              
+              <a class="source" href="contrib-cssmin.html">
+                contrib-cssmin.coffee
               </a>
             
               
@@ -354,6 +369,11 @@
               </a>
             
               
+              <a class="source" href="page-loader-factory-spec.html">
+                page-loader-factory-spec.coffee
+              </a>
+            
+              
               <a class="source" href="page-title-factory-spec.html">
                 page-title-factory-spec.coffee
               </a>
@@ -420,9 +440,10 @@
               </div>
               <p>This file controls the start up sequence for the app. Since everything&#39;s AMD based, the app needs to load
 <a href="http://angularjs.org">AngularJS</a> and the <a href="config.html"><code>config.coffee</code></a> first, then any AngularJS modules (in this
-case it&#39;s using <a href="http://docs.angularjs.org/api/ngResource"><code>ngResource</code></a> and
-<a href="http://docs.angularjs.org/api/ngRoute"><code>ngRoute</code></a>) and finally getting the Angular module as an app ready, loading
-<a href="app-controller.html"><code>controller/app-controller.coffee</code></a> and bootstrapping the document, and away we go.</p>
+case it&#39;s using <a href="http://docs.angularjs.org/api/ngAnimate"><code>ngAnimate</code></a>,
+<a href="http://docs.angularjs.org/api/ngResource"><code>ngResource</code></a> and <a href="http://docs.angularjs.org/api/ngRoute"><code>ngRoute</code></a>) and
+finally getting the Angular module as an app ready, loading <a href="app-controller.html"><code>controller/app-controller.coffee</code></a>
+and bootstrapping the document, and away we go.</p>
 
             </div>
             
@@ -445,10 +466,12 @@ case it&#39;s using <a href="http://docs.angularjs.org/api/ngResource"><code>ngR
   <span class="hljs-string">'angular'</span>
 ], <span class="hljs-function"><span class="hljs-params">(cfg, A)</span> -&gt;</span>
   <span class="hljs-built_in">require</span> [
+    <span class="hljs-string">'angular-animate'</span>
     <span class="hljs-string">'angular-resource'</span>
     <span class="hljs-string">'angular-route'</span>
   ], <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
     A.<span class="hljs-built_in">module</span> cfg.ngApp, [
+      <span class="hljs-string">'ngAnimate'</span>
       <span class="hljs-string">'ngResource'</span>
       <span class="hljs-string">'ngRoute'</span>
     ]</pre></div></div>

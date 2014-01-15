@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>menu-item-vo-spec.coffee</title>
+  <title>page-loader-factory.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -426,7 +426,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>menu-item-vo-spec.coffee</h1>
+                  <h1>page-loader-factory.coffee</h1>
               </div>
           </li>
         
@@ -438,22 +438,49 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              
+              <p>This factory is similar to <a href="page-title-factory.html"><code>factory/page-title-factory.coffee</code></a> in that it deals with a
+problem of sending data between multiple points in your app. What this factory specifically does is all modules of
+your app to show and hide the page loader, eg: when the user moves to another page.</p>
+
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [
-  <span class="hljs-string">'vo/menu-item-vo'</span>
-], <span class="hljs-function"><span class="hljs-params">(vo)</span> -&gt;</span>
-  describe <span class="hljs-string">'Menu item VO'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-    it <span class="hljs-string">'should return a nice VO'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      data =
-        <span class="hljs-attribute">title</span>: <span class="hljs-string">'Getting started'</span>
-        <span class="hljs-attribute">href</span>: <span class="hljs-string">'/'</span>
-      item = vo data
+            <div class="content"><div class='highlight'><pre>define [</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Jump to <a href="radian-factory.html"><code>factory/radian-factory.coffee</code></a> ☛</p>
 
-      expect(item.title).toBe data.title
-      expect(item.href).toBe data.href
-      expect(item.selected).toBe <span class="hljs-literal">false</span></pre></div></div>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-string">'factory/radian-factory'</span>
+], <span class="hljs-function"><span class="hljs-params">(RF)</span> -&gt;</span>
+  RF <span class="hljs-string">'pageLoaderFactory'</span>, [
+    <span class="hljs-string">'$rootScope'</span>
+  ], <span class="hljs-function"><span class="hljs-params">($rootScope)</span> -&gt;</span>
+    event = <span class="hljs-string">'pageLoaderChange'</span>
+
+    <span class="hljs-function"><span class="hljs-title">emit</span> = <span class="hljs-params">(show)</span> -&gt;</span>
+      $rootScope.$emit event, show
+
+    factory =
+      <span class="hljs-attribute">setShow</span>: <span class="hljs-function"><span class="hljs-params">(show)</span> -&gt;</span>
+        emit show
+
+      <span class="hljs-attribute">show</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+        factory.setShow <span class="hljs-literal">true</span>
+
+      <span class="hljs-attribute">hide</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+        factory.setShow <span class="hljs-literal">false</span>
+
+      <span class="hljs-attribute">addListener</span>: <span class="hljs-function"><span class="hljs-params">(callback)</span> -&gt;</span>
+        $rootScope.$<span class="hljs-literal">on</span> event, callback</pre></div></div>
             
         </li>
         

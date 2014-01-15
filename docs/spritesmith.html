@@ -24,6 +24,166 @@
               </a>
             
               
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-items-collection.html">
+                menu-items-collection.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-collection.html">
+                stub-collection.coffee
+              </a>
+            
+              
+              <a class="source" href="config.html">
+                config.coffee
+              </a>
+            
+              
+              <a class="source" href="app-controller.html">
+                app-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="error-controller.html">
+                error-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="footer-controller.html">
+                footer-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="header-controller.html">
+                header-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="header-menu-controller.html">
+                header-menu-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="home-controller.html">
+                home-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-controller.html">
+                stub-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-component-directive.html">
+                menu-component-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-directive.html">
+                stub-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-factory.html">
+                menu-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="page-error-factory.html">
+                page-error-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="page-loader-factory.html">
+                page-loader-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="page-title-factory.html">
+                page-title-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-factory.html">
+                stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-filter.html">
+                stub-filter.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
+              <a class="source" href="partials.html">
+                partials.coffee
+              </a>
+            
+              
+              <a class="source" href="routes.html">
+                routes.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-service.html">
+                menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-service.html">
+                stub-service.coffee
+              </a>
+            
+              
+              <a class="source" href="startup.html">
+                startup.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-item-vo.html">
+                menu-item-vo.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-vo.html">
+                stub-vo.coffee
+              </a>
+            
+              
               <a class="source" href="crawler.html">
                 crawler.coffee
               </a>
@@ -36,6 +196,11 @@
               
               <a class="source" href="coffeelint.html">
                 coffeelint.coffee
+              </a>
+            
+              
+              <a class="source" href="combine-media-queries.html">
+                combine-media-queries.coffee
               </a>
             
               
@@ -56,6 +221,11 @@
               
               <a class="source" href="contrib-copy.html">
                 contrib-copy.coffee
+              </a>
+            
+              
+              <a class="source" href="contrib-cssmin.html">
+                contrib-cssmin.coffee
               </a>
             
               
@@ -199,6 +369,11 @@
               </a>
             
               
+              <a class="source" href="page-loader-factory-spec.html">
+                page-loader-factory-spec.coffee
+              </a>
+            
+              
               <a class="source" href="page-title-factory-spec.html">
                 page-title-factory-spec.coffee
               </a>
@@ -266,15 +441,20 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(grunt)</span> -&gt;</span>
-  config =
-    <span class="attribute">icon</span>:
-      <span class="attribute">src</span>: [
-        <span class="string">'assets/img/icon/*.png'</span>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
+  config = {}
+  targets = [
+    <span class="hljs-string">'icon'</span>
+  ]
+
+  targets.forEach <span class="hljs-function"><span class="hljs-params">(target)</span> -&gt;</span>
+    config[target] =
+      <span class="hljs-attribute">src</span>: [
+        <span class="hljs-string">"assets/img/<span class="hljs-subst">#{target}</span>/*.png"</span>
       ]
-      <span class="attribute">destImg</span>: <span class="string">'assets/img/icon-&lt;%= grunt.config("git-commit") %&gt;.png'</span>
-      <span class="attribute">imgPath</span>: <span class="string">'../img/icon-&lt;%= grunt.config("git-commit") %&gt;.png'</span>
-      <span class="attribute">destCSS</span>: <span class="string">'assets/sass/partial/_sprite-icon.sass'</span></pre></div></div>
+      <span class="hljs-attribute">destImg</span>: <span class="hljs-string">"assets/img/<span class="hljs-subst">#{target}</span>-&lt;%= grunt.config('git-commit') %&gt;.png"</span>
+      <span class="hljs-attribute">imgPath</span>: <span class="hljs-string">"../img/<span class="hljs-subst">#{target}</span>-&lt;%= grunt.config('git-commit') %&gt;.png"</span>
+      <span class="hljs-attribute">destCSS</span>: <span class="hljs-string">"assets/sass/partial/_sprite-<span class="hljs-subst">#{target}</span>.sass"</span></pre></div></div>
             
         </li>
         
@@ -285,13 +465,13 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-2">&#182;</a>
               </div>
-              <p>destCSS: &#39;assets/scss/partial/_sprite-icon.scss&#39;
-destCSS: &#39;assets/less/partial/_sprite-icon.less&#39;
-destCSS: &#39;assets/styl/partial/_sprite-icon.styl&#39;</p>
+              <p>destCSS: &quot;assets/scss/partial/_sprite-#{target}.scss&quot;
+destCSS: &quot;assets/less/partial/_sprite-#{target}.less&quot;
+destCSS: &quot;assets/styl/partial/_sprite-#{target}.styl&quot;</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="attribute">cssTemplate</span>: <span class="string">'assets/sass/template.mustache'</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-attribute">cssTemplate</span>: <span class="hljs-string">'assets/sass/template.mustache'</span></pre></div></div>
             
         </li>
         
@@ -308,16 +488,13 @@ cssTemplate: &#39;assets/styl/template.mustache&#39;</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="attribute">cssOpts</span>:
-        <span class="attribute">target</span>: <span class="string">'icon'</span>
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-attribute">cssOpts</span>:
+        <span class="hljs-attribute">target</span>: target
+      <span class="hljs-attribute">engineOpts</span>:
+        <span class="hljs-attribute">imagemagick</span>: !!process.env.TRAVIS
 
-  <span class="keyword">if</span> process.env.TRAVIS
-    <span class="keyword">for</span> key <span class="keyword">of</span> config
-      config[key].engineOpts =
-        <span class="attribute">imagemagick</span>: <span class="literal">true</span>
-
-  grunt.config <span class="string">'sprite'</span>, config
-  grunt.loadNpmTasks <span class="string">'grunt-spritesmith'</span></pre></div></div>
+  grunt.config <span class="hljs-string">'sprite'</span>, config
+  grunt.loadNpmTasks <span class="hljs-string">'grunt-spritesmith'</span></pre></div></div>
             
         </li>
         

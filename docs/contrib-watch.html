@@ -24,6 +24,166 @@
               </a>
             
               
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-items-collection.html">
+                menu-items-collection.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-collection.html">
+                stub-collection.coffee
+              </a>
+            
+              
+              <a class="source" href="config.html">
+                config.coffee
+              </a>
+            
+              
+              <a class="source" href="app-controller.html">
+                app-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="error-controller.html">
+                error-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="footer-controller.html">
+                footer-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="header-controller.html">
+                header-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="header-menu-controller.html">
+                header-menu-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="home-controller.html">
+                home-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-controller.html">
+                radian-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-controller.html">
+                stub-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-component-directive.html">
+                menu-component-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-directive.html">
+                radian-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-directive.html">
+                stub-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-factory.html">
+                menu-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="page-error-factory.html">
+                page-error-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="page-loader-factory.html">
+                page-loader-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="page-title-factory.html">
+                page-title-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-factory.html">
+                radian-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-factory.html">
+                stub-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-filter.html">
+                radian-filter.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-filter.html">
+                stub-filter.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-module-helper.html">
+                radian-module-helper.coffee
+              </a>
+            
+              
+              <a class="source" href="partials.html">
+                partials.coffee
+              </a>
+            
+              
+              <a class="source" href="routes.html">
+                routes.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-service.html">
+                menu-service.coffee
+              </a>
+            
+              
+              <a class="source" href="radian-service.html">
+                radian-service.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-service.html">
+                stub-service.coffee
+              </a>
+            
+              
+              <a class="source" href="startup.html">
+                startup.coffee
+              </a>
+            
+              
+              <a class="source" href="menu-item-vo.html">
+                menu-item-vo.coffee
+              </a>
+            
+              
+              <a class="source" href="stub-vo.html">
+                stub-vo.coffee
+              </a>
+            
+              
               <a class="source" href="crawler.html">
                 crawler.coffee
               </a>
@@ -36,6 +196,11 @@
               
               <a class="source" href="coffeelint.html">
                 coffeelint.coffee
+              </a>
+            
+              
+              <a class="source" href="combine-media-queries.html">
+                combine-media-queries.coffee
               </a>
             
               
@@ -56,6 +221,11 @@
               
               <a class="source" href="contrib-copy.html">
                 contrib-copy.coffee
+              </a>
+            
+              
+              <a class="source" href="contrib-cssmin.html">
+                contrib-cssmin.coffee
               </a>
             
               
@@ -199,6 +369,11 @@
               </a>
             
               
+              <a class="source" href="page-loader-factory-spec.html">
+                page-loader-factory-spec.coffee
+              </a>
+            
+              
               <a class="source" href="page-title-factory-spec.html">
                 page-title-factory-spec.coffee
               </a>
@@ -266,22 +441,24 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre>module.<span class="function"><span class="title">exports</span> = <span class="params">(grunt)</span> -&gt;</span>
-  grunt.config <span class="string">'watch'</span>,
-    <span class="attribute">coffee</span>:
-      <span class="attribute">files</span>: [
-        <span class="string">'assets/js/**/*.coffee'</span>
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
+  _ = <span class="hljs-built_in">require</span> <span class="hljs-string">'lodash'</span>
+
+  grunt.config <span class="hljs-string">'watch'</span>,
+    <span class="hljs-attribute">coffee</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'assets/coffee/**/*.coffee'</span>
       ]
-      <span class="attribute">tasks</span>: [
-        <span class="string">'coffeelint'</span>
-        <span class="string">'coffee:dev'</span>
+      <span class="hljs-attribute">tasks</span>: [
+        <span class="hljs-string">'coffeelint'</span>
+        <span class="hljs-string">'coffee:dev'</span>
       ]
-      <span class="attribute">options</span>:
-        <span class="attribute">livereload</span>: <span class="literal">true</span>
-        <span class="attribute">spawn</span>: <span class="literal">false</span>
-    <span class="attribute">compass</span>:
-      <span class="attribute">files</span>: [
-        <span class="string">'&lt;%= compass.dev.options.sassDir %&gt;/**/*.sass'</span></pre></div></div>
+      <span class="hljs-attribute">options</span>:
+        <span class="hljs-attribute">livereload</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-attribute">spawn</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-attribute">compass</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'&lt;%= compass.dev.options.sassDir %&gt;/**/*.sass'</span></pre></div></div>
             
         </li>
         
@@ -297,75 +474,76 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>      ]
-      <span class="attribute">tasks</span>: [
-        <span class="string">'compass:dev'</span>
+      <span class="hljs-attribute">tasks</span>: [
+        <span class="hljs-string">'compass:dev'</span>
       ]
-    <span class="attribute">css</span>:
-      <span class="attribute">files</span>: [
-        <span class="string">'assets/css/*.css'</span>
-        <span class="string">'assets/img/*.{gif,png,svg}'</span>
-        <span class="string">'assets/img/**/*.jpg'</span>
+    <span class="hljs-attribute">css</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'assets/css/*.css'</span>
+        <span class="hljs-string">'assets/img/*.{gif,png,svg}'</span>
+        <span class="hljs-string">'assets/img/**/*.jpg'</span>
       ]
-      <span class="attribute">options</span>:
-        <span class="attribute">livereload</span>: <span class="literal">true</span>
-    <span class="attribute">jade</span>:
-      <span class="attribute">files</span>: [
-        <span class="string">'*.jade'</span>
-        <span class="string">'assets/partial/**/*.jade'</span>
+      <span class="hljs-attribute">options</span>:
+        <span class="hljs-attribute">livereload</span>: <span class="hljs-literal">true</span>
+    <span class="hljs-attribute">jade</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'*.jade'</span>
+        <span class="hljs-string">'assets/partial/**/*.jade'</span>
       ]
-      <span class="attribute">tasks</span>: [
-        <span class="string">'jade:dev'</span>
+      <span class="hljs-attribute">tasks</span>: [
+        <span class="hljs-string">'jade:dev'</span>
       ]
-      <span class="attribute">options</span>: <span class="string">'&lt;%= watch.coffee.options %&gt;'</span>
-    <span class="attribute">less</span>:
-      <span class="attribute">files</span>: [
-        <span class="string">'&lt;%= less.dev.options.paths[0] %&gt;/**/*.less'</span>
+      <span class="hljs-attribute">options</span>: <span class="hljs-string">'&lt;%= watch.coffee.options %&gt;'</span>
+    <span class="hljs-attribute">less</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'&lt;%= less.dev.options.paths[0] %&gt;/**/*.less'</span>
       ]
-      <span class="attribute">tasks</span>: [
-        <span class="string">'less:dev'</span>
+      <span class="hljs-attribute">tasks</span>: [
+        <span class="hljs-string">'less:dev'</span>
       ]
-    <span class="attribute">sprite</span>:
-      <span class="attribute">files</span>: [
-        <span class="string">'assets/img/**/*.png'</span>
+    <span class="hljs-attribute">sprite</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'assets/img/**/*.png'</span>
       ]
-      <span class="attribute">tasks</span>: [
-        <span class="string">'sprite'</span>
+      <span class="hljs-attribute">tasks</span>: [
+        <span class="hljs-string">'sprite'</span>
       ]
-    <span class="attribute">stylus</span>:
-      <span class="attribute">files</span>: [
-        <span class="string">'assets/styl/**/*.styl'</span>
+    <span class="hljs-attribute">stylus</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'assets/styl/**/*.styl'</span>
       ]
-      <span class="attribute">tasks</span>: [
-        <span class="string">'stylus:dev'</span>
+      <span class="hljs-attribute">tasks</span>: [
+        <span class="hljs-string">'stylus:dev'</span>
       ]
 
   changedFiles = {}
-  onChange = grunt.util._.debounce <span class="function"><span class="params">()</span> -&gt;</span>
-    changedCoffeeFiles = changedFiles[<span class="string">'coffee'</span>]
-    changedJadeFiles = changedFiles[<span class="string">'jade'</span>]
+  onChange = _.debounce <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    changedCoffeeFiles = changedFiles[<span class="hljs-string">'coffee'</span>]
+    changedJadeFiles = changedFiles[<span class="hljs-string">'jade'</span>]
 
-    <span class="keyword">if</span> changedCoffeeFiles
-      grunt.config <span class="string">'coffee.dev.src'</span>, changedCoffeeFiles
-      grunt.config <span class="string">'coffeelint.all'</span>, changedCoffeeFiles
+    <span class="hljs-keyword">if</span> changedCoffeeFiles
+      grunt.config <span class="hljs-string">'coffeelint.all'</span>, changedCoffeeFiles
+      grunt.config <span class="hljs-string">'coffee.dev.src'</span>, _.map changedCoffeeFiles, <span class="hljs-function"><span class="hljs-params">(file)</span> -&gt;</span>
+        file.replace <span class="hljs-string">'assets/coffee/'</span>, <span class="hljs-string">''</span>
 
-    <span class="keyword">if</span> changedJadeFiles
-      grunt.config <span class="string">'jade.dev.files'</span>,
-        <span class="string">'./'</span>: changedJadeFiles
+    <span class="hljs-keyword">if</span> changedJadeFiles
+      grunt.config <span class="hljs-string">'jade.dev.files'</span>,
+        <span class="hljs-string">'./'</span>: changedJadeFiles
 
     changedFiles = {}
-  , <span class="number">200</span>
+  , <span class="hljs-number">200</span>
 
-  grunt.event.<span class="literal">on</span> <span class="string">'watch'</span>, <span class="function"><span class="params">(action, file)</span> -&gt;</span>
-    ext = file.split(<span class="string">'.'</span>).pop()
+  grunt.event.<span class="hljs-literal">on</span> <span class="hljs-string">'watch'</span>, <span class="hljs-function"><span class="hljs-params">(action, file)</span> -&gt;</span>
+    ext = file.split(<span class="hljs-string">'.'</span>).pop()
 
-    <span class="keyword">if</span> !changedFiles[ext]
+    <span class="hljs-keyword">if</span> !changedFiles[ext]
       changedFiles[ext] = []
 
     changedFiles[ext].push file
 
     onChange()
 
-  grunt.loadNpmTasks <span class="string">'grunt-contrib-watch'</span></pre></div></div>
+  grunt.loadNpmTasks <span class="hljs-string">'grunt-contrib-watch'</span></pre></div></div>
             
         </li>
         

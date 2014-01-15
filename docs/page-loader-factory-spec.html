@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>menu-item-vo-spec.coffee</title>
+  <title>page-loader-factory-spec.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -426,7 +426,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>menu-item-vo-spec.coffee</h1>
+                  <h1>page-loader-factory-spec.coffee</h1>
               </div>
           </li>
         
@@ -442,18 +442,34 @@
             </div>
             
             <div class="content"><div class='highlight'><pre>define [
-  <span class="hljs-string">'vo/menu-item-vo'</span>
-], <span class="hljs-function"><span class="hljs-params">(vo)</span> -&gt;</span>
-  describe <span class="hljs-string">'Menu item VO'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-    it <span class="hljs-string">'should return a nice VO'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      data =
-        <span class="hljs-attribute">title</span>: <span class="hljs-string">'Getting started'</span>
-        <span class="hljs-attribute">href</span>: <span class="hljs-string">'/'</span>
-      item = vo data
+  <span class="hljs-string">'config'</span>
+  <span class="hljs-string">'angular'</span>
+  <span class="hljs-string">'factory/page-loader-factory'</span>
+], <span class="hljs-function"><span class="hljs-params">(cfg, A)</span> -&gt;</span>
+  describe <span class="hljs-string">'Page loader factory'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    factory = <span class="hljs-literal">null</span>
 
-      expect(item.title).toBe data.title
-      expect(item.href).toBe data.href
-      expect(item.selected).toBe <span class="hljs-literal">false</span></pre></div></div>
+    beforeEach <span class="hljs-built_in">module</span> cfg.ngApp
+
+    beforeEach inject <span class="hljs-function"><span class="hljs-params">($injector)</span> -&gt;</span>
+      factory = $injector.get <span class="hljs-string">'pageLoaderFactory'</span>
+
+    it <span class="hljs-string">'should $emit an event that says whether to hide or show the loader'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      showing = <span class="hljs-literal">true</span>
+      cb =
+        <span class="hljs-attribute">handleLoader</span>: <span class="hljs-function"><span class="hljs-params">(event, show)</span> -&gt;</span>
+          expect(show).toBe showing
+
+      factory.addListener cb.handleLoader
+
+      runs <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+        factory.show()
+
+      waits <span class="hljs-number">250</span>
+
+      runs <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+        showing = <span class="hljs-literal">false</span>
+        factory.hide()</pre></div></div>
             
         </li>
         

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>menu-item-vo-spec.coffee</title>
+  <title>combine-media-queries.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -426,7 +426,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>menu-item-vo-spec.coffee</h1>
+                  <h1>combine-media-queries.coffee</h1>
               </div>
           </li>
         
@@ -441,19 +441,13 @@
               
             </div>
             
-            <div class="content"><div class='highlight'><pre>define [
-  <span class="hljs-string">'vo/menu-item-vo'</span>
-], <span class="hljs-function"><span class="hljs-params">(vo)</span> -&gt;</span>
-  describe <span class="hljs-string">'Menu item VO'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-    it <span class="hljs-string">'should return a nice VO'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      data =
-        <span class="hljs-attribute">title</span>: <span class="hljs-string">'Getting started'</span>
-        <span class="hljs-attribute">href</span>: <span class="hljs-string">'/'</span>
-      item = vo data
+            <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
+  grunt.config <span class="hljs-string">'cmq'</span>,
+    <span class="hljs-attribute">prod</span>:
+      <span class="hljs-attribute">files</span>:
+        <span class="hljs-string">'assets/css/'</span>: [<span class="hljs-string">'assets/css/styles.css'</span>]
 
-      expect(item.title).toBe data.title
-      expect(item.href).toBe data.href
-      expect(item.selected).toBe <span class="hljs-literal">false</span></pre></div></div>
+  grunt.loadNpmTasks <span class="hljs-string">'grunt-combine-media-queries'</span></pre></div></div>
             
         </li>
         
