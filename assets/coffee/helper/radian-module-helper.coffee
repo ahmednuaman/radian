@@ -22,8 +22,7 @@ define [
       helper.inject module, deps
 
       # Register the module.
-      app = A.module cfg.ngApp
-      app[type] name, module
+      (A.module cfg.ngApp)[type] name, module
 
     uppercaseFirstLetter: (str) ->
       str.charAt(0).toUpperCase() + str.slice 1
