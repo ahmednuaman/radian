@@ -7,7 +7,7 @@ define [
   'directive/radian-directive'
 ], (cfg, RD) ->
   RD 'menuComponent', [], () ->
-    templateUrl: cfg.path.partial + 'directive/menu-component-partial.html'
+    templateUrl: "#{cfg.path.partial}directive/menu-component-partial.html"
     restrict: 'A'
     replace: true
     scope:

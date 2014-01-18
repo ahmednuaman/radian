@@ -8,7 +8,7 @@ define [
   RD 'stub', [
     '$rootScope'
   ], ($rootScope) ->
-    templateUrl: cfg.path.partial + 'directive/stub-partial.html'
+    templateUrl: "#{cfg.path.partial}directive/stub-partial.html"
     restrict: 'A'
     replace: true
     scope:

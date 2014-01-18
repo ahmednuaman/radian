@@ -11,19 +11,19 @@ define [
   routes = ($routeProvider, $locationProvider) ->
     $routeProvider
       .when '/code',
-        templateUrl: cfg.path.partial + 'code-partial.html'
+        templateUrl: "#{cfg.path.partial}code-partial.html"
 
       .when '/error/:code',
-        templateUrl: cfg.path.partial + 'error-partial.html'
+        templateUrl: "#{cfg.path.partial}error-partial.html"
 
       .when '/error',
-        templateUrl: cfg.path.partial + 'error-partial.html'
+        templateUrl: "#{cfg.path.partial}error-partial.html"
 
       .when '/faqs',
-        templateUrl: cfg.path.partial + 'faqs-partial.html'
+        templateUrl: "#{cfg.path.partial}faqs-partial.html"
 
       .when '/',
-        templateUrl: cfg.path.partial + 'home-partial.html'
+        templateUrl: "#{cfg.path.partial}home-partial.html"
 
     $routeProvider.otherwise
       redirectTo: '/'
