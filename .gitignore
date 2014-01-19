@@ -9,7 +9,7 @@
 assets/*/partial/_sprite*
 assets/img/*.png
 !assets/img/logo.png
-!assets/javascript/*.js
+!assets/javascript/**/*.js
 assets/vendor
 build
 docs
