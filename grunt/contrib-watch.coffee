@@ -15,11 +15,12 @@ module.exports = (grunt) ->
         spawn: false
     compass:
       files: [
-        '<%= compass.dev.options.sassDir %>/**/*.sass'
-        # '<%= compass.dev.options.sassDir %>/**/*.scss'
+        '<%= compass.devSASS.options.sassDir %>/**/*.sass'
+        # '<%= compass.devSCSS.options.sassDir %>/**/*.scss'
       ]
       tasks: [
-        'compass:dev'
+        'compass:devSASS'
+        # 'compass:devSCSS'
       ]
     css:
       files: [
