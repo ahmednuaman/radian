@@ -4,7 +4,7 @@ define([
   RF('stub', [
     '$location'
   ], function($location) {
-    function(input) {
+    return function(input) {
       return 'input ' + input + ', $location.path() ' + $location.path();
     };
   });

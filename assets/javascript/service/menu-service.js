@@ -13,7 +13,7 @@ define([
       this.menu = this.$resource(cfg.api.data);
     },
 
-    get = function() {
+    get: function() {
       var dfd = this.$q.defer(),
           failure = A.bind(this, this.handleFailure, dfd),
           success = A.bind(this, this.handleSuccess, dfd);

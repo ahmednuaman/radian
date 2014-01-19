@@ -1,5 +1,5 @@
 define([
-  'controller/radian-controller'
+  'controller/radian-controller',
   'factory/page-title-factory'
 ], function(RC) {
   RC('ErrorController', [
