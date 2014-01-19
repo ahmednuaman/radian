@@ -54,9 +54,9 @@ define [
       @pageTitleFactory.addListener A.bind @, @handlePageTitleChange
 
     addPartials: () ->
-      @$scope.ctaPartial = cfg.path.partial + 'cta-partial.html'
-      @$scope.footerPartial = cfg.path.partial + 'footer-partial.html'
-      @$scope.headerPartial = cfg.path.partial + 'header/header-partial.html'
+      @$scope.ctaPartial = "#{cfg.path.partial}cta-partial.html"
+      @$scope.footerPartial = "#{cfg.path.partial}footer-partial.html"
+      @$scope.headerPartial = "#{cfg.path.partial}header/header-partial.html"
 
     addScopeMethods: () ->
       @$scope.handleViewLoaded = A.bind @, @handleViewLoaded

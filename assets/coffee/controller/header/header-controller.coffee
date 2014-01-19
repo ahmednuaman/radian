@@ -15,4 +15,4 @@ define [
       @addPartials()
 
     addPartials: () ->
-      @$scope.menuPartial = cfg.path.partial + 'header/header-menu-partial.html'
+      @$scope.menuPartial = "#{cfg.path.partial}header/header-menu-partial.html"
