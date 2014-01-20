@@ -11,6 +11,7 @@ assets/img/*.png
 !assets/img/logo.png
 !assets/javascript/**/*.js
 assets/vendor
+!test/js/**/*.js
 build
 docs
 node_modules
