@@ -24,6 +24,23 @@ define [
       # Register the module.
       (A.module cfg.ngApp)[type] name, module
 
+    registerClass: (type) ->
+      # Create a stub controller, this helps keep file size down.
+      () ->
+        class
+          @register: (name, deps) ->
+            helper.register type, name, deps, @
+
+          constructor: () ->
+            helper.construct @, arguments
+
+    registerFunction: (type) ->
+      (args) ->
+        helper.registerModule args, type
+
+    registerModule: (args, type) ->
+      helper.register.apply @, [type].concat _.toArray args
+
     uppercaseFirstLetter: (str) ->
       str.charAt(0).toUpperCase() + str.slice 1
 
@@ -35,7 +52,10 @@ define [
     'filter'
     'service'
   ], (type) ->
-    helper['register' + helper.uppercaseFirstLetter(type)] = (args) ->
-      helper.register.apply @, [type].concat _.toArray args
+    helper['register' + helper.uppercaseFirstLetter(type)] =
+      if type is 'controller' or type is 'service'
+        helper.registerClass type
+      else
+        helper.registerFunction type
 
   helper

@@ -4,9 +4,4 @@ define [
   # Jump to [`helper/radian-module-helper.coffee`](radian-module-helper.html) ☛
   'helper/radian-module-helper'
 ], (helper) ->
-  class RadianService
-    @register: (name, deps) ->
-      helper.registerService [name, deps, @]
-
-    constructor: () ->
-      helper.construct @, arguments
+  helper.registerService()
