@@ -18,14 +18,21 @@ module.exports = (grunt) ->
           noLineComments: '<%= compass.devSASS.options.noLineComments %>'
           imagesDir: '<%= compass.devSASS.options.imagesDir %>'
           debugInfo: '<%= compass.devSASS.options.debugInfo %>'
-      prod:
+      prodSASS:
         options:
           sassDir: '<%= compass.devSASS.options.sassDir %>'
-          # sassDir: '<%= compass.devSCSS.options.sassDir %>'
           cssDir: '<%= compass.devSASS.options.cssDir %>'
           fontsDir: '<%= compass.devSASS.options.fontsDir %>'
           environment: 'production'
           imagesDir: '<%= compass.devSASS.options.imagesDir %>'
+          force: true
+      prodSCSS:
+        options:
+          sassDir: '<%= compass.devSCSS.options.sassDir %>'
+          cssDir: '<%= compass.prodSASS.options.cssDir %>'
+          fontsDir: '<%= compass.prodSASS.options.fontsDir %>'
+          environment: 'production'
+          imagesDir: '<%= compass.prodSASS.options.imagesDir %>'
           force: true
 
   grunt.loadNpmTasks 'grunt-contrib-compass'
