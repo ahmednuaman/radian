@@ -76,7 +76,7 @@ module.exports = (grunt) ->
   onChange = _.debounce () ->
     changedCoffeeFiles = changedFiles['coffee']
     changedJadeFiles = changedFiles['jade']
-    changedJsFiles = changedFiles['js']
+    changedJSFiles = changedFiles['js']
 
     if changedCoffeeFiles
       grunt.config 'coffeelint.all', changedCoffeeFiles
@@ -87,9 +87,9 @@ module.exports = (grunt) ->
       grunt.config 'jade.dev.files',
         './': changedJadeFiles
 
-    if changedJsFiles
-      grunt.config 'jshint.all', changedJsFiles
-      grunt.config 'jscs.src', changedJsFiles
+    if changedJSFiles
+      grunt.config 'jshint.all', changedJSFiles
+      grunt.config 'jscs.src', changedJSFiles
 
     changedFiles = {}
   , 200
