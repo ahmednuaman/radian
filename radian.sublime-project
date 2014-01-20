@@ -6,7 +6,8 @@
         [
             "*.css",
             "*.html",
-            "*.js",
+            "assets/js/**/*.js",
+            "test/e2e/**/*.js",
             "*.map",
             "*.sublime*"
          ],
