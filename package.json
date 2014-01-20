@@ -31,7 +31,7 @@
   "devDependencies": {
     "coffee-script": "1.6.3",
     "express": "3.4.8",
-    "grunt": "~0.4.2",
+    "grunt": "0.4.2",
     "grunt-angular-templates": "0.5.1",
     "grunt-coffeelint": "0.0.8",
     "grunt-combine-media-queries": "1.0.9",
@@ -54,7 +54,6 @@
     "grunt-karma": "0.7.2",
     "grunt-spritesmith": "1.21.0",
     "grunt-text-replace": "0.3.10",
-    "grunt-ts": "1.6.4",
     "jasmine-reporters": "0.2.1",
     "karma": "0.11.12",
     "karma-chrome-launcher": "0.1.2",
