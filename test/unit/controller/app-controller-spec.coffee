@@ -2,11 +2,13 @@ define [
   'config'
   'angular'
   'controller/app-controller'
+  'factory/page-loader-factory'
   'factory/page-title-factory'
 ], (cfg, A) ->
   describe 'App controller', () ->
     $scope = null
     createController = null
+    pageLoaderFactory = null
     pageTitleFactory = null
 
     beforeEach module cfg.ngApp
@@ -14,6 +16,7 @@ define [
     beforeEach inject ($injector) ->
       $controller = $injector.get '$controller'
       $rootScope = $injector.get '$rootScope'
+      pageLoaderFactory = $injector.get 'pageLoaderFactory'
       pageTitleFactory = $injector.get 'pageTitleFactory'
 
       $scope = $rootScope.$new()
@@ -36,3 +39,10 @@ define [
       pageTitleFactory.setTitle title
 
       expect($scope.pageTitle).toContain title
+
+    it 'should hide the loader when an event is fired from pageLoaderFactory', () ->
+      controller = createController()
+
+      $scope.handleViewLoaded()
+
+      expect($scope.hideLoader).toBe true
