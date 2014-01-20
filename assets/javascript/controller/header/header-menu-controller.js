@@ -13,10 +13,6 @@ define([
     'pageErrorFactory'
   ], {
     init: function() {
-
-    },
-
-    init: function() {
       this.loadMenu();
     },
 
