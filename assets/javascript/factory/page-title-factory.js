@@ -12,7 +12,7 @@ define([
       $rootScope.$emit(event, title);
     };
 
-    return factory = {
+    return {
       setTitle: function(title) {
         emit(title);
       },

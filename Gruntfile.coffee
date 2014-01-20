@@ -71,6 +71,7 @@ module.exports = (grunt) ->
     # 'compass:devSCSS'
     # 'less:dev'
     # 'stylus:dev'
+    'jshint'
     'coffeelint'
     'coffee:dev'
     'karma'
@@ -85,6 +86,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'unit', 'run unit tests', [
     'githash'
     'install'
+    'jshint'
     'coffeelint'
     'coffee:dev'
     'karma'
@@ -100,6 +102,7 @@ module.exports = (grunt) ->
     # 'compass:devSCSS'
     # 'less:dev'
     # 'stylus:dev'
+    'jshint'
     'coffeelint'
     'coffee:dev'
     'coffee:e2e'

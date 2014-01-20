@@ -25,7 +25,7 @@ define([
       factory.digest();
     });
 
-    return factory = {
+    return {
       collection: null,
       selectedItem: null,
 

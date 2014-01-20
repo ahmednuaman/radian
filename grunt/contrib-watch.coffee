@@ -39,6 +39,16 @@ module.exports = (grunt) ->
         'jade:dev'
       ]
       options: '<%= watch.coffee.options %>'
+    js:
+      files: [
+        'assets/javascript/**/*.js'
+      ]
+      tasks: [
+        'jshint'
+      ]
+      options:
+        livereload: true
+        spawn: false
     less:
       files: [
         '<%= less.dev.options.paths[0] %>/**/*.less'
@@ -65,6 +75,7 @@ module.exports = (grunt) ->
   onChange = _.debounce () ->
     changedCoffeeFiles = changedFiles['coffee']
     changedJadeFiles = changedFiles['jade']
+    changedJsFiles = changedFiles['js']
 
     if changedCoffeeFiles
       grunt.config 'coffeelint.all', changedCoffeeFiles
@@ -74,6 +85,9 @@ module.exports = (grunt) ->
     if changedJadeFiles
       grunt.config 'jade.dev.files',
         './': changedJadeFiles
+
+    if changedJsFiles
+      grunt.config 'jshint.all', changedJsFiles
 
     changedFiles = {}
   , 200
