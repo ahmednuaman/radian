@@ -45,6 +45,7 @@ module.exports = (grunt) ->
       ]
       tasks: [
         'jshint'
+        'jscs'
       ]
       options:
         livereload: true
@@ -88,6 +89,7 @@ module.exports = (grunt) ->
 
     if changedJsFiles
       grunt.config 'jshint.all', changedJsFiles
+      grunt.config 'jscs.src', changedJsFiles
 
     changedFiles = {}
   , 200
