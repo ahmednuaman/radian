@@ -234,6 +234,11 @@
               </a>
             
               
+              <a class="source" href="contrib-jshint.html">
+                contrib-jshint.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-less.html">
                 contrib-less.coffee
               </a>
@@ -271,6 +276,11 @@
               
               <a class="source" href="jade.html">
                 jade.coffee
+              </a>
+            
+              
+              <a class="source" href="jscs-checker.html">
+                jscs-checker.coffee
               </a>
             
               
@@ -443,36 +453,39 @@
             
             <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
   grunt.config <span class="hljs-string">'compass'</span>,
-      <span class="hljs-attribute">dev</span>:
+      <span class="hljs-attribute">devSASS</span>:
         <span class="hljs-attribute">options</span>:
-          <span class="hljs-attribute">sassDir</span>: <span class="hljs-string">'assets/sass'</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-2">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
-              </div>
-              <p>sassDir: &#39;assets/scss&#39;</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>          <span class="hljs-attribute">cssDir</span>: <span class="hljs-string">'assets/css'</span>
+          <span class="hljs-attribute">sassDir</span>: <span class="hljs-string">'assets/sass'</span>
+          <span class="hljs-attribute">cssDir</span>: <span class="hljs-string">'assets/css'</span>
           <span class="hljs-attribute">fontsDir</span>: <span class="hljs-string">'assets/font'</span>
           <span class="hljs-attribute">outputStyle</span>: <span class="hljs-string">'expanded'</span>
           <span class="hljs-attribute">noLineComments</span>: <span class="hljs-literal">false</span>
           <span class="hljs-attribute">imagesDir</span>: <span class="hljs-string">'assets/img'</span>
           <span class="hljs-attribute">debugInfo</span>: <span class="hljs-literal">true</span>
-      <span class="hljs-attribute">prod</span>:
+      <span class="hljs-attribute">devSCSS</span>:
         <span class="hljs-attribute">options</span>:
-          <span class="hljs-attribute">sassDir</span>: <span class="hljs-string">'&lt;%= compass.dev.options.sassDir %&gt;'</span>
-          <span class="hljs-attribute">cssDir</span>: <span class="hljs-string">'&lt;%= compass.dev.options.cssDir %&gt;'</span>
-          <span class="hljs-attribute">fontsDir</span>: <span class="hljs-string">'&lt;%= compass.dev.options.fontsDir %&gt;'</span>
+          <span class="hljs-attribute">sassDir</span>: <span class="hljs-string">'assets/scss'</span>
+          <span class="hljs-attribute">cssDir</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.cssDir %&gt;'</span>
+          <span class="hljs-attribute">fontsDir</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.fontsDir %&gt;'</span>
+          <span class="hljs-attribute">outputStyle</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.outputStyle %&gt;'</span>
+          <span class="hljs-attribute">noLineComments</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.noLineComments %&gt;'</span>
+          <span class="hljs-attribute">imagesDir</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.imagesDir %&gt;'</span>
+          <span class="hljs-attribute">debugInfo</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.debugInfo %&gt;'</span>
+      <span class="hljs-attribute">prodSASS</span>:
+        <span class="hljs-attribute">options</span>:
+          <span class="hljs-attribute">sassDir</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.sassDir %&gt;'</span>
+          <span class="hljs-attribute">cssDir</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.cssDir %&gt;'</span>
+          <span class="hljs-attribute">fontsDir</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.fontsDir %&gt;'</span>
           <span class="hljs-attribute">environment</span>: <span class="hljs-string">'production'</span>
-          <span class="hljs-attribute">imagesDir</span>: <span class="hljs-string">'&lt;%= compass.dev.options.imagesDir %&gt;'</span>
+          <span class="hljs-attribute">imagesDir</span>: <span class="hljs-string">'&lt;%= compass.devSASS.options.imagesDir %&gt;'</span>
+          <span class="hljs-attribute">force</span>: <span class="hljs-literal">true</span>
+      <span class="hljs-attribute">prodSCSS</span>:
+        <span class="hljs-attribute">options</span>:
+          <span class="hljs-attribute">sassDir</span>: <span class="hljs-string">'&lt;%= compass.devSCSS.options.sassDir %&gt;'</span>
+          <span class="hljs-attribute">cssDir</span>: <span class="hljs-string">'&lt;%= compass.prodSASS.options.cssDir %&gt;'</span>
+          <span class="hljs-attribute">fontsDir</span>: <span class="hljs-string">'&lt;%= compass.prodSASS.options.fontsDir %&gt;'</span>
+          <span class="hljs-attribute">environment</span>: <span class="hljs-string">'production'</span>
+          <span class="hljs-attribute">imagesDir</span>: <span class="hljs-string">'&lt;%= compass.prodSASS.options.imagesDir %&gt;'</span>
           <span class="hljs-attribute">force</span>: <span class="hljs-literal">true</span>
 
   grunt.loadNpmTasks <span class="hljs-string">'grunt-contrib-compass'</span></pre></div></div>

@@ -234,6 +234,11 @@
               </a>
             
               
+              <a class="source" href="contrib-jshint.html">
+                contrib-jshint.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-less.html">
                 contrib-less.coffee
               </a>
@@ -271,6 +276,11 @@
               
               <a class="source" href="jade.html">
                 jade.coffee
+              </a>
+            
+              
+              <a class="source" href="jscs-checker.html">
+                jscs-checker.coffee
               </a>
             
               
@@ -438,7 +448,7 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p>This is the heart and soul of the app. It&#39;s up to you and your team on whether you choose to use a &#39;class&#39; pattern
+              <p>This is the heart and soul of the app. It’s up to you and your team on whether you choose to use a ‘class’ pattern
 but from experience following this pattern provides a clean and adaptable layout for your code.</p>
 
             </div>
@@ -486,9 +496,9 @@ Jump to <a href="radian-controller.html"><code>controller/radian-controller.coff
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
               </div>
-              <p>Fast apps are nice, and in order to keep your app nice and fast it&#39;s a good idea to make use of
+              <p>Fast apps are nice, and in order to keep your app nice and fast it’s a good idea to make use of
 <a href="http://docs.angularjs.org/api/ng.$templateCache"><code>$templateCache</code></a>, so here we have a file that takes care of that;
-during development it&#39;s left empty on purpose and it&#39;s then filled with the compiled <a href="http://jade-lang.com">Jade</a>
+during development it’s left empty on purpose and it’s then filled with the compiled <a href="http://jade-lang.com">Jade</a>
 templates during build time.
 Jump to <a href="partials.html"><code>partials.coffee</code></a> ☛</p>
 
@@ -507,7 +517,7 @@ Jump to <a href="partials.html"><code>partials.coffee</code></a> ☛</p>
               </div>
               <p>Before <code>appController</code> is added to the app it is vital to load in the
 <a href="http://docs.angularjs.org/api/ngRoute.$routeProvider"><code>ngRoute</code></a> configuration. If your app is driven from an API
-and thus the navigation needs to be loaded before the app can work out where to go then it&#39;s a good idea to use
+and thus the navigation needs to be loaded before the app can work out where to go then it’s a good idea to use
 <a href="http://docs.angularjs.org/api/ngRoute.$route"><code>$route.reload()</code></a> after the navigation data has been loaded.
 Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
 
@@ -555,8 +565,8 @@ Jump to <a href="routes.html"><code>routes.coffee</code></a> ☛</p>
                 <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>One problem that people struggled with regarding <a href="http://angularjs.org">AngularJS</a> is how to deal with sending data
-between modules in the app. This has been resolved here by the use of factories, in this case it&#39;s a factory that
-broadcasts updates to the document&#39;s title and any module that can inject the factory can set the title.
+between modules in the app. This has been resolved here by the use of factories, in this case it’s a factory that
+broadcasts updates to the document’s title and any module that can inject the factory can set the title.
 This deals with issues around misuse of the <code>$rootScope</code>/<code>$scope</code> to pass data up and down the chain and keeps
 everything testable.
 Jump to <a href="page-loader-factory.html"><code>factory/page-loader-factory.coffee</code></a> ☛</p>
@@ -590,7 +600,7 @@ Jump to <a href="page-loader-factory.html"><code>factory/page-loader-factory.cof
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
-              <p>Every controller class in radian follows the same pattern. It&#39;s also preferable to explicity specify the <code>$inject</code>
+              <p>Every controller class in radian follows the same pattern. It’s also preferable to explicity specify the <code>$inject</code>
 modules as this code will be minified.</p>
 
             </div>
@@ -606,7 +616,7 @@ modules as this code will be minified.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>You register your controller by calling <code>@register</code> and passing in the class&#39;s name and then the dependancies as
+              <p>You register your controller by calling <code>@register</code> and passing in the class’s name and then the dependancies as
 an array.</p>
 
             </div>
@@ -627,9 +637,9 @@ an array.</p>
       <span class="hljs-property">@pageTitleFactory</span>.addListener A.bind @, <span class="hljs-property">@handlePageTitleChange</span>
 
     <span class="hljs-attribute">addPartials</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@$scope</span>.ctaPartial = cfg.path.partial + <span class="hljs-string">'cta-partial.html'</span>
-      <span class="hljs-property">@$scope</span>.footerPartial = cfg.path.partial + <span class="hljs-string">'footer-partial.html'</span>
-      <span class="hljs-property">@$scope</span>.headerPartial = cfg.path.partial + <span class="hljs-string">'header/header-partial.html'</span>
+      <span class="hljs-property">@$scope</span>.ctaPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>cta-partial.html"</span>
+      <span class="hljs-property">@$scope</span>.footerPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>footer-partial.html"</span>
+      <span class="hljs-property">@$scope</span>.headerPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>header/header-partial.html"</span>
 
     <span class="hljs-attribute">addScopeMethods</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
       <span class="hljs-property">@$scope</span>.handleViewLoaded = A.bind @, <span class="hljs-property">@handleViewLoaded</span>
@@ -648,7 +658,7 @@ an array.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p><em>&#39;Why is it <code>@$scope.hideLoader</code> instead of <code>@$scope.showLoader</code>?&#39;</em> Well, my old chum, by default we show the
+              <p><em>‘Why is it <code>@$scope.hideLoader</code> instead of <code>@$scope.showLoader</code>?’</em> Well, my old chum, by default we show the
 loader until our application sends an event via the <a href="page-loader-factory.html"><code>pageLoaderFactory</code></a>, this way
 it is a more elegant experience.</p>
 
@@ -667,9 +677,9 @@ it is a more elegant experience.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
-              <p><em>&#39;Why not just set <code>@$scope.hideLoader</code> here instead of using <code>@pageLoaderFactory.hide()</code>?&#39;</em> Well, there may be
-more modules in the app that are listening to <code>pageLoaderFactory</code> than just this controller, so it&#39;s only polite
-to let them know what&#39;s up.</p>
+              <p><em>‘Why not just set <code>@$scope.hideLoader</code> here instead of using <code>@pageLoaderFactory.hide()</code>?’</em> Well, there may be
+more modules in the app that are listening to <code>pageLoaderFactory</code> than just this controller, so it’s only polite
+to let them know what’s up.</p>
 
             </div>
             

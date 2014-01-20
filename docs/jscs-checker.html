@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>contrib-watch.coffee</title>
+  <title>jscs-checker.coffee</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
   <link rel="stylesheet" media="all" href="docco.css" />
@@ -436,7 +436,7 @@
         
           <li id="title">
               <div class="annotation">
-                  <h1>contrib-watch.coffee</h1>
+                  <h1>jscs-checker.coffee</h1>
               </div>
           </li>
         
@@ -452,138 +452,12 @@
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
-  _ = <span class="hljs-built_in">require</span> <span class="hljs-string">'lodash'</span>
+  grunt.config <span class="hljs-string">'jscs'</span>,
+    <span class="hljs-attribute">src</span>: [
+      <span class="hljs-string">'assets/javascript/**/*.js'</span>
+    ]
 
-  grunt.config <span class="hljs-string">'watch'</span>,
-    <span class="hljs-attribute">coffee</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'assets/coffee/**/*.coffee'</span>
-      ]
-      <span class="hljs-attribute">tasks</span>: [
-        <span class="hljs-string">'coffeelint'</span>
-        <span class="hljs-string">'coffee:dev'</span>
-      ]
-      <span class="hljs-attribute">options</span>:
-        <span class="hljs-attribute">livereload</span>: <span class="hljs-literal">true</span>
-        <span class="hljs-attribute">spawn</span>: <span class="hljs-literal">false</span>
-    <span class="hljs-attribute">compass</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'&lt;%= compass.devSASS.options.sassDir %&gt;/**/*.sass'</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-2">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
-              </div>
-              <p>‘&lt;%= compass.devSCSS.options.sassDir %&gt;/<em>*/</em>.scss’</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      ]
-      <span class="hljs-attribute">tasks</span>: [
-        <span class="hljs-string">'compass:devSASS'</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p>‘compass:devSCSS’</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      ]
-    <span class="hljs-attribute">css</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'assets/css/*.css'</span>
-        <span class="hljs-string">'assets/img/*.{gif,png,svg}'</span>
-        <span class="hljs-string">'assets/img/**/*.jpg'</span>
-      ]
-      <span class="hljs-attribute">options</span>:
-        <span class="hljs-attribute">livereload</span>: <span class="hljs-literal">true</span>
-    <span class="hljs-attribute">jade</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'*.jade'</span>
-        <span class="hljs-string">'assets/partial/**/*.jade'</span>
-      ]
-      <span class="hljs-attribute">tasks</span>: [
-        <span class="hljs-string">'jade:dev'</span>
-      ]
-      <span class="hljs-attribute">options</span>: <span class="hljs-string">'&lt;%= watch.coffee.options %&gt;'</span>
-    <span class="hljs-attribute">js</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'assets/javascript/**/*.js'</span>
-      ]
-      <span class="hljs-attribute">tasks</span>: [
-        <span class="hljs-string">'jshint'</span>
-        <span class="hljs-string">'jscs'</span>
-      ]
-      <span class="hljs-attribute">options</span>:
-        <span class="hljs-attribute">livereload</span>: <span class="hljs-literal">true</span>
-        <span class="hljs-attribute">spawn</span>: <span class="hljs-literal">false</span>
-    <span class="hljs-attribute">less</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'&lt;%= less.dev.options.paths[0] %&gt;/**/*.less'</span>
-      ]
-      <span class="hljs-attribute">tasks</span>: [
-        <span class="hljs-string">'less:dev'</span>
-      ]
-    <span class="hljs-attribute">sprite</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'assets/img/**/*.png'</span>
-      ]
-      <span class="hljs-attribute">tasks</span>: [
-        <span class="hljs-string">'sprite'</span>
-      ]
-    <span class="hljs-attribute">stylus</span>:
-      <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'assets/styl/**/*.styl'</span>
-      ]
-      <span class="hljs-attribute">tasks</span>: [
-        <span class="hljs-string">'stylus:dev'</span>
-      ]
-
-  changedFiles = {}
-  onChange = _.debounce <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-    changedCoffeeFiles = changedFiles[<span class="hljs-string">'coffee'</span>]
-    changedJadeFiles = changedFiles[<span class="hljs-string">'jade'</span>]
-    changedJSFiles = changedFiles[<span class="hljs-string">'js'</span>]
-
-    <span class="hljs-keyword">if</span> changedCoffeeFiles
-      grunt.config <span class="hljs-string">'coffeelint.all'</span>, changedCoffeeFiles
-      grunt.config <span class="hljs-string">'coffee.dev.src'</span>, _.map changedCoffeeFiles, <span class="hljs-function"><span class="hljs-params">(file)</span> -&gt;</span>
-        file.replace <span class="hljs-string">'assets/coffee/'</span>, <span class="hljs-string">''</span>
-
-    <span class="hljs-keyword">if</span> changedJadeFiles
-      grunt.config <span class="hljs-string">'jade.dev.files'</span>,
-        <span class="hljs-string">'./'</span>: changedJadeFiles
-
-    <span class="hljs-keyword">if</span> changedJSFiles
-      grunt.config <span class="hljs-string">'jshint.all'</span>, changedJSFiles
-      grunt.config <span class="hljs-string">'jscs.src'</span>, changedJSFiles
-
-    changedFiles = {}
-  , <span class="hljs-number">200</span>
-
-  grunt.event.<span class="hljs-literal">on</span> <span class="hljs-string">'watch'</span>, <span class="hljs-function"><span class="hljs-params">(action, file)</span> -&gt;</span>
-    ext = file.split(<span class="hljs-string">'.'</span>).pop()
-
-    <span class="hljs-keyword">if</span> !changedFiles[ext]
-      changedFiles[ext] = []
-
-    changedFiles[ext].push file
-
-    onChange()
-
-  grunt.loadNpmTasks <span class="hljs-string">'grunt-contrib-watch'</span></pre></div></div>
+  grunt.loadNpmTasks <span class="hljs-string">'grunt-jscs-checker'</span></pre></div></div>
             
         </li>
         

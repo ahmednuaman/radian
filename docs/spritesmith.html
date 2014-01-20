@@ -234,6 +234,11 @@
               </a>
             
               
+              <a class="source" href="contrib-jshint.html">
+                contrib-jshint.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-less.html">
                 contrib-less.coffee
               </a>
@@ -271,6 +276,11 @@
               
               <a class="source" href="jade.html">
                 jade.coffee
+              </a>
+            
+              
+              <a class="source" href="jscs-checker.html">
+                jscs-checker.coffee
               </a>
             
               
@@ -443,6 +453,7 @@
             
             <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
   config = {}
+  language = <span class="hljs-string">'sass'</span>
   targets = [
     <span class="hljs-string">'icon'</span>
   ]
@@ -454,41 +465,9 @@
       ]
       <span class="hljs-attribute">destImg</span>: <span class="hljs-string">"assets/img/<span class="hljs-subst">#{target}</span>-&lt;%= grunt.config('git-commit') %&gt;.png"</span>
       <span class="hljs-attribute">imgPath</span>: <span class="hljs-string">"../img/<span class="hljs-subst">#{target}</span>-&lt;%= grunt.config('git-commit') %&gt;.png"</span>
-      <span class="hljs-attribute">destCSS</span>: <span class="hljs-string">"assets/sass/partial/_sprite-<span class="hljs-subst">#{target}</span>.sass"</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-2">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-2">&#182;</a>
-              </div>
-              <p>destCSS: &quot;assets/scss/partial/_sprite-#{target}.scss&quot;
-destCSS: &quot;assets/less/partial/_sprite-#{target}.less&quot;
-destCSS: &quot;assets/styl/partial/_sprite-#{target}.styl&quot;</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-attribute">cssTemplate</span>: <span class="hljs-string">'assets/sass/template.mustache'</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-3">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-3">&#182;</a>
-              </div>
-              <p>cssTemplate: &#39;assets/scss/template.mustache&#39;
-cssTemplate: &#39;assets/less/template.mustache&#39;
-cssTemplate: &#39;assets/styl/template.mustache&#39;</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-attribute">cssOpts</span>:
+      <span class="hljs-attribute">destCSS</span>: <span class="hljs-string">"assets/<span class="hljs-subst">#{language}</span>/partial/_sprite-<span class="hljs-subst">#{target}</span>.<span class="hljs-subst">#{language}</span>"</span>
+      <span class="hljs-attribute">cssTemplate</span>: <span class="hljs-string">"assets/<span class="hljs-subst">#{language}</span>/template.mustache"</span>
+      <span class="hljs-attribute">cssOpts</span>:
         <span class="hljs-attribute">target</span>: target
       <span class="hljs-attribute">engineOpts</span>:
         <span class="hljs-attribute">imagemagick</span>: !!process.env.TRAVIS

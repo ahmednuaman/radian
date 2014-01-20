@@ -234,6 +234,11 @@
               </a>
             
               
+              <a class="source" href="contrib-jshint.html">
+                contrib-jshint.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-less.html">
                 contrib-less.coffee
               </a>
@@ -271,6 +276,11 @@
               
               <a class="source" href="jade.html">
                 jade.coffee
+              </a>
+            
+              
+              <a class="source" href="jscs-checker.html">
+                jscs-checker.coffee
               </a>
             
               
@@ -493,19 +503,19 @@
   <span class="hljs-function"><span class="hljs-title">routes</span> = <span class="hljs-params">($routeProvider, $locationProvider)</span> -&gt;</span>
     $routeProvider
       .<span class="hljs-keyword">when</span> <span class="hljs-string">'/code'</span>,
-        <span class="hljs-attribute">templateUrl</span>: cfg.path.partial + <span class="hljs-string">'code-partial.html'</span>
+        <span class="hljs-attribute">templateUrl</span>: <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>code-partial.html"</span>
 
       .<span class="hljs-keyword">when</span> <span class="hljs-string">'/error/:code'</span>,
-        <span class="hljs-attribute">templateUrl</span>: cfg.path.partial + <span class="hljs-string">'error-partial.html'</span>
+        <span class="hljs-attribute">templateUrl</span>: <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>error-partial.html"</span>
 
       .<span class="hljs-keyword">when</span> <span class="hljs-string">'/error'</span>,
-        <span class="hljs-attribute">templateUrl</span>: cfg.path.partial + <span class="hljs-string">'error-partial.html'</span>
+        <span class="hljs-attribute">templateUrl</span>: <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>error-partial.html"</span>
 
       .<span class="hljs-keyword">when</span> <span class="hljs-string">'/faqs'</span>,
-        <span class="hljs-attribute">templateUrl</span>: cfg.path.partial + <span class="hljs-string">'faqs-partial.html'</span>
+        <span class="hljs-attribute">templateUrl</span>: <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>faqs-partial.html"</span>
 
       .<span class="hljs-keyword">when</span> <span class="hljs-string">'/'</span>,
-        <span class="hljs-attribute">templateUrl</span>: cfg.path.partial + <span class="hljs-string">'home-partial.html'</span>
+        <span class="hljs-attribute">templateUrl</span>: <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>home-partial.html"</span>
 
     $routeProvider.otherwise
       <span class="hljs-attribute">redirectTo</span>: <span class="hljs-string">'/'</span>

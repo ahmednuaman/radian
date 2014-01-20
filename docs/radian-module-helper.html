@@ -234,6 +234,11 @@
               </a>
             
               
+              <a class="source" href="contrib-jshint.html">
+                contrib-jshint.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-less.html">
                 contrib-less.coffee
               </a>
@@ -271,6 +276,11 @@
               
               <a class="source" href="jade.html">
                 jade.coffee
+              </a>
+            
+              
+              <a class="source" href="jscs-checker.html">
+                jscs-checker.coffee
               </a>
             
               
@@ -529,11 +539,9 @@ This is better for minification.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      app = A.<span class="hljs-built_in">module</span> cfg.ngApp
-      app[type] name, <span class="hljs-built_in">module</span>
+            <div class="content"><div class='highlight'><pre>      (A.<span class="hljs-built_in">module</span> cfg.ngApp)[type] name, <span class="hljs-built_in">module</span>
 
-    <span class="hljs-attribute">uppercaseFirstLetter</span>: <span class="hljs-function"><span class="hljs-params">(str)</span> -&gt;</span>
-      str.charAt(<span class="hljs-number">0</span>).toUpperCase() + str.slice <span class="hljs-number">1</span></pre></div></div>
+    <span class="hljs-attribute">registerClass</span>: <span class="hljs-function"><span class="hljs-params">(type)</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -543,6 +551,37 @@ This is better for minification.</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Create a stub controller, this helps keep file size down.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+        <span class="hljs-class"><span class="hljs-keyword">class</span></span>
+          <span class="hljs-property">@register</span>: <span class="hljs-function"><span class="hljs-params">(name, deps)</span> -&gt;</span>
+            helper.register type, name, deps, @
+
+          <span class="hljs-attribute">constructor</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+            helper.construct @, arguments
+
+    <span class="hljs-attribute">registerFunction</span>: <span class="hljs-function"><span class="hljs-params">(type)</span> -&gt;</span>
+      <span class="hljs-function"><span class="hljs-params">(args)</span> -&gt;</span>
+        helper.registerModule args, type
+
+    <span class="hljs-attribute">registerModule</span>: <span class="hljs-function"><span class="hljs-params">(args, type)</span> -&gt;</span>
+      helper.register.apply @, [type].concat _.toArray args
+
+    <span class="hljs-attribute">uppercaseFirstLetter</span>: <span class="hljs-function"><span class="hljs-params">(str)</span> -&gt;</span>
+      str.charAt(<span class="hljs-number">0</span>).toUpperCase() + str.slice <span class="hljs-number">1</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>Add a dash of specific register functions keep our code tidy and small</p>
 
@@ -555,8 +594,11 @@ This is better for minification.</p>
     <span class="hljs-string">'filter'</span>
     <span class="hljs-string">'service'</span>
   ], <span class="hljs-function"><span class="hljs-params">(type)</span> -&gt;</span>
-    helper[<span class="hljs-string">'register'</span> + helper.uppercaseFirstLetter<span class="hljs-function"><span class="hljs-params">(type)</span>] = <span class="hljs-params">(args)</span> -&gt;</span>
-      helper.register.apply @, [type].concat _.toArray args
+    helper[<span class="hljs-string">'register'</span> + helper.uppercaseFirstLetter(type)] =
+      <span class="hljs-keyword">if</span> type <span class="hljs-keyword">is</span> <span class="hljs-string">'controller'</span> <span class="hljs-keyword">or</span> type <span class="hljs-keyword">is</span> <span class="hljs-string">'service'</span>
+        helper.registerClass type
+      <span class="hljs-keyword">else</span>
+        helper.registerFunction type
 
   helper</pre></div></div>
             

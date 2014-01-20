@@ -234,6 +234,11 @@
               </a>
             
               
+              <a class="source" href="contrib-jshint.html">
+                contrib-jshint.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-less.html">
                 contrib-less.coffee
               </a>
@@ -271,6 +276,11 @@
               
               <a class="source" href="jade.html">
                 jade.coffee
+              </a>
+            
+              
+              <a class="source" href="jscs-checker.html">
+                jscs-checker.coffee
               </a>
             
               
@@ -438,8 +448,8 @@
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-1">&#182;</a>
               </div>
-              <p>If you&#39;re new to <a href="http://gruntjs.com">Grunt</a> then get yourself over to the
-<a href="http://gruntjs.com/getting-started">&#39;getting started&#39;</a> section on their site.</p>
+              <p>If you’re new to <a href="http://gruntjs.com">Grunt</a> then get yourself over to the
+<a href="http://gruntjs.com/getting-started">‘getting started’</a> section on their site.</p>
 
             </div>
             
@@ -546,7 +556,7 @@ CSS and JS files.</p>
                 <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <h2 id="grunt-default">grunt default</h2>
-<p>This task is useful for running whilst you&#39;re developing your app. It installs the <a href="http://bower.io">Bower</a>
+<p>This task is useful for running whilst you’re developing your app. It installs the <a href="http://bower.io">Bower</a>
 dependancies, runs the development preprocessor tasks, starts the local express server and watches your files
 as you code your awsome app.</p>
 
@@ -556,7 +566,7 @@ as you code your awsome app.</p>
     <span class="hljs-string">'githash'</span>
     <span class="hljs-string">'install'</span>
     <span class="hljs-string">'sprite'</span>
-    <span class="hljs-string">'compass:dev'</span></pre></div></div>
+    <span class="hljs-string">'compass:devSASS'</span></pre></div></div>
             
         </li>
         
@@ -567,8 +577,9 @@ as you code your awsome app.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
-              <p>&#39;less:dev&#39;
-&#39;stylus:dev&#39;</p>
+              <p>‘compass:devSCSS’
+‘less:dev’
+‘stylus:dev’</p>
 
             </div>
             
@@ -596,7 +607,7 @@ as you code your awsome app.</p>
     <span class="hljs-string">'githash'</span>
     <span class="hljs-string">'install'</span>
     <span class="hljs-string">'sprite'</span>
-    <span class="hljs-string">'compass:dev'</span></pre></div></div>
+    <span class="hljs-string">'compass:devSASS'</span></pre></div></div>
             
         </li>
         
@@ -607,12 +618,15 @@ as you code your awsome app.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
-              <p>&#39;less:dev&#39;
-&#39;stylus:dev&#39;</p>
+              <p>‘compass:devSCSS’
+‘less:dev’
+‘stylus:dev’</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">'coffeelint'</span>
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">'jshint'</span>
+    <span class="hljs-string">'jscs'</span>
+    <span class="hljs-string">'coffeelint'</span>
     <span class="hljs-string">'coffee:dev'</span>
     <span class="hljs-string">'karma'</span>
     <span class="hljs-string">'coffee:e2e'</span>
@@ -638,6 +652,8 @@ as you code your awsome app.</p>
             <div class="content"><div class='highlight'><pre>  grunt.registerTask <span class="hljs-string">'unit'</span>, <span class="hljs-string">'run unit tests'</span>, [
     <span class="hljs-string">'githash'</span>
     <span class="hljs-string">'install'</span>
+    <span class="hljs-string">'jshint'</span>
+    <span class="hljs-string">'jscs'</span>
     <span class="hljs-string">'coffeelint'</span>
     <span class="hljs-string">'coffee:dev'</span>
     <span class="hljs-string">'karma'</span>
@@ -661,7 +677,7 @@ as you code your awsome app.</p>
     <span class="hljs-string">'githash'</span>
     <span class="hljs-string">'install'</span>
     <span class="hljs-string">'sprite'</span>
-    <span class="hljs-string">'compass:dev'</span></pre></div></div>
+    <span class="hljs-string">'compass:devSASS'</span></pre></div></div>
             
         </li>
         
@@ -672,12 +688,15 @@ as you code your awsome app.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p>&#39;less:dev&#39;
-&#39;stylus:dev&#39;</p>
+              <p>‘compass:devSCSS’
+‘less:dev’
+‘stylus:dev’</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">'coffeelint'</span>
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-string">'jshint'</span>
+    <span class="hljs-string">'jscs'</span>
+    <span class="hljs-string">'coffeelint'</span>
     <span class="hljs-string">'coffee:dev'</span>
     <span class="hljs-string">'coffee:e2e'</span>
     <span class="hljs-string">'jade:dev'</span>
@@ -708,7 +727,7 @@ CDN versions. Finally it executes the crawler to make the app SEO friendly.</p>
     <span class="hljs-string">'install'</span>
     <span class="hljs-string">'sprite'</span>
     <span class="hljs-string">'imagemin'</span>
-    <span class="hljs-string">'compass:prod'</span></pre></div></div>
+    <span class="hljs-string">'compass:prodSASS'</span></pre></div></div>
             
         </li>
         
@@ -719,8 +738,9 @@ CDN versions. Finally it executes the crawler to make the app SEO friendly.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
-              <p>&#39;less:prod&#39;
-&#39;stylus:prod&#39;</p>
+              <p>‘compass:prodSCSS’
+‘less:prod’
+‘stylus:prod’</p>
 
             </div>
             

@@ -234,6 +234,11 @@
               </a>
             
               
+              <a class="source" href="contrib-jshint.html">
+                contrib-jshint.coffee
+              </a>
+            
+              
               <a class="source" href="contrib-less.html">
                 contrib-less.coffee
               </a>
@@ -271,6 +276,11 @@
               
               <a class="source" href="jade.html">
                 jade.coffee
+              </a>
+            
+              
+              <a class="source" href="jscs-checker.html">
+                jscs-checker.coffee
               </a>
             
               
@@ -445,11 +455,13 @@
   <span class="hljs-string">'config'</span>
   <span class="hljs-string">'angular'</span>
   <span class="hljs-string">'controller/app-controller'</span>
+  <span class="hljs-string">'factory/page-loader-factory'</span>
   <span class="hljs-string">'factory/page-title-factory'</span>
 ], <span class="hljs-function"><span class="hljs-params">(cfg, A)</span> -&gt;</span>
   describe <span class="hljs-string">'App controller'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
     $scope = <span class="hljs-literal">null</span>
     createController = <span class="hljs-literal">null</span>
+    pageLoaderFactory = <span class="hljs-literal">null</span>
     pageTitleFactory = <span class="hljs-literal">null</span>
 
     beforeEach <span class="hljs-built_in">module</span> cfg.ngApp
@@ -457,6 +469,7 @@
     beforeEach inject <span class="hljs-function"><span class="hljs-params">($injector)</span> -&gt;</span>
       $controller = $injector.get <span class="hljs-string">'$controller'</span>
       $rootScope = $injector.get <span class="hljs-string">'$rootScope'</span>
+      pageLoaderFactory = $injector.get <span class="hljs-string">'pageLoaderFactory'</span>
       pageTitleFactory = $injector.get <span class="hljs-string">'pageTitleFactory'</span>
 
       $scope = $rootScope.$<span class="hljs-keyword">new</span>()
@@ -478,7 +491,14 @@
 
       pageTitleFactory.setTitle title
 
-      expect($scope.pageTitle).toContain title</pre></div></div>
+      expect($scope.pageTitle).toContain title
+
+    it <span class="hljs-string">'should hide the loader when an event is fired from pageLoaderFactory'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      controller = createController()
+
+      $scope.handleViewLoaded()
+
+      expect($scope.hideLoader).toBe <span class="hljs-literal">true</span></pre></div></div>
             
         </li>
         
