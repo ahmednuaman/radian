@@ -71,8 +71,7 @@
   "peerDependencies": {
     "express": "3.4.8",
     "grunt": "0.4.2",
-    "karma": "0.11.12",
-    "protractor": "0.15.0"
+    "karma": "0.11.12"
   },
   "keywords": [
     "angular",
