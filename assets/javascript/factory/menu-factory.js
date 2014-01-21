@@ -25,7 +25,7 @@ define([
       factory.digest();
     });
 
-    return {
+    factory = {
       collection: null,
       selectedItem: null,
 
@@ -64,5 +64,7 @@ define([
         });
       }
     };
+
+    return factory;
   });
 });

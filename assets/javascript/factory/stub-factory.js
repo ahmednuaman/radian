@@ -11,10 +11,12 @@ define([
 
     };
 
-    return factory = {
+    factory = {
       publicMethod: function() {
 
       }
     };
+
+    return factory;
   });
 });

@@ -12,7 +12,7 @@ define([
       return $rootScope.$emit(event, show);
     };
 
-    return {
+    factory = {
       setShow: function(show) {
         emit(show);
       },
@@ -29,5 +29,7 @@ define([
         $rootScope.$on(event, callback);
       }
     };
+
+    return factory;
   });
 });
