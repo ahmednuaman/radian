@@ -53,6 +53,7 @@ module.exports = (grunt) ->
     html:
       files: [
         'assets/partial/**/*.html'
+        '*.html'
       ]
       options:
         livereload: true
