@@ -50,6 +50,12 @@ module.exports = (grunt) ->
       options:
         livereload: true
         spawn: false
+    html:
+      files: [
+        'assets/partial/**/*.html'
+      ]
+      options:
+        livereload: true
     less:
       files: [
         '<%= less.dev.options.paths[0] %>/**/*.less'
