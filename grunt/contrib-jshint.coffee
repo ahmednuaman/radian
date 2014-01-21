@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
   grunt.config 'jshint',
     all: [
-      'assets/javascript/**/*.js'
+      'assets/js/**/*.js'
     ]
     options:
       jshintrc: true

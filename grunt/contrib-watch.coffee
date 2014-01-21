@@ -41,7 +41,7 @@ module.exports = (grunt) ->
       options: '<%= watch.coffee.options %>'
     js:
       files: [
-        'assets/javascript/**/*.js'
+        'assets/js/**/*.js'
       ]
       tasks: [
         'jshint'
