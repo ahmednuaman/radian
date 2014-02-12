@@ -1,5 +1,6 @@
 before_install:
-- gem install compass 0.12.2
+- gem install sass
+- gem install compass
 - npm install -g bower
 - npm install -g grunt-cli
 - npm install -g protractor
