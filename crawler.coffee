@@ -14,7 +14,7 @@ system = require 'system'
 base = system.args[2]
 home = system.args[1]
 ignoreRegex = system.args[4]
-timeout = system.args[3] || 3000
+pageTimeout = system.args[3] || 8000
 
 if ignoreRegex
   ignoreRegex = new RegExp system.args[4]
@@ -109,15 +109,49 @@ index = (address) ->
   else
     phantom.exit()
 
+# This function use's Angular's `$browser.notifyWhenNoOutstandingRequests()` to wait for the app to settle and then
+# writes a message to the `console.log` notifying Phantom that it's ready to be indexed.
+waitForAppLoaded = (consoleLogVar) ->
+  w = window
+
+  w.waitForAngular = () ->
+    if document.documentElement.classList.contains 'ng-scope'
+      w.clearInterval w.interval
+
+      w.angular.element(document.documentElement).injector().get('$browser').notifyWhenNoOutstandingRequests () ->
+        w.console.log consoleLogVar
+
+  document.addEventListener 'DOMContentLoaded', () ->
+    w.interval = w.setInterval w.waitForAngular, 0
+
 # This function loads the next address and prepares to index it. There's a default timeout of 3 seconds but you can
 # change that either in the source code or via the `cli`.
 next = (address) ->
+  timeout = null
   console.log "Opening #{address}"
 
-  page.open address, (status) ->
+  # Generate a unique `consoleLogVar` to notify Phantom that this page has loaded.
+  consoleLogVar = btoa address
+
+  # We listen to a specific `console.log` fired by our script when Angular's
+  # `$browser.notifyWhenNoOutstandingRequests()` is fired.
+  page.onConsoleMessage = (message) ->
+    # Check that the message is the same as our `consoleLogVar`.
+    if message is consoleLogVar
+      # So it looks like the page has loaded, cancel the `timeout` and index it
+      clearTimeout timeout
+      index address
+
+  page.onInitialized = () ->
+    # Add a listener to the page to notify us when Angular has settled.
+    page.evaluate waitForAppLoaded, consoleLogVar
+
     indexed.push address
 
-    setTimeout index, timeout, address
+    timeout = setTimeout index, pageTimeout, address
+
+  # Now we open the page in Phantom.
+  page.open address
 
 # Finally we start everything off by indexing the homepage.
 next home
