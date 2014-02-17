@@ -148,3 +148,18 @@ div#home(data-ng-controller='HomeController')
       ### And then...
 
       Running `grunt` will generate all the JS, CSS and HTML, and it'll also start the local server, so point your browser to [http://localhost:8000](http://localhost:8000) and you're laughing.
+
+  div.row
+    :markdown
+      ### Testing
+
+      To test your new application, you need to install another couple of dependencies:
+
+          npm install -g protractor
+          webdriver-manager update
+
+      This will install [Protractor](https://github.com/angular/protractor), Angular's end-to-end testing framework, and the latest [Selenium](http://docs.seleniumhq.org/) standalone server and Chromedriver.
+
+      You will then be able to execute all tests – unit, integration and end-to-end – by running:
+
+          grunt test
