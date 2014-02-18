@@ -458,10 +458,8 @@
         <span class="hljs-attribute">baseUrl</span>: <span class="hljs-string">'assets/js'</span>
         <span class="hljs-attribute">name</span>: <span class="hljs-string">'app'</span>
         <span class="hljs-attribute">out</span>: <span class="hljs-string">'build/assets/js/app-&lt;%= grunt.config("git-commit") %&gt;.js'</span>
-        <span class="hljs-attribute">include</span>: [
-          <span class="hljs-string">'startup'</span>
-          <span class="hljs-string">'controller/app-controller'</span>
-        ]
+        <span class="hljs-attribute">findNestedDependencies</span>: <span class="hljs-literal">true</span>
+        <span class="hljs-attribute">optimize</span>: <span class="hljs-string">'uglify2'</span>
         <span class="hljs-attribute">paths</span>:
           <span class="hljs-string">'angular'</span>: <span class="hljs-string">'empty:'</span>
           <span class="hljs-string">'angular-animate'</span>: <span class="hljs-string">'empty:'</span>

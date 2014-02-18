@@ -1,0 +1,114 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="PhantomJS 1.9.7 (Mac OS X)" package="" timestamp="2014-02-18T19:45:18" id="0" hostname="ahmed.local" tests="29" errors="0" failures="0" time="0.441">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.7 Safari/534.34"/>
+    </properties>
+    <testcase name="should return a nice VO" time="0.004" classname="PhantomJS 1.9.7 (Mac OS X).Menu item VO"/>
+    <testcase name="should return a nice collection" time="0.011" classname="PhantomJS 1.9.7 (Mac OS X).Menu items collection"/>
+    <testcase name="should return a nice VO" time="0.001" classname="PhantomJS 1.9.7 (Mac OS X).Stub VO"/>
+    <testcase name="should return a nice collection" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).Stub collection"/>
+    <testcase name="should change the $scope.code and title according to $routeParams.code" time="0.017" classname="PhantomJS 1.9.7 (Mac OS X).Error controller"/>
+    <testcase name="should default $scope.code to 404 if there is no $routeParams.code" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).Error controller"/>
+    <testcase name="should load" time="0.004" classname="PhantomJS 1.9.7 (Mac OS X).Footer controller"/>
+    <testcase name="should load" time="0.006" classname="PhantomJS 1.9.7 (Mac OS X).Home controller"/>
+    <testcase name="should load" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).Stub controller"/>
+    <testcase name="should $emit an event that says whether to hide or show the loader" time="0.26" classname="PhantomJS 1.9.7 (Mac OS X).Page loader factory"/>
+    <testcase name="should $emit an event that contains a new title" time="0.002" classname="PhantomJS 1.9.7 (Mac OS X).Page title factory"/>
+    <testcase name="should change the $location according to an error code" time="0.011" classname="PhantomJS 1.9.7 (Mac OS X).Page error factory"/>
+    <testcase name="should populate the factory and return the collection" time="0.005" classname="PhantomJS 1.9.7 (Mac OS X).Menu factory"/>
+    <testcase name="should select an item by a specified href" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).Menu factory"/>
+    <testcase name="should update the selected item if the location changes" time="0.004" classname="PhantomJS 1.9.7 (Mac OS X).Menu factory"/>
+    <testcase name="should load" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).Stub factory"/>
+    <testcase name="should get the menu and populate the factory" time="0.009" classname="PhantomJS 1.9.7 (Mac OS X).Menu service"/>
+    <testcase name="should populate the factory" time="0.015" classname="PhantomJS 1.9.7 (Mac OS X).Menu service"/>
+    <testcase name="should reject the dfd in case of an error" time="0.01" classname="PhantomJS 1.9.7 (Mac OS X).Menu service"/>
+    <testcase name="should load" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).Stub service"/>
+    <testcase name="should generate a menu from a modal" time="0.026" classname="PhantomJS 1.9.7 (Mac OS X).Menu component directive"/>
+    <testcase name="should populate $scope.menuItems" time="0.006" classname="PhantomJS 1.9.7 (Mac OS X).Header menu controller"/>
+    <testcase name="should throw a 500 error if loading the menu fails" time="0.004" classname="PhantomJS 1.9.7 (Mac OS X).Header menu controller"/>
+    <testcase name="should add the menu partial" time="0.002" classname="PhantomJS 1.9.7 (Mac OS X).Header controller"/>
+    <testcase name="should add the header and footer partials" time="0.009" classname="PhantomJS 1.9.7 (Mac OS X).App controller"/>
+    <testcase name="should change the title when an event is fired from pageTitleFactory" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).App controller"/>
+    <testcase name="should hide the loader when an event is fired from pageLoaderFactory" time="0.002" classname="PhantomJS 1.9.7 (Mac OS X).App controller"/>
+    <testcase name="should load" time="0.009" classname="PhantomJS 1.9.7 (Mac OS X).Stub directive"/>
+    <testcase name="should run the filter" time="0.003" classname="PhantomJS 1.9.7 (Mac OS X).Stub filter"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+  <testsuite name="Chrome 32.0.1700 (Mac OS X 10.9.1)" package="" timestamp="2014-02-18T19:45:18" id="0" hostname="ahmed.local" tests="29" errors="0" failures="0" time="0.55">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36"/>
+    </properties>
+    <testcase name="should return a nice VO" time="0.009" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu item VO"/>
+    <testcase name="should return a nice collection" time="0.016" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu items collection"/>
+    <testcase name="should return a nice VO" time="0.001" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Stub VO"/>
+    <testcase name="should return a nice collection" time="0.005" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Stub collection"/>
+    <testcase name="should $emit an event that says whether to hide or show the loader" time="0.269" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Page loader factory"/>
+    <testcase name="should $emit an event that contains a new title" time="0.005" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Page title factory"/>
+    <testcase name="should populate the factory and return the collection" time="0.012" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu factory"/>
+    <testcase name="should select an item by a specified href" time="0.006" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu factory"/>
+    <testcase name="should update the selected item if the location changes" time="0.01" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu factory"/>
+    <testcase name="should change the $location according to an error code" time="0.013" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Page error factory"/>
+    <testcase name="should load" time="0.004" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Stub factory"/>
+    <testcase name="should change the $scope.code and title according to $routeParams.code" time="0.034" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Error controller"/>
+    <testcase name="should default $scope.code to 404 if there is no $routeParams.code" time="0.004" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Error controller"/>
+    <testcase name="should load" time="0.004" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Footer controller"/>
+    <testcase name="should load" time="0.007" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Home controller"/>
+    <testcase name="should load" time="0.005" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Stub controller"/>
+    <testcase name="should generate a menu from a modal" time="0.052" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu component directive"/>
+    <testcase name="should load" time="0.017" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Stub directive"/>
+    <testcase name="should run the filter" time="0.005" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Stub filter"/>
+    <testcase name="should get the menu and populate the factory" time="0.011" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu service"/>
+    <testcase name="should populate the factory" time="0.005" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu service"/>
+    <testcase name="should reject the dfd in case of an error" time="0.013" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Menu service"/>
+    <testcase name="should populate $scope.menuItems" time="0.014" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Header menu controller"/>
+    <testcase name="should throw a 500 error if loading the menu fails" time="0.006" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Header menu controller"/>
+    <testcase name="should add the menu partial" time="0.004" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Header controller"/>
+    <testcase name="should add the header and footer partials" time="0.004" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).App controller"/>
+    <testcase name="should change the title when an event is fired from pageTitleFactory" time="0.003" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).App controller"/>
+    <testcase name="should hide the loader when an event is fired from pageLoaderFactory" time="0.004" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).App controller"/>
+    <testcase name="should load" time="0.008" classname="Chrome 32.0.1700 (Mac OS X 10.9.1).Stub service"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+  <testsuite name="Firefox 26.0.0 (Mac OS X 10.9)" package="" timestamp="2014-02-18T19:45:19" id="0" hostname="ahmed.local" tests="29" errors="0" failures="0" time="0.478">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:26.0) Gecko/20100101 Firefox/26.0"/>
+    </properties>
+    <testcase name="should return a nice VO" time="0.014" classname="Firefox 26.0.0 (Mac OS X 10.9).Stub VO"/>
+    <testcase name="should return a nice collection" time="0.007" classname="Firefox 26.0.0 (Mac OS X 10.9).Stub collection"/>
+    <testcase name="should return a nice VO" time="0.001" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu item VO"/>
+    <testcase name="should return a nice collection" time="0.005" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu items collection"/>
+    <testcase name="should load" time="0.008" classname="Firefox 26.0.0 (Mac OS X 10.9).Stub controller"/>
+    <testcase name="should change the $scope.code and title according to $routeParams.code" time="0.007" classname="Firefox 26.0.0 (Mac OS X 10.9).Error controller"/>
+    <testcase name="should default $scope.code to 404 if there is no $routeParams.code" time="0.006" classname="Firefox 26.0.0 (Mac OS X 10.9).Error controller"/>
+    <testcase name="should load" time="0.007" classname="Firefox 26.0.0 (Mac OS X 10.9).Footer controller"/>
+    <testcase name="should load" time="0.006" classname="Firefox 26.0.0 (Mac OS X 10.9).Home controller"/>
+    <testcase name="should change the $location according to an error code" time="0.007" classname="Firefox 26.0.0 (Mac OS X 10.9).Page error factory"/>
+    <testcase name="should $emit an event that says whether to hide or show the loader" time="0.257" classname="Firefox 26.0.0 (Mac OS X 10.9).Page loader factory"/>
+    <testcase name="should load" time="0.008" classname="Firefox 26.0.0 (Mac OS X 10.9).Stub factory"/>
+    <testcase name="should $emit an event that contains a new title" time="0.005" classname="Firefox 26.0.0 (Mac OS X 10.9).Page title factory"/>
+    <testcase name="should populate the factory and return the collection" time="0.007" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu factory"/>
+    <testcase name="should select an item by a specified href" time="0.007" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu factory"/>
+    <testcase name="should update the selected item if the location changes" time="0.014" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu factory"/>
+    <testcase name="should generate a menu from a modal" time="0.031" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu component directive"/>
+    <testcase name="should load" time="0.013" classname="Firefox 26.0.0 (Mac OS X 10.9).Stub directive"/>
+    <testcase name="should run the filter" time="0.005" classname="Firefox 26.0.0 (Mac OS X 10.9).Stub filter"/>
+    <testcase name="should get the menu and populate the factory" time="0.01" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu service"/>
+    <testcase name="should populate the factory" time="0.008" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu service"/>
+    <testcase name="should reject the dfd in case of an error" time="0.006" classname="Firefox 26.0.0 (Mac OS X 10.9).Menu service"/>
+    <testcase name="should populate $scope.menuItems" time="0.008" classname="Firefox 26.0.0 (Mac OS X 10.9).Header menu controller"/>
+    <testcase name="should throw a 500 error if loading the menu fails" time="0.008" classname="Firefox 26.0.0 (Mac OS X 10.9).Header menu controller"/>
+    <testcase name="should add the menu partial" time="0.005" classname="Firefox 26.0.0 (Mac OS X 10.9).Header controller"/>
+    <testcase name="should load" time="0.004" classname="Firefox 26.0.0 (Mac OS X 10.9).Stub service"/>
+    <testcase name="should add the header and footer partials" time="0.005" classname="Firefox 26.0.0 (Mac OS X 10.9).App controller"/>
+    <testcase name="should change the title when an event is fired from pageTitleFactory" time="0.004" classname="Firefox 26.0.0 (Mac OS X 10.9).App controller"/>
+    <testcase name="should hide the loader when an event is fired from pageLoaderFactory" time="0.005" classname="Firefox 26.0.0 (Mac OS X 10.9).App controller"/>
+    <system-out><![CDATA[
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>

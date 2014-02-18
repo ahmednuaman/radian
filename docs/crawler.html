@@ -478,7 +478,7 @@ system = <span class="hljs-built_in">require</span> <span class="hljs-string">'s
             <div class="content"><div class='highlight'><pre>base = system.args[<span class="hljs-number">2</span>]
 home = system.args[<span class="hljs-number">1</span>]
 ignoreRegex = system.args[<span class="hljs-number">4</span>]
-timeout = system.args[<span class="hljs-number">3</span>] || <span class="hljs-number">3000</span>
+pageTimeout = system.args[<span class="hljs-number">3</span>] || <span class="hljs-number">8000</span>
 
 <span class="hljs-keyword">if</span> ignoreRegex
   ignoreRegex = <span class="hljs-keyword">new</span> RegExp system.args[<span class="hljs-number">4</span>]</pre></div></div>
@@ -777,18 +777,23 @@ if there is no javascript enabled.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
-              <p>This function loads the next address and prepares to index it. There’s a default timeout of 3 seconds but you can
-change that either in the source code or via the <code>cli</code>.</p>
+              <p>This function use’s Angular’s <code>$browser.notifyWhenNoOutstandingRequests()</code> to wait for the app to settle and then
+writes a message to the <code>console.log</code> notifying Phantom that it’s ready to be indexed.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">next</span> = <span class="hljs-params">(address)</span> -&gt;</span>
-  <span class="hljs-built_in">console</span>.log <span class="hljs-string">"Opening <span class="hljs-subst">#{address}</span>"</span>
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">waitForAppLoaded</span> = <span class="hljs-params">(consoleLogVar)</span> -&gt;</span>
+  w = <span class="hljs-built_in">window</span>
 
-  page.open address, <span class="hljs-function"><span class="hljs-params">(status)</span> -&gt;</span>
-    indexed.push address
+  w.<span class="hljs-function"><span class="hljs-title">waitForAngular</span> = <span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">document</span>.documentElement.classList.contains <span class="hljs-string">'ng-scope'</span>
+      w.clearInterval w.interval
 
-    setTimeout index, timeout, address</pre></div></div>
+      w.angular.element<span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">document</span>.documentElement)</span>.<span class="hljs-title">injector</span><span class="hljs-params">()</span>.<span class="hljs-title">get</span><span class="hljs-params">(<span class="hljs-string">'$browser'</span>)</span>.<span class="hljs-title">notifyWhenNoOutstandingRequests</span> <span class="hljs-params">()</span> -&gt;</span>
+        w.<span class="hljs-built_in">console</span>.log consoleLogVar
+
+  <span class="hljs-built_in">document</span>.addEventListener <span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    w.interval = w.setInterval w.waitForAngular, <span class="hljs-number">0</span></pre></div></div>
             
         </li>
         
@@ -798,6 +803,122 @@ change that either in the source code or via the <code>cli</code>.</p>
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>This function loads the next address and prepares to index it. There’s a default timeout of 3 seconds but you can
+change that either in the source code or via the <code>cli</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-title">next</span> = <span class="hljs-params">(address)</span> -&gt;</span>
+  timeout = <span class="hljs-literal">null</span>
+  <span class="hljs-built_in">console</span>.log <span class="hljs-string">"Opening <span class="hljs-subst">#{address}</span>"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>Generate a unique <code>consoleLogVar</code> to notify Phantom that this page has loaded.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  consoleLogVar = btoa address</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>We listen to a specific <code>console.log</code> fired by our script when Angular’s
+<code>$browser.notifyWhenNoOutstandingRequests()</code> is fired.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  page.<span class="hljs-function"><span class="hljs-title">onConsoleMessage</span> = <span class="hljs-params">(message)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>Check that the message is the same as our <code>consoleLogVar</code>.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">if</span> message <span class="hljs-keyword">is</span> consoleLogVar</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>So it looks like the page has loaded, cancel the <code>timeout</code> and index it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      clearTimeout timeout
+      index address
+
+  page.<span class="hljs-function"><span class="hljs-title">onInitialized</span> = <span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>Add a listener to the page to notify us when Angular has settled.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    page.evaluate waitForAppLoaded, consoleLogVar
+
+    indexed.push address
+
+    timeout = setTimeout index, pageTimeout, address</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>Now we open the page in Phantom.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  page.open address</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
               </div>
               <p>Finally we start everything off by indexing the homepage.</p>
 

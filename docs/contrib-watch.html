@@ -520,7 +520,7 @@
       <span class="hljs-attribute">options</span>: <span class="hljs-string">'&lt;%= watch.coffee.options %&gt;'</span>
     <span class="hljs-attribute">js</span>:
       <span class="hljs-attribute">files</span>: [
-        <span class="hljs-string">'assets/javascript/**/*.js'</span>
+        <span class="hljs-string">'assets/js/**/*.js'</span>
       ]
       <span class="hljs-attribute">tasks</span>: [
         <span class="hljs-string">'jshint'</span>
@@ -529,6 +529,13 @@
       <span class="hljs-attribute">options</span>:
         <span class="hljs-attribute">livereload</span>: <span class="hljs-literal">true</span>
         <span class="hljs-attribute">spawn</span>: <span class="hljs-literal">false</span>
+    <span class="hljs-attribute">html</span>:
+      <span class="hljs-attribute">files</span>: [
+        <span class="hljs-string">'assets/partial/**/*.html'</span>
+        <span class="hljs-string">'*.html'</span>
+      ]
+      <span class="hljs-attribute">options</span>:
+        <span class="hljs-attribute">livereload</span>: <span class="hljs-literal">true</span>
     <span class="hljs-attribute">less</span>:
       <span class="hljs-attribute">files</span>: [
         <span class="hljs-string">'&lt;%= less.dev.options.paths[0] %&gt;/**/*.less'</span>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Main menu navigation" errors="0" tests="2" failures="0" time="5.545" timestamp="2014-02-18T19:45:32">
+  <testcase classname="Main menu navigation" name="should select the homepage" time="3.017"></testcase>
+  <testcase classname="Main menu navigation" name="should change the page" time="2.524"></testcase>
+</testsuite>
+</testsuites>

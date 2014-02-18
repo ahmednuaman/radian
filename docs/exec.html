@@ -454,7 +454,7 @@
             <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
   grunt.config <span class="hljs-string">'exec'</span>,
     <span class="hljs-attribute">crawl</span>:
-      <span class="hljs-attribute">cmd</span>: <span class="hljs-string">'phantomjs crawler.coffee http://localhost:&lt;%= express.all.options.port %&gt;/ build/ 3000 "docs|test"'</span>
+      <span class="hljs-attribute">cmd</span>: <span class="hljs-string">'phantomjs crawler.coffee http://localhost:&lt;%= express.all.options.port %&gt;/ build/ 8000 "docs|test"'</span>
     <span class="hljs-attribute">e2e</span>:
       <span class="hljs-attribute">cmd</span>: <span class="hljs-string">'protractor test/e2e/protractor.js'</span>
       <span class="hljs-attribute">stdout</span>: !process.env.TRAVIS
