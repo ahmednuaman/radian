@@ -136,6 +136,7 @@ div#home(data-ng-controller='HomeController')
       - [GruntJS](http://gruntjs.com)
       - [Bower](http://bower.io)
       - [Karma](http://karma-runner.github.io)
+      - [Protractor](https://github.com/angular/protractor)
 
       To start using Radian simply download the code from [github.com](https://github.com/ahmednuaman/radian) and set it up:
 
@@ -153,12 +154,12 @@ div#home(data-ng-controller='HomeController')
     :markdown
       ### Testing
 
-      To test your new application, you need to install another couple of dependencies:
+      To test your new application, you need to make sure some test dependencies are installed globally so they are available on your $PATH:
 
-          npm install -g protractor
+          npm install -g protractor karma
           webdriver-manager update
 
-      This will install [Protractor](https://github.com/angular/protractor), Angular's end-to-end testing framework, and the latest [Selenium](http://docs.seleniumhq.org/) standalone server and Chromedriver.
+      This will install Protractor, Angular's end-to-end testing framework, Karma, a Javascript test runner, and the latest [Selenium](http://docs.seleniumhq.org/) standalone server and Chromedriver.
 
       You will then be able to execute all tests – unit, integration and end-to-end – by running:
 
