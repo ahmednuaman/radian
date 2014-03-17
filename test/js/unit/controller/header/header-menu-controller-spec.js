@@ -24,7 +24,7 @@ define([
       $scope = $rootScope.$new();
 
       createController = function() {
-        $controller('HeaderMenuController', {
+        return $controller('HeaderMenuController', {
           $scope: $scope,
           menuFactory: menuFactory,
           pageErrorFactory: pageErrorFactory

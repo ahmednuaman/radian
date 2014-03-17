@@ -19,7 +19,7 @@ define([
       $scope = $rootScope.$new();
 
       createController = function() {
-        $controller('ErrorController', {
+        return $controller('ErrorController', {
           $scope: $scope,
           $routeParams: $routeParams
         });
