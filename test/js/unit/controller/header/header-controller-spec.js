@@ -15,7 +15,7 @@ define([
       $scope = $rootScope.$new();
 
       createController = function() {
-        $controller('HeaderController', {
+        return $controller('HeaderController', {
           $scope: $scope
         });
       };

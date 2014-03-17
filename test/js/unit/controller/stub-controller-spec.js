@@ -15,7 +15,7 @@ define([
       $scope = $rootScope.$new();
 
       createController = function() {
-        $controller('StubController', {
+        return $controller('StubController', {
           $scope: $scope
         });
       };
