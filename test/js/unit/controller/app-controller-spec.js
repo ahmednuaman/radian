@@ -21,7 +21,7 @@ define([
       $scope = $rootScope.$new();
 
       createController = function() {
-        $controller('AppController', {
+        return $controller('AppController', {
           $scope: $scope,
           pageTitleFactory: pageTitleFactory
         });

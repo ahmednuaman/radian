@@ -20,7 +20,7 @@ define([
       $scope = $rootScope.$new();
 
       createDirective = function() {
-        $compiled($scope);
+        return $compiled($scope);
       };
     }));
 
