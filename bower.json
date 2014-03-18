@@ -1,5 +1,5 @@
 {
-  "version": "1.0.3",
+  "version": "1.0.4",
   "name": "radian",
   "dependencies": {
     "angular": "1.2.14",
