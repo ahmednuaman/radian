@@ -2,6 +2,7 @@ before_install:
 - gem install sass
 - gem install compass
 - npm install -g bower
+- npm install -g coffee-script
 - npm install -g grunt-cli
 - npm install -g protractor
 install:
