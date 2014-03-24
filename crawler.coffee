@@ -17,7 +17,7 @@ ignoreRegex = system.args[4]
 pageTimeout = system.args[3] || 8000
 
 if ignoreRegex
-  ignoreRegex = new RegExp system.args[4]
+  ignoreRegex = new RegExp ignoreRegex
 
 # This `indexed` array stores all the URLs that have already been indexed.
 indexed = []
