@@ -18,9 +18,20 @@ require.config
     'lodash':
       exports: '_'
 
-require ['config', 'angular'], (cfg, A) ->
-  require ['angular-mocks', 'angular-resource', 'angular-route'], () ->
-    A.module cfg.ngApp, ['ngMock', 'ngResource', 'ngRoute']
+require [
+  'config'
+  'angular'
+], (cfg, A) ->
+  require [
+    'angular-mocks'
+    'angular-resource'
+    'angular-route'
+  ], () ->
+    A.module cfg.ngApp, [
+      'ngMock'
+      'ngResource'
+      'ngRoute'
+    ]
     A.bootstrap document, [cfg.ngApp]
 
     require tests, () ->
