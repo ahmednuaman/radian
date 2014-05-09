@@ -1,10 +1,7 @@
 module.exports = (grunt) ->
   grunt.config 'coffeelint',
     all: [
-      'assets/coffee/**/*.coffee'
-      'grunt/*.coffee'
-      'test/**/*.coffee'
-      '*.coffee'
+      '<%= watch.coffee.all %>'
     ]
     options:
       arrow_spacing:

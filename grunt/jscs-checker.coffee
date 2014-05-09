@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
   grunt.config 'jscs',
     src: [
-      '<%= jshint.all %>'
+      '<%= watch.js.files %>'
     ]
 
   grunt.loadNpmTasks 'grunt-jscs-checker'

@@ -1,7 +1,7 @@
 module.exports = (grunt) ->
   grunt.config 'jshint',
     all: [
-      'assets/js/**/*.js'
+      '<%= watch.js.files %>'
     ]
     options:
       jshintrc: true

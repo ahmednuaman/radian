@@ -4,7 +4,10 @@ module.exports = (grunt) ->
   grunt.config 'watch',
     coffee:
       files: [
-        '<%= coffeelint.all %>'
+        'assets/coffee/**/*.coffee'
+        'grunt/*.coffee'
+        'test/**/*.coffee'
+        '*.coffee'
       ]
       tasks: [
         'coffeelint'
@@ -41,7 +44,7 @@ module.exports = (grunt) ->
       options: '<%= watch.coffee.options %>'
     js:
       files: [
-        '<%= jshint.all %>'
+        'assets/js/**/*.js'
       ]
       tasks: [
         'jshint'
