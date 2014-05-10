@@ -29,14 +29,15 @@ define [
     data = [1, 2, 3, 4]
 
     it 'should load', () ->
-      $httpBackend.expectGET(cfg.path.partial + 'directive/stub-partial.html').respond 201, """
-      <div class="stub-component">
-        <ul>
-          <li data-ng-repeat="item in items">
-            {{item}}
-          </li>
-        </ul>
-      </div>"""
+      $httpBackend.expectGET("#{cfg.path.partial}directive/stub-partial.html")
+        .respond 201, """
+          <div class="stub-component">
+            <ul>
+              <li data-ng-repeat="item in items">
+                {{item}}
+              </li>
+            </ul>
+          </div>"""
 
       directive = createDirective()
 

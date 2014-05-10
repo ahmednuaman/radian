@@ -41,16 +41,17 @@ define [
     ]
 
     it 'should generate a menu from a modal', () ->
-      $httpBackend.expectGET(cfg.path.partial + 'directive/menu-component-partial.html').respond 201, """
-      <div class="menu-component">
-        <ul>
-          <li data-ng-repeat="item in items">
-            <a data-ng-href="{{item.href}}" data-ng-class="{&quot;selected&quot;: item.selected}">
-              {{item.title}}
-            </a>
-          </li>
-        </ul>
-      </div>"""
+      $httpBackend.expectGET("#{cfg.path.partial}directive/menu-component-partial.html")
+        .respond 201, """
+          <div class="menu-component">
+            <ul>
+              <li data-ng-repeat="item in items">
+                <a data-ng-href="{{item.href}}" data-ng-class="{&quot;selected&quot;: item.selected}">
+                  {{item.title}}
+                </a>
+              </li>
+            </ul>
+          </div>"""
 
       directive = createDirective()
 
