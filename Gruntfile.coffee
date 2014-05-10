@@ -75,9 +75,9 @@ module.exports = (grunt) ->
     # 'jscs'
     'coffeelint'
     'coffee:dev'
+    'jade:dev'
     'karma'
     'coffee:e2e'
-    'jade:dev'
     'express'
     'exec:e2e'
   ]
@@ -91,6 +91,7 @@ module.exports = (grunt) ->
     # 'jscs'
     'coffeelint'
     'coffee:dev'
+    'jade:dev'
     'karma'
   ]
 
