@@ -11,19 +11,19 @@ define [
     beforeEach inject ($injector) ->
       factory = $injector.get 'pageLoaderFactory'
 
-    it 'should $emit an event that says whether to hide or show the loader', () ->
+    it 'should $emit an event that says whether to hide or show the loader', (done) ->
       showing = true
       cb =
         handleLoader: (event, show) ->
           expect(show).toBe showing
 
       factory.addListener cb.handleLoader
+      factory.show()
 
-      runs () ->
-        factory.show()
-
-      waits 250
-
-      runs () ->
+      setTimeout () ->
         showing = false
         factory.hide()
+
+        done()
+
+      , 250

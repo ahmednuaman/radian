@@ -76,5 +76,5 @@ define [
 
       $rootScope.$digest()
 
-      expect(cb.success.calls.length).toBe 0
+      expect(cb.success).not.toHaveBeenCalled()
       expect(cb.failure).toHaveBeenCalled()
