@@ -2,7 +2,7 @@ module.exports = (grunt) ->
   grunt.config 'express',
     all:
       options:
-        cmd: 'coffee'
+        opts: ['node_modules/coffee-script/bin/coffee']
         script: './server.coffee'
         port: 8000
 
