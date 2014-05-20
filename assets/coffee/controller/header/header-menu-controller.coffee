@@ -16,30 +16,28 @@ define [
   # Jump to [`service/menu-service.coffee`](menu-service.html) ☛
   'service/menu-service'
 ], (A, RC) ->
-  class extends RC
-    @register 'HeaderMenuController', [
-      '$scope'
-      'menuFactory'
-      'menuService'
-      'pageErrorFactory'
-    ]
+  RC 'HeaderMenuController', [
+    '$scope'
+    'menuFactory'
+    'menuService'
+    'pageErrorFactory'
+  ],
+  init: () ->
+    @loadMenu()
 
-    init: () ->
-      @loadMenu()
+  loadMenu: () ->
+    # Simple deferred promise structure using [`$q`](http://docs.angularjs.org/api/ng.$q).
+    success = A.bind @, @handleLoadMenuSuccess
+    failure = A.bind @, @handleLoadMenuFailure
 
-    loadMenu: () ->
-      # Simple deferred promise structure using [`$q`](http://docs.angularjs.org/api/ng.$q).
-      success = A.bind @, @handleLoadMenuSuccess
-      failure = A.bind @, @handleLoadMenuFailure
+    # Jump to [`service/menu-service.coffee`](menu-service.html) ☛
+    @menuService.get().then success, failure
 
-      # Jump to [`service/menu-service.coffee`](menu-service.html) ☛
-      @menuService.get().then success, failure
+  handleLoadMenuSuccess: () ->
+    # Jump to [`factory/menu-factory.coffee`](menu-factory.html) ☛
+    @$scope.menuItems = @menuFactory.get()
 
-    handleLoadMenuSuccess: () ->
-      # Jump to [`factory/menu-factory.coffee`](menu-factory.html) ☛
-      @$scope.menuItems = @menuFactory.get()
-
-    handleLoadMenuFailure: () ->
-      # Making use of another factory to deal with throwing errors should any problems occur.
-      # Jump to [`factory/page-error-factory.coffee`](page-error-factory.html) ☛
-      @pageErrorFactory.show500()
+  handleLoadMenuFailure: () ->
+    # Making use of another factory to deal with throwing errors should any problems occur.
+    # Jump to [`factory/page-error-factory.coffee`](page-error-factory.html) ☛
+    @pageErrorFactory.show500()

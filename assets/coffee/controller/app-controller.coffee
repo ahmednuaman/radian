@@ -35,43 +35,41 @@ define [
 ], (cfg, A, RC) ->
   # Every controller class in radian follows the same pattern. It's also preferable to explicity specify the `$inject`
   # modules as this code will be minified.
-  class extends RC
-    # You register your controller by calling `@register` and passing in the class's name and then the dependancies as
-    # an array.
-    @register 'AppController', [
-      '$scope'
-      'pageLoaderFactory'
-      'pageTitleFactory'
-    ]
+  # You register your controller by calling `RC` and passing in the class's name and then the dependancies as
+  # an array, followed by an object of functions.
+  RC 'AppController', [
+    '$scope'
+    'pageLoaderFactory'
+    'pageTitleFactory'
+  ],
+  init: () ->
+    @addListeners()
+    @addPartials()
+    @addScopeMethods()
 
-    init: () ->
-      @addListeners()
-      @addPartials()
-      @addScopeMethods()
+  addListeners: () ->
+    @pageLoaderFactory.addListener A.bind @, @handlePageLoaderChange
+    @pageTitleFactory.addListener A.bind @, @handlePageTitleChange
 
-    addListeners: () ->
-      @pageLoaderFactory.addListener A.bind @, @handlePageLoaderChange
-      @pageTitleFactory.addListener A.bind @, @handlePageTitleChange
+  addPartials: () ->
+    @$scope.ctaPartial = "#{cfg.path.partial}cta-partial.html"
+    @$scope.footerPartial = "#{cfg.path.partial}footer-partial.html"
+    @$scope.headerPartial = "#{cfg.path.partial}header/header-partial.html"
 
-    addPartials: () ->
-      @$scope.ctaPartial = "#{cfg.path.partial}cta-partial.html"
-      @$scope.footerPartial = "#{cfg.path.partial}footer-partial.html"
-      @$scope.headerPartial = "#{cfg.path.partial}header/header-partial.html"
+  addScopeMethods: () ->
+    @$scope.handleViewLoaded = A.bind @, @handleViewLoaded
 
-    addScopeMethods: () ->
-      @$scope.handleViewLoaded = A.bind @, @handleViewLoaded
+  handlePageTitleChange: (event, title) ->
+    @$scope.pageTitle = "Radian ~ A scalable AngularJS framework ~ #{title}"
 
-    handlePageTitleChange: (event, title) ->
-      @$scope.pageTitle = "Radian ~ A scalable AngularJS framework ~ #{title}"
+  handlePageLoaderChange: (event, show) ->
+    # _'Why is it `@$scope.hideLoader` instead of `@$scope.showLoader`?'_ Well, my old chum, by default we show the
+    # loader until our application sends an event via the [`pageLoaderFactory`](page-loader-factory.html), this way
+    # it is a more elegant experience.
+    @$scope.hideLoader = !show
 
-    handlePageLoaderChange: (event, show) ->
-      # _'Why is it `@$scope.hideLoader` instead of `@$scope.showLoader`?'_ Well, my old chum, by default we show the
-      # loader until our application sends an event via the [`pageLoaderFactory`](page-loader-factory.html), this way
-      # it is a more elegant experience.
-      @$scope.hideLoader = !show
-
-    handleViewLoaded: () ->
-      # _'Why not just set `@$scope.hideLoader` here instead of using `@pageLoaderFactory.hide()`?'_ Well, there may be
-      # more modules in the app that are listening to `pageLoaderFactory` than just this controller, so it's only polite
-      # to let them know what's up.
-      @pageLoaderFactory.hide()
+  handleViewLoaded: () ->
+    # _'Why not just set `@$scope.hideLoader` here instead of using `@pageLoaderFactory.hide()`?'_ Well, there may be
+    # more modules in the app that are listening to `pageLoaderFactory` than just this controller, so it's only polite
+    # to let them know what's up.
+    @pageLoaderFactory.hide()

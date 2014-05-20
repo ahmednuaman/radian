@@ -4,4 +4,5 @@ define [
   # Jump to [`helper/radian-module-helper.coffee`](radian-module-helper.html) ☛
   'helper/radian-module-helper'
 ], (helper) ->
-  helper.registerController()
+  (name, deps, funcs) ->
+    helper.registerController arguments

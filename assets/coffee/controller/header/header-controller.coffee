@@ -6,13 +6,11 @@ define [
   # Jump to [`controller/header/header-menu-controller.coffee`](header-menu-controller.html) ☛
   'controller/header/header-menu-controller'
 ], (cfg, RC) ->
-  class extends RC
-    @register 'HeaderController', [
-      '$scope'
-    ]
+  RC 'HeaderController', [
+    '$scope'
+  ],
+  init: () ->
+    @addPartials()
 
-    init: () ->
-      @addPartials()
-
-    addPartials: () ->
-      @$scope.menuPartial = "#{cfg.path.partial}header/header-menu-partial.html"
+  addPartials: () ->
+    @$scope.menuPartial = "#{cfg.path.partial}header/header-menu-partial.html"
