@@ -11,28 +11,24 @@ define([
       factory = $injector.get('pageLoaderFactory');
     }));
 
-    it('should $emit an event that says whether to hide or show the loader', function() {
+    it('should $emit an event that says whether to hide or show the loader', function(done) {
       var showing = true,
           cb;
 
       cb = {
         handleLoader: function(event, show) {
           expect(show).toBe(showing);
+          done();
         }
       };
 
       factory.addListener(cb.handleLoader);
+      factory.show();
 
-      runs(function() {
-        factory.show();
-      });
-
-      waits(250);
-
-      runs(function() {
+      setTimeout(function () {
         showing = false;
         factory.hide();
-      });
+      }, 250);
     });
   });
 });
