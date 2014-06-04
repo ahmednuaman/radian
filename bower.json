@@ -2,14 +2,14 @@
   "version": "1.0.4",
   "name": "radian",
   "dependencies": {
-    "angular": "1.2.14",
-    "angular-animate": "1.2.14",
-    "angular-mocks": "1.2.14",
-    "angular-resource": "1.2.14",
-    "angular-route": "1.2.14",
-    "lesshat": "2.0.15",
+    "angular": "1.2.16",
+    "angular-animate": "1.2.16",
+    "angular-mocks": "1.2.16",
+    "angular-resource": "1.2.16",
+    "angular-route": "1.2.16",
+    "lesshat": "3.0.1",
     "lodash": "2.4.1",
-    "normalize-css": "3.0.0",
-    "requirejs": "2.1.11"
+    "normalize-css": "3.0.1",
+    "requirejs": "2.1.14"
   }
 }
