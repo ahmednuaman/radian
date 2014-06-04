@@ -7,7 +7,8 @@ define [
     $httpBackend = null
     $scope = null
     createDirective = null
-    el = A.element '<div data-stub data-ng-model="dataItems"></div>'
+    el = null
+    html = '<div data-stub data-ng-model="dataItems"></div>'
 
     beforeEach module cfg.ngApp
 
@@ -16,6 +17,7 @@ define [
       $httpBackend = $injector.get '$httpBackend'
       $rootScope = $injector.get '$rootScope'
 
+      el = A.element html
       $compiled = $compile el
       $scope = $rootScope.$new()
 
