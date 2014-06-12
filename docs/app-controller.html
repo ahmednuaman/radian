@@ -601,11 +601,38 @@ Jump to <a href="page-loader-factory.html"><code>factory/page-loader-factory.cof
                 <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>Every controller class in radian follows the same pattern. It’s also preferable to explicity specify the <code>$inject</code>
-modules as this code will be minified.</p>
+modules as this code will be minified.
+You register your controller by calling <code>RC</code> and passing in the class’s name and then the dependancies as
+an array, followed by an object of functions.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RC</span></span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>  RC <span class="hljs-string">'AppController'</span>, [
+    <span class="hljs-string">'$scope'</span>
+    <span class="hljs-string">'pageLoaderFactory'</span>
+    <span class="hljs-string">'pageTitleFactory'</span>
+  ],
+  <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@addListeners</span>()
+    <span class="hljs-property">@addPartials</span>()
+    <span class="hljs-property">@addScopeMethods</span>()
+
+  <span class="hljs-attribute">addListeners</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@pageLoaderFactory</span>.addListener A.bind @, <span class="hljs-property">@handlePageLoaderChange</span>
+    <span class="hljs-property">@pageTitleFactory</span>.addListener A.bind @, <span class="hljs-property">@handlePageTitleChange</span>
+
+  <span class="hljs-attribute">addPartials</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@$scope</span>.ctaPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>cta-partial.html"</span>
+    <span class="hljs-property">@$scope</span>.footerPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>footer-partial.html"</span>
+    <span class="hljs-property">@$scope</span>.headerPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>header/header-partial.html"</span>
+
+  <span class="hljs-attribute">addScopeMethods</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@$scope</span>.handleViewLoaded = A.bind @, <span class="hljs-property">@handleViewLoaded</span>
+
+  <span class="hljs-attribute">handlePageTitleChange</span>: <span class="hljs-function"><span class="hljs-params">(event, title)</span> -&gt;</span>
+    <span class="hljs-property">@$scope</span>.pageTitle = <span class="hljs-string">"Radian ~ A scalable AngularJS framework ~ <span class="hljs-subst">#{title}</span>"</span>
+
+  <span class="hljs-attribute">handlePageLoaderChange</span>: <span class="hljs-function"><span class="hljs-params">(event, show)</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -616,38 +643,15 @@ modules as this code will be minified.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>You register your controller by calling <code>@register</code> and passing in the class’s name and then the dependancies as
-an array.</p>
+              <p><em>‘Why is it <code>@$scope.hideLoader</code> instead of <code>@$scope.showLoader</code>?’</em> Well, my old chum, by default we show the
+loader until our application sends an event via the <a href="page-loader-factory.html"><code>pageLoaderFactory</code></a>, this way
+it is a more elegant experience.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-property">@register</span> <span class="hljs-string">'AppController'</span>, [
-      <span class="hljs-string">'$scope'</span>
-      <span class="hljs-string">'pageLoaderFactory'</span>
-      <span class="hljs-string">'pageTitleFactory'</span>
-    ]
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-property">@$scope</span>.hideLoader = !show
 
-    <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@addListeners</span>()
-      <span class="hljs-property">@addPartials</span>()
-      <span class="hljs-property">@addScopeMethods</span>()
-
-    <span class="hljs-attribute">addListeners</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@pageLoaderFactory</span>.addListener A.bind @, <span class="hljs-property">@handlePageLoaderChange</span>
-      <span class="hljs-property">@pageTitleFactory</span>.addListener A.bind @, <span class="hljs-property">@handlePageTitleChange</span>
-
-    <span class="hljs-attribute">addPartials</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@$scope</span>.ctaPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>cta-partial.html"</span>
-      <span class="hljs-property">@$scope</span>.footerPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>footer-partial.html"</span>
-      <span class="hljs-property">@$scope</span>.headerPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>header/header-partial.html"</span>
-
-    <span class="hljs-attribute">addScopeMethods</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@$scope</span>.handleViewLoaded = A.bind @, <span class="hljs-property">@handleViewLoaded</span>
-
-    <span class="hljs-attribute">handlePageTitleChange</span>: <span class="hljs-function"><span class="hljs-params">(event, title)</span> -&gt;</span>
-      <span class="hljs-property">@$scope</span>.pageTitle = <span class="hljs-string">"Radian ~ A scalable AngularJS framework ~ <span class="hljs-subst">#{title}</span>"</span>
-
-    <span class="hljs-attribute">handlePageLoaderChange</span>: <span class="hljs-function"><span class="hljs-params">(event, show)</span> -&gt;</span></pre></div></div>
+  <span class="hljs-attribute">handleViewLoaded</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -658,32 +662,13 @@ an array.</p>
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
-              <p><em>‘Why is it <code>@$scope.hideLoader</code> instead of <code>@$scope.showLoader</code>?’</em> Well, my old chum, by default we show the
-loader until our application sends an event via the <a href="page-loader-factory.html"><code>pageLoaderFactory</code></a>, this way
-it is a more elegant experience.</p>
-
-            </div>
-            
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@$scope</span>.hideLoader = !show
-
-    <span class="hljs-attribute">handleViewLoaded</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
-            
-        </li>
-        
-        
-        <li id="section-13">
-            <div class="annotation">
-              
-              <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
-              </div>
               <p><em>‘Why not just set <code>@$scope.hideLoader</code> here instead of using <code>@pageLoaderFactory.hide()</code>?’</em> Well, there may be
 more modules in the app that are listening to <code>pageLoaderFactory</code> than just this controller, so it’s only polite
 to let them know what’s up.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@pageLoaderFactory</span>.hide()</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-property">@pageLoaderFactory</span>.hide()</pre></div></div>
             
         </li>
         

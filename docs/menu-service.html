@@ -504,14 +504,12 @@ Jump to <a href="radian-service.html"><code>service/radian-service.coffee</code>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-string">'factory/menu-factory'</span>
 ], <span class="hljs-function"><span class="hljs-params">(cfg, A, RS)</span> -&gt;</span>
-  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RS</span></span>
-    <span class="hljs-property">@register</span> <span class="hljs-string">'menuService'</span>, [
-      <span class="hljs-string">'$q'</span>
-      <span class="hljs-string">'$resource'</span>
-      <span class="hljs-string">'menuFactory'</span>
-    ]
-
-    <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+  RS <span class="hljs-string">'menuService'</span>, [
+    <span class="hljs-string">'$q'</span>
+    <span class="hljs-string">'$resource'</span>
+    <span class="hljs-string">'menuFactory'</span>
+  ],
+  <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -526,14 +524,14 @@ Jump to <a href="radian-service.html"><code>service/radian-service.coffee</code>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@menu</span> = <span class="hljs-property">@$resource</span> cfg.api.data
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-property">@menu</span> = <span class="hljs-property">@$resource</span> cfg.api.data
 
-    <span class="hljs-attribute">get</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      dfd = <span class="hljs-property">@$q</span>.defer()
-      success = A.bind @, <span class="hljs-property">@handleSuccess</span>, dfd
-      failure = A.bind @, <span class="hljs-property">@handleFailure</span>, dfd
+  <span class="hljs-attribute">get</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    dfd = <span class="hljs-property">@$q</span>.defer()
+    success = A.bind @, <span class="hljs-property">@handleSuccess</span>, dfd
+    failure = A.bind @, <span class="hljs-property">@handleFailure</span>, dfd
 
-      <span class="hljs-property">@menu</span>.get().$promise.<span class="hljs-keyword">then</span> success, failure</pre></div></div>
+    <span class="hljs-property">@menu</span>.get().$promise.<span class="hljs-keyword">then</span> success, failure</pre></div></div>
             
         </li>
         
@@ -549,13 +547,13 @@ then passed to the <code>menuFactory</code> and resolved once the <code>collecti
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      dfd.promise
+            <div class="content"><div class='highlight'><pre>    dfd.promise
 
-    <span class="hljs-attribute">handleSuccess</span>: <span class="hljs-function"><span class="hljs-params">(dfd, menu)</span> -&gt;</span>
-      <span class="hljs-property">@menuFactory</span>.set dfd, menu.items
+  <span class="hljs-attribute">handleSuccess</span>: <span class="hljs-function"><span class="hljs-params">(dfd, menu)</span> -&gt;</span>
+    <span class="hljs-property">@menuFactory</span>.set dfd, menu.items
 
-    <span class="hljs-attribute">handleFailure</span>: <span class="hljs-function"><span class="hljs-params">(dfd)</span> -&gt;</span>
-      dfd.reject()</pre></div></div>
+  <span class="hljs-attribute">handleFailure</span>: <span class="hljs-function"><span class="hljs-params">(dfd)</span> -&gt;</span>
+    dfd.reject()</pre></div></div>
             
         </li>
         

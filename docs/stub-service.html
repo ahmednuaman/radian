@@ -469,14 +469,12 @@
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-string">'service/radian-service'</span>
 ], <span class="hljs-function"><span class="hljs-params">(RS)</span> -&gt;</span>
-  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RS</span></span>
-    <span class="hljs-property">@register</span> <span class="hljs-string">'stubService'</span>, [
-      <span class="hljs-string">'$q'</span>
-      <span class="hljs-string">'$resource'</span>
-    ]
-
-    <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@fooBar</span> = <span class="hljs-property">@$resource</span> <span class="hljs-string">'/foo/bar.json'</span></pre></div></div>
+  RS <span class="hljs-string">'stubService'</span>, [
+    <span class="hljs-string">'$q'</span>
+    <span class="hljs-string">'$resource'</span>
+  ],
+  <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@fooBar</span> = <span class="hljs-property">@$resource</span> <span class="hljs-string">'/foo/bar.json'</span></pre></div></div>
             
         </li>
         

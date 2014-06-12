@@ -460,7 +460,8 @@
     $httpBackend = <span class="hljs-literal">null</span>
     $scope = <span class="hljs-literal">null</span>
     createDirective = <span class="hljs-literal">null</span>
-    el = A.element <span class="hljs-string">'&lt;div data-menu-component data-ng-model="menuItems"&gt;&lt;/div&gt;'</span>
+    el = <span class="hljs-literal">null</span>
+    html = <span class="hljs-string">'&lt;div data-menu-component data-ng-model="menuItems"&gt;&lt;/div&gt;'</span>
 
     beforeEach <span class="hljs-built_in">module</span> cfg.ngApp
 
@@ -469,6 +470,7 @@
       $httpBackend = $injector.get <span class="hljs-string">'$httpBackend'</span>
       $rootScope = $injector.get <span class="hljs-string">'$rootScope'</span>
 
+      el = A.element html
       $compiled = $compile el
       $scope = $rootScope.$<span class="hljs-keyword">new</span>()
 
@@ -494,16 +496,17 @@
     ]
 
     it <span class="hljs-string">'should generate a menu from a modal'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      $httpBackend.expectGET(cfg.path.partial + <span class="hljs-string">'directive/menu-component-partial.html'</span>).respond <span class="hljs-number">201</span>, <span class="hljs-string">"""
-      &lt;div class="menu-component"&gt;
-        &lt;ul&gt;
-          &lt;li data-ng-repeat="item in items"&gt;
-            &lt;a data-ng-href="{{item.href}}" data-ng-class="{&amp;quot;selected&amp;quot;: item.selected}"&gt;
-              {{item.title}}
-            &lt;/a&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;"""</span>
+      $httpBackend.expectGET(<span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>directive/menu-component-partial.html"</span>)
+        .respond <span class="hljs-number">201</span>, <span class="hljs-string">"""
+          &lt;div class="menu-component"&gt;
+            &lt;ul&gt;
+              &lt;li data-ng-repeat="item in items"&gt;
+                &lt;a data-ng-href="{{item.href}}" data-ng-class="{&amp;quot;selected&amp;quot;: item.selected}"&gt;
+                  {{item.title}}
+                &lt;/a&gt;
+              &lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/div&gt;"""</span>
 
       directive = createDirective()
 

@@ -464,22 +464,22 @@
     beforeEach inject <span class="hljs-function"><span class="hljs-params">($injector)</span> -&gt;</span>
       factory = $injector.get <span class="hljs-string">'pageLoaderFactory'</span>
 
-    it <span class="hljs-string">'should $emit an event that says whether to hide or show the loader'</span>, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    it <span class="hljs-string">'should $emit an event that says whether to hide or show the loader'</span>, <span class="hljs-function"><span class="hljs-params">(done)</span> -&gt;</span>
       showing = <span class="hljs-literal">true</span>
       cb =
         <span class="hljs-attribute">handleLoader</span>: <span class="hljs-function"><span class="hljs-params">(event, show)</span> -&gt;</span>
           expect(show).toBe showing
 
       factory.addListener cb.handleLoader
+      factory.show()
 
-      runs <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-        factory.show()
-
-      waits <span class="hljs-number">250</span>
-
-      runs <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+      setTimeout <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
         showing = <span class="hljs-literal">false</span>
-        factory.hide()</pre></div></div>
+        factory.hide()
+
+        done()
+
+      , <span class="hljs-number">250</span></pre></div></div>
             
         </li>
         

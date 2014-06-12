@@ -534,18 +534,16 @@ up with the app during the build process; no dead code.</p>
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-string">'service/menu-service'</span>
 ], <span class="hljs-function"><span class="hljs-params">(A, RC)</span> -&gt;</span>
-  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RC</span></span>
-    <span class="hljs-property">@register</span> <span class="hljs-string">'HeaderMenuController'</span>, [
-      <span class="hljs-string">'$scope'</span>
-      <span class="hljs-string">'menuFactory'</span>
-      <span class="hljs-string">'menuService'</span>
-      <span class="hljs-string">'pageErrorFactory'</span>
-    ]
+  RC <span class="hljs-string">'HeaderMenuController'</span>, [
+    <span class="hljs-string">'$scope'</span>
+    <span class="hljs-string">'menuFactory'</span>
+    <span class="hljs-string">'menuService'</span>
+    <span class="hljs-string">'pageErrorFactory'</span>
+  ],
+  <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@loadMenu</span>()
 
-    <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@loadMenu</span>()
-
-    <span class="hljs-attribute">loadMenu</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+  <span class="hljs-attribute">loadMenu</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -560,8 +558,8 @@ up with the app during the build process; no dead code.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      success = A.bind @, <span class="hljs-property">@handleLoadMenuSuccess</span>
-      failure = A.bind @, <span class="hljs-property">@handleLoadMenuFailure</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>    success = A.bind @, <span class="hljs-property">@handleLoadMenuSuccess</span>
+    failure = A.bind @, <span class="hljs-property">@handleLoadMenuFailure</span></pre></div></div>
             
         </li>
         
@@ -576,9 +574,9 @@ up with the app during the build process; no dead code.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@menuService</span>.get().<span class="hljs-keyword">then</span> success, failure
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-property">@menuService</span>.get().<span class="hljs-keyword">then</span> success, failure
 
-    <span class="hljs-attribute">handleLoadMenuSuccess</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+  <span class="hljs-attribute">handleLoadMenuSuccess</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -593,9 +591,9 @@ up with the app during the build process; no dead code.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@$scope</span>.menuItems = <span class="hljs-property">@menuFactory</span>.get()
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-property">@$scope</span>.menuItems = <span class="hljs-property">@menuFactory</span>.get()
 
-    <span class="hljs-attribute">handleLoadMenuFailure</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+  <span class="hljs-attribute">handleLoadMenuFailure</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
             
         </li>
         
@@ -611,7 +609,7 @@ Jump to <a href="page-error-factory.html"><code>factory/page-error-factory.coffe
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-property">@pageErrorFactory</span>.show500()</pre></div></div>
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-property">@pageErrorFactory</span>.show500()</pre></div></div>
             
         </li>
         

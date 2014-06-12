@@ -529,7 +529,7 @@
 
       $rootScope.$digest()
 
-      expect(cb.success.calls.length).toBe <span class="hljs-number">0</span>
+      expect(cb.success).<span class="hljs-keyword">not</span>.toHaveBeenCalled()
       expect(cb.failure).toHaveBeenCalled()</pre></div></div>
             
         </li>

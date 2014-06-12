@@ -470,9 +470,7 @@ app = express()</pre></div></div>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>port = process.env.PORT || <span class="hljs-number">8000</span>
-
-app.configure <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>port = process.env.PORT || <span class="hljs-number">8000</span></pre></div></div>
             
         </li>
         
@@ -487,12 +485,12 @@ app.configure <span class="hljs-function"><span class="hljs-params">()</span> -&
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  app.use <span class="hljs-function"><span class="hljs-params">(request, response, next)</span> -&gt;</span>
-    response.header <span class="hljs-string">'Access-Control-Allow-Origin'</span>, <span class="hljs-string">'*'</span>
-    response.header <span class="hljs-string">'Access-Control-Allow-Methods'</span>, <span class="hljs-string">'GET,PUT,POST,DELETE,OPTIONS'</span>
-    response.header <span class="hljs-string">'Access-Control-Allow-Headers'</span>, <span class="hljs-string">'Content-Type, Authorization, Content-Length, X-Requested-With'</span>
+            <div class="content"><div class='highlight'><pre>app.use <span class="hljs-function"><span class="hljs-params">(request, response, next)</span> -&gt;</span>
+  response.header <span class="hljs-string">'Access-Control-Allow-Origin'</span>, <span class="hljs-string">'*'</span>
+  response.header <span class="hljs-string">'Access-Control-Allow-Methods'</span>, <span class="hljs-string">'GET,PUT,POST,DELETE,OPTIONS'</span>
+  response.header <span class="hljs-string">'Access-Control-Allow-Headers'</span>, <span class="hljs-string">'Content-Type, Authorization, Content-Length, X-Requested-With'</span>
 
-    next()</pre></div></div>
+  next()</pre></div></div>
             
         </li>
         
@@ -507,11 +505,11 @@ app.configure <span class="hljs-function"><span class="hljs-params">()</span> -&
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  app.use <span class="hljs-function"><span class="hljs-params">(request, response, next)</span> -&gt;</span>
-    <span class="hljs-keyword">if</span> <span class="hljs-regexp">/\.(coffee|jade|sass|scss|styl|less)$/</span>.test request.url
-      response.set <span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'text/plain'</span>
+            <div class="content"><div class='highlight'><pre>app.use <span class="hljs-function"><span class="hljs-params">(request, response, next)</span> -&gt;</span>
+  <span class="hljs-keyword">if</span> <span class="hljs-regexp">/\.(coffee|jade|sass|scss|styl|less)$/</span>.test request.url
+    response.set <span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'text/plain'</span>
 
-    next()</pre></div></div>
+  next()</pre></div></div>
             
         </li>
         
@@ -527,7 +525,7 @@ then you can do a quick and sneaky change here to point it to the <code>/build</
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  app.use <span class="hljs-string">'/'</span>, express.static <span class="hljs-string">"<span class="hljs-subst">#{__dirname}</span>/"</span>
+            <div class="content"><div class='highlight'><pre>app.use <span class="hljs-string">'/'</span>, express.static <span class="hljs-string">"<span class="hljs-subst">#{__dirname}</span>/"</span>
 
 app.options <span class="hljs-string">'*'</span>, <span class="hljs-function"><span class="hljs-params">(request, response, next)</span> -&gt;</span>
   response.send <span class="hljs-number">200</span>

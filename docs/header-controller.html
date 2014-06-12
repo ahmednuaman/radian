@@ -498,16 +498,14 @@
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-string">'controller/header/header-menu-controller'</span>
 ], <span class="hljs-function"><span class="hljs-params">(cfg, RC)</span> -&gt;</span>
-  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RC</span></span>
-    <span class="hljs-property">@register</span> <span class="hljs-string">'HeaderController'</span>, [
-      <span class="hljs-string">'$scope'</span>
-    ]
+  RC <span class="hljs-string">'HeaderController'</span>, [
+    <span class="hljs-string">'$scope'</span>
+  ],
+  <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@addPartials</span>()
 
-    <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@addPartials</span>()
-
-    <span class="hljs-attribute">addPartials</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@$scope</span>.menuPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>header/header-menu-partial.html"</span></pre></div></div>
+  <span class="hljs-attribute">addPartials</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@$scope</span>.menuPartial = <span class="hljs-string">"<span class="hljs-subst">#{cfg.path.partial}</span>header/header-menu-partial.html"</span></pre></div></div>
             
         </li>
         

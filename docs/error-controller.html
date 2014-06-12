@@ -468,17 +468,15 @@
             
             <div class="content"><div class='highlight'><pre>  <span class="hljs-string">'controller/radian-controller'</span>
 ], <span class="hljs-function"><span class="hljs-params">(RC)</span> -&gt;</span>
-  <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">RC</span></span>
-    <span class="hljs-property">@register</span> <span class="hljs-string">'ErrorController'</span>, [
-      <span class="hljs-string">'$scope'</span>
-      <span class="hljs-string">'$routeParams'</span>
-      <span class="hljs-string">'pageTitleFactory'</span>
-    ]
+  RC <span class="hljs-string">'ErrorController'</span>, [
+    <span class="hljs-string">'$scope'</span>
+    <span class="hljs-string">'$routeParams'</span>
+    <span class="hljs-string">'pageTitleFactory'</span>
+  ],
+  <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    <span class="hljs-property">@$scope</span>.code = <span class="hljs-property">@$routeParams</span>.code || <span class="hljs-string">'404'</span>
 
-    <span class="hljs-attribute">init</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-      <span class="hljs-property">@$scope</span>.code = <span class="hljs-property">@$routeParams</span>.code || <span class="hljs-string">'404'</span>
-
-      <span class="hljs-property">@pageTitleFactory</span>.setTitle <span class="hljs-string">"Error <span class="hljs-subst">#{<span class="hljs-property">@$scope</span>.code}</span>"</span></pre></div></div>
+    <span class="hljs-property">@pageTitleFactory</span>.setTitle <span class="hljs-string">"Error <span class="hljs-subst">#{<span class="hljs-property">@$scope</span>.code}</span>"</span></pre></div></div>
             
         </li>
         

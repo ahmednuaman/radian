@@ -471,9 +471,20 @@ tests.push file <span class="hljs-keyword">for</span> own file, time <span class
     <span class="hljs-string">'lodash'</span>:
       <span class="hljs-attribute">exports</span>: <span class="hljs-string">'_'</span>
 
-<span class="hljs-built_in">require</span> [<span class="hljs-string">'config'</span>, <span class="hljs-string">'angular'</span>], <span class="hljs-function"><span class="hljs-params">(cfg, A)</span> -&gt;</span>
-  <span class="hljs-built_in">require</span> [<span class="hljs-string">'angular-mocks'</span>, <span class="hljs-string">'angular-resource'</span>, <span class="hljs-string">'angular-route'</span>], <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-    A.<span class="hljs-built_in">module</span> cfg.ngApp, [<span class="hljs-string">'ngMock'</span>, <span class="hljs-string">'ngResource'</span>, <span class="hljs-string">'ngRoute'</span>]
+<span class="hljs-built_in">require</span> [
+  <span class="hljs-string">'config'</span>
+  <span class="hljs-string">'angular'</span>
+], <span class="hljs-function"><span class="hljs-params">(cfg, A)</span> -&gt;</span>
+  <span class="hljs-built_in">require</span> [
+    <span class="hljs-string">'angular-mocks'</span>
+    <span class="hljs-string">'angular-resource'</span>
+    <span class="hljs-string">'angular-route'</span>
+  ], <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
+    A.<span class="hljs-built_in">module</span> cfg.ngApp, [
+      <span class="hljs-string">'ngMock'</span>
+      <span class="hljs-string">'ngResource'</span>
+      <span class="hljs-string">'ngRoute'</span>
+    ]
     A.bootstrap <span class="hljs-built_in">document</span>, [cfg.ngApp]
 
     <span class="hljs-built_in">require</span> tests, <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span></pre></div></div>

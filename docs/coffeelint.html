@@ -454,10 +454,7 @@
             <div class="content"><div class='highlight'><pre><span class="hljs-built_in">module</span>.<span class="hljs-function"><span class="hljs-title">exports</span> = <span class="hljs-params">(grunt)</span> -&gt;</span>
   grunt.config <span class="hljs-string">'coffeelint'</span>,
     <span class="hljs-attribute">all</span>: [
-      <span class="hljs-string">'assets/coffee/**/*.coffee'</span>
-      <span class="hljs-string">'grunt/*.coffee'</span>
-      <span class="hljs-string">'test/**/*.coffee'</span>
-      <span class="hljs-string">'*.coffee'</span>
+      <span class="hljs-string">'&lt;%= watch.coffee.files %&gt;'</span>
     ]
     <span class="hljs-attribute">options</span>:
       <span class="hljs-attribute">arrow_spacing</span>:

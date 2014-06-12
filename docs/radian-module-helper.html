@@ -471,7 +471,9 @@
   <span class="hljs-string">'lodash'</span>
 ], <span class="hljs-function"><span class="hljs-params">(cfg, A, _)</span> -&gt;</span>
   helper =
-    <span class="hljs-attribute">construct</span>: <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">module</span>, args)</span> -&gt;</span></pre></div></div>
+    <span class="hljs-attribute">construct</span>: <span class="hljs-function"><span class="hljs-params">(funcs)</span> -&gt;</span>
+      <span class="hljs-function"><span class="hljs-title">Klass</span> = <span class="hljs-params">()</span> -&gt;</span>
+        args = _.toArray arguments</pre></div></div>
             
         </li>
         
@@ -486,12 +488,8 @@
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      _.forEach <span class="hljs-built_in">module</span>.constructor.$inject, <span class="hljs-function"><span class="hljs-params">(key, i)</span> -&gt;</span>
-        <span class="hljs-built_in">module</span>[key] = args[i]
-
-      <span class="hljs-built_in">module</span>.init?()
-
-    <span class="hljs-attribute">inject</span>: <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">module</span>, deps)</span> -&gt;</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>        _.forEach Klass.$inject, <span class="hljs-function"><span class="hljs-params">(key, i)</span> =&gt;</span>
+          @[key] = args[i]</pre></div></div>
             
         </li>
         
@@ -501,6 +499,54 @@
               
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>If there’s an <code>init</code> function then run it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-property">@init</span>?()
+        <span class="hljs-keyword">return</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Takes all the functions in the ‘Class’ object and assigns them to our temp ‘Klass’</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      _.assign Klass.prototype, funcs</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Return the ‘Klass’</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      Klass
+
+    <span class="hljs-attribute">inject</span>: <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">module</span>, deps)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p>Takes <code>deps</code> and creates a <code>$inject</code> var for <a href="http://docs.angularjs.org/guide/di">AngularJS</a> to read.
 This is better for minification.</p>
@@ -514,11 +560,11 @@ This is better for minification.</p>
         </li>
         
         
-        <li id="section-5">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>Inject the <code>deps</code>.</p>
 
@@ -529,40 +575,51 @@ This is better for minification.</p>
         </li>
         
         
-        <li id="section-6">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>Register the module.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      (A.<span class="hljs-built_in">module</span> cfg.ngApp)[type] name, <span class="hljs-built_in">module</span>
+            <div class="content"><div class='highlight'><pre>      A.<span class="hljs-built_in">module</span>(cfg.ngApp)[type] name, <span class="hljs-built_in">module</span>
 
     <span class="hljs-attribute">registerClass</span>: <span class="hljs-function"><span class="hljs-params">(type)</span> -&gt;</span></pre></div></div>
             
         </li>
         
         
-        <li id="section-7">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>Create a stub controller, this helps keep file size down.</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-        <span class="hljs-class"><span class="hljs-keyword">class</span></span>
-          <span class="hljs-property">@register</span>: <span class="hljs-function"><span class="hljs-params">(name, deps)</span> -&gt;</span>
-            helper.register type, name, deps, @
+            <div class="content"><div class='highlight'><pre>      <span class="hljs-function"><span class="hljs-params">(args)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Grab the ‘Klass’ as the function reference since <code>args[1]</code> is the name and <code>args[2]</code> are the functions</p>
 
-          <span class="hljs-attribute">constructor</span>: <span class="hljs-function"><span class="hljs-params">()</span> -&gt;</span>
-            helper.construct @, arguments
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        args[<span class="hljs-number">2</span>] = helper.construct args[<span class="hljs-number">2</span>]
+
+        helper.registerModule args, type
 
     <span class="hljs-attribute">registerFunction</span>: <span class="hljs-function"><span class="hljs-params">(type)</span> -&gt;</span>
       <span class="hljs-function"><span class="hljs-params">(args)</span> -&gt;</span>
@@ -577,11 +634,11 @@ This is better for minification.</p>
         </li>
         
         
-        <li id="section-8">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>Add a dash of specific register functions keep our code tidy and small</p>
 
