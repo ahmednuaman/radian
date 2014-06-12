@@ -7,8 +7,6 @@ before_install:
 - npm install -g protractor
 install:
 - npm install -d
-- bower install
-- webdriver-manager update
 language: node_js
 node_js:
 - '0.10'
