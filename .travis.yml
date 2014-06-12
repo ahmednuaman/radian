@@ -6,7 +6,7 @@ before_install:
 - npm install -g grunt-cli
 - npm install -g protractor
 install:
-- npm install -d
+- npm install
 language: node_js
 node_js:
 - '0.10'
