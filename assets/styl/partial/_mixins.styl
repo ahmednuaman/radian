@@ -13,3 +13,19 @@ large()
 xlarge()
   @media only screen and (min-width: 1200px)
     {block}
+
+ng-animate(duration=1s)
+  &.ng-hide-add,
+  &.ng-hide-remove
+    display: block !important
+    transition-property(opacity)
+    transition-duration(duration)
+
+  &.ng-hide-add.ng-hide-add-active,
+  &.ng-hide
+    opacity: 0 !important
+
+  &.ng-hide-add,
+  &.ng-hide-remove.ng-hide-remove-active,
+  &
+    opacity: 1

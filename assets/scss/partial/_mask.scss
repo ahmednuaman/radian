@@ -1,5 +1,5 @@
 #mask {
-  @include single-transition(opacity, 250ms);
+  @include ng-animate();
   @extend .fixed;
   background: image-url('ajax-loader.gif') no-repeat center center white;
   height: 100%;
@@ -7,12 +7,4 @@
   opacity: 1;
   top: 0;
   width: 100%;
-
-  &.ng-animate {
-    display: block !important;
-  }
-
-  &.ng-hide {
-    opacity: 0;
-  }
 }

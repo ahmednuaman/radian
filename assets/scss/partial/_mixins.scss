@@ -21,3 +21,23 @@
     @content;
   }
 }
+
+@mixin ng-animate($duration: 1s) {
+  &.ng-hide-add,
+  &.ng-hide-remove {
+    display: block !important;
+    @include transition-property(opacity);
+    @include transition-duration($duration);
+  }
+
+  &.ng-hide-add.ng-hide-add-active,
+  &.ng-hide {
+    opacity: 0 !important;
+  }
+
+  &.ng-hide-add,
+  &.ng-hide-remove.ng-hide-remove-active,
+  & {
+    opacity: 1;
+  }
+}

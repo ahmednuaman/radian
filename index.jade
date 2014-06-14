@@ -15,5 +15,5 @@ html(lang='en', data-ng-controller='AppController')
       div(data-ng-include, data-src='ctaPartial')
       div(data-ng-include, data-src='footerPartial')
     script.
-      document.write('<div id="mask" data-ng-hide="hideLoader"></div>')
+      document.write('<div id="mask" data-ng-show="!hideLoader"></div>')
     script(src='/assets/vendor/requirejs/require.js', data-main='/assets/js/app')
