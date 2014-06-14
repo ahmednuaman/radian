@@ -27,7 +27,7 @@
   "scripts": {
     "build": "grunt build",
     "postinstall": "bower install",
-    "test": "grunt test"
+    "test": "grunt test -v"
   },
   "devDependencies": {
     "coffee-script": "1.7.1",
