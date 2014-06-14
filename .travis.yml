@@ -14,5 +14,5 @@ addons:
   sauce_connect: true
 env:
   global:
-  - secure: XNGijrA8aJI4BYcNGgWY1+337H8OosFOaV/QFSO27ZiPAM2hEM6IL1tgL+kHNCepiOwfTdpwpLKgDBV8uwu0FIIF1k0La8pJ32XCJw6WENZ4iwUiuEsCgiZIC4TJENFqlELxK+9RLb6lr9XcqnFLlBm21h78oU6iocp7RCIQZWs=
-  - secure: MncVLRH0Res38Hir8UbRqu1p3Frcp/sltXEPCsAoX+XYKM1gA/j+zoYfxLXyWB/3EkUX6J+rlCzGK59lEbygjP66AnqImJ5xds7lW5LLfrHlGFxOe1+Lsp9Z7FMT+Q64bloNqq87sC2uoqVLdBlU+kKYF25zvFEoOQohiwyqWN0=
+  - secure: VDfdfuwQOhY8I6klcqbK3sBVOYFCeVsW3AjbJZ+qgt64dI6JZlwGfg5xMHgHElXmGvlwBS/QVR5c+tHQUm1OwRxTKQzqESJvaPA7DLhPM7YEPNYEAmTajL23/imqJpKdJ2s/GkLQ+K/1oTB2P2WBaEoH7rYT4pJVcwxn1vw70/g=
+  - secure: I9wj8jxxt1A2/iZJ0OhXucsqEf8/JnQNktlgBFogJZEXGsAz4l/S1/jWSa2oM0lpfTa7G5p4SXbV+nbM5vs1w2ry9Q8jsbPbSZYN8klsIVPuhnSzPhCuOO6evkBQOt5DcnFzPh33qRCnQBrKMB8qOjuh94qFHiTNM7NFTu56Sq4=
