@@ -56,7 +56,7 @@
     "grunt-spritesmith": "2.1.0",
     "grunt-text-replace": "0.3.12",
     "jasmine-reporters": "0.4.1",
-    "karma": "0.12.16",
+    "karma": "6.3.16",
     "karma-chrome-launcher": "0.1.4",
     "karma-coffee-preprocessor": "0.2.1",
     "karma-coverage": "0.2.4",
@@ -73,7 +73,7 @@
     "coffee-script": "1.7.1",
     "express": "4.4.3",
     "grunt": "0.4.5",
-    "karma": "0.12.16"
+    "karma": "6.3.16"
   },
   "keywords": [
     "angular",
